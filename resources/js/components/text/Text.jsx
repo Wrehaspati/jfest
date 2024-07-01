@@ -6,6 +6,9 @@ const BaseText = styled("p", {
     lineHeight: 1.1,
     color: "$white",
     fontFamily: "$main",
+    "& > span": {
+        overflow: "hidden"
+    },
     "@desktop": { fontSize: "$normal-desktop" },
     "@laptop": { fontSize: "$normal-laptop" },
     "@tablet": { fontSize: "$normal-tablet" },

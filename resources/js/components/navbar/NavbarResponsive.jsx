@@ -16,7 +16,7 @@ const Container = styled("nav", {
     justifyContent: "center",
     width: "100%",
     height: "100vh",
-    backgroundColor: "$dark",
+    backgroundColor: "$white",
     zIndex: 99,
     variants: {
         isActive: {
@@ -36,7 +36,7 @@ const MenuLink = styled(Link, {
     alignItems: "center",
     justifyContent: "center",
     textDecoration: "none",
-    color: "$white",
+    color: "$dark",
     fontFamily: "$main",
     fontSize: "2rem",
     "&:hover": {
@@ -61,7 +61,7 @@ const CloseButton = styled("div", {
     lineHeight: 1,
     fontFamily: "$main",
     fontSize: "5rem",
-    color: "$white",
+    color: "$dark",
 });
 
 export default function NavbarResponsive() {
