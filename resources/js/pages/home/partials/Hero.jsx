@@ -7,10 +7,10 @@ import { Title } from "@/components/title";
 
 import useNavbar from "@/hooks/useNavbar";
 
-import backdropMobile from "@/assets/misc/hero-backdrop-mobile.png";
-import backdrop from "@/assets/misc/hero-backdrop.png";
-
-import pointDown from "@/assets/icons/point-down.svg";
+import toriGate from "@/assets/misc/tori-gate.svg";
+import burung from "@/assets/misc/burung.png";
+import ground from "@/assets/misc/ground.png";
+import pedang from "@/assets/misc/pedang.png";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",
@@ -24,11 +24,13 @@ const Container = styled("section", {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    backgroundColor: "$primary",
-    "@desktop": { height: "155vh" },
-    "@laptop": { height: "142.5vh" },
-    "@tablet": { height: "100vh" },
-    "@mobile": { height: "135vh" },
+    backgroundColor: "$white",
+    height: "64vw",
+    overflow: "hidden",
+    // "@desktop": { height: "155vh" },
+    // "@laptop": { height: "142.5vh" },
+    // "@tablet": { height: "100vh" },
+    "@mobile": { height: "200vw" },
     [mediaOrientationLandscape]: {
         height: "210vh",
     },
@@ -45,10 +47,10 @@ const Backdrop = styled("div", {
     backgroundPositionX: "center",
     backgroundPositionY: "bottom",
     backgroundRepeat: "no-repeat",
-    "@desktop": { backgroundImage: `url("${backdrop}")` },
-    "@laptop": { backgroundImage: `url("${backdrop}")` },
-    "@tablet": { backgroundImage: `url("${backdrop}")` },
-    "@mobile": { backgroundImage: `url("${backdropMobile}")` },
+    // "@desktop": { backgroundImage: `url("${backdrop}")` },
+    // "@laptop": { backgroundImage: `url("${backdrop}")` },
+    // "@tablet": { backgroundImage: `url("${backdrop}")` },
+    // "@mobile": { backgroundImage: `url("${backdropMobile}")` },
 });
 
 export default function Hero() {
@@ -64,19 +66,75 @@ export default function Hero() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    paddingBottom: "10rem",
-                    gap: "2rem",
+                    // paddingBottom: "10rem",
+                    // gap: "2rem",
                     zIndex: 1,
                 }).toString()}
             >
-                <Title css={{ textAlign: "center" }}>
-                    <span>HYAKKI</span>
-                    <span>YAGYO</span>
+                <img src={burung} className={css({
+                    top: "6vw",
+                    position: "absolute",
+                    left: "15vw",
+                    width: "14vw",
+                    transform: "scaleX(-1)",
+                    "@mobile": { top: "45vw"},
+                }).toString()} alt="burung"/>
+
+                <img src={burung} className={css({
+                    top: "6vw",
+                    position: "absolute",
+                    right: "15vw",
+                    width: "8vw",
+                    "@mobile": { top: "35vw"},
+                }).toString()} alt="burung"/>
+
+                <Title css={{ 
+                    textAlign: "center", 
+                    fontSize: "3.75vw",
+                    "@mobile": { fontSize: "7.8vw" },  
+                }}>
+                    Jidai no Henka
                 </Title>
-                <Divider />
+
+                <img src={toriGate} className={css({
+                    height: "25vw",
+                    "@mobile": { height: "50vw" },
+                }).toString()} alt="tori-gate"/>
+
+                <img src={pedang} className={css({
+                    top: "33vw",
+                    position: "absolute",
+                    right: "44vw",
+                    width: "12vw",
+                    transform: "rotate(10deg)",
+                    "@mobile": { 
+                        top: "104vw",
+                        right: "40vw",
+                        width: "20vw",
+                    },
+                }).toString()} alt="pedang"/>
+
+                <div className={css({
+                    backgroundImage: `url(${ground})`,
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "contain",
+                    height: "27vw",
+                    width: "100%",
+                    position: "absolute",
+                    top: "44vw",
+                    objectFit: "fill",
+                    "@mobile": { 
+                        height: "265vw",
+                        width: "289%",
+                        top: "29vw"
+                    },
+                }).toString()}></div>
+
+                {/* <Divider />
                 <Button as="a" href={orderTicketUrl}>
-                    Buy Ticket Now
-                </Button>
+                    Buy Entrance Ticket
+                </Button> */}
             </div>
             <div
                 className={css({
@@ -98,12 +156,12 @@ export default function Hero() {
                     },
                 }).toString()}
             >
-                <span>Scroll Down</span>
+                {/* <span>Scroll Down</span>
                 <img
                     src={pointDown}
                     alt="Point down icon"
                     style={{ height: 25, width: 25 }}
-                />
+                /> */}
             </div>
         </Container>
     );

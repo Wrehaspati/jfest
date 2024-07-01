@@ -43,7 +43,10 @@ export default function Navbar({ theme = "dark" }) {
     const [state] = useWindowScroll();
 
     return (
-        <Container css={state.y > 20 ? { backdropFilter: "blur(6px)" } : null}>
+        <Container css={state.y > 20 ? { 
+            backdropFilter: "blur(10px)",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
+         } : null}>
             <div className="left">
                 <NavbarLogo />
                 <NavbarMenu />

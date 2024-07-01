@@ -11,15 +11,15 @@ import { NavbarProvider } from "@/providers/NavbarProvider";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
-import dreadful from "@/assets/fonts/dreadful.otf";
-import jack from "@/assets/fonts/jack-reacher.ttf";
+import batangas from "@/assets/fonts/batangas.otf";
+import go3 from "@/assets/fonts/go3v2.ttf";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const globalStyles = globalCss({
     "@font-face": [
-        { fontFamily: "dreadful", src: `url("${dreadful}")` },
-        { fontFamily: "jack", src: `url("${jack}")` },
+        { fontFamily: "batangas", src: `url("${batangas}")` },
+        { fontFamily: "go3", src: `url("${go3}")` },
     ],
     "*, html": {
         margin: 0,

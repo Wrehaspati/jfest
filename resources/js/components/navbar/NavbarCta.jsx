@@ -23,12 +23,12 @@ const LogoutButton = styled("button", {
     transition: "all 0.3s ease-in-out",
     transitionProperty: "background-color",
     "&:hover": {
-        backgroundColor: "rgba(255, 255, 255, 0.25)",
+        backgroundColor: "rgba(0, 255, 255, 0.25)",
     },
     "& > svg": {
         height: "70%",
         width: "70%",
-        fill: "$white",
+        fill: "$dark",
     },
 });
 
