@@ -9,9 +9,7 @@ export const UserCard = styled("div", {
 });
 
 export const UserCardName = styled(Text, {
-    color: "$dark",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
+    color: "$white",
 });
 
 export const UserCardAvatar = styled("span", {

@@ -7,9 +7,6 @@ const BaseTitle = styled("span", {
     fontFamily: "$title",
     fontWeight: 700,
     letterSpacing: 7.5,
-    "& > span": {
-        fontSize: "2rem",
-    },
     variants: {
         color: {
             dark: { color: "$dark" },
@@ -55,7 +52,7 @@ const BaseTitle = styled("span", {
             },
         ],
     },
-    defaultVariants: { color: "dark", order: 0 },
+    defaultVariants: { color: "light", order: 0 },
 });
 
 export default function Title({ children, ...props }) {

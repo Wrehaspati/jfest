@@ -15,15 +15,15 @@ export const {
     prefix: "jfest",
     theme: {
         colors: {
-            primary: "#292a23",
-            secondary: "#c32a35",
-            tertiary: "#5c6748",
-            dark: "#101d19",
-            white: "#e1e1d3",
+            primary: "#0d3b44",
+            secondary: "#dd614b",
+            tertiary: "#5988a8",
+            dark: "#0b0b0b",
+            white: "#ffffff",
         },
         fonts: {
-            main: "batangas",
-            title: "go3",
+            main: "dreadful",
+            title: "jack",
         },
         fontSizes: {
             main: "1em",

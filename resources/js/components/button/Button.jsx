@@ -9,7 +9,6 @@ const BaseButton = styled("button", {
     alignItems: "center",
     justifyContent: "center",
     width: "fit-content",
-    padding: "0em 2em",
     minWidth: 250,
     outline: "none",
     border: "none",
@@ -29,9 +28,9 @@ const BaseButton = styled("button", {
         justifyContent: "center",
         gap: "1rem",
         height: "inherit",
-        width: "fit-content",
+        width: "80%",
         color: "$white",
-        backgroundColor: "transparent",
+        backgroundColor: "$dark",
         transition: "all .2s ease-in",
         transitionProperty: "color",
         zIndex: 1,
@@ -49,7 +48,7 @@ const BaseButton = styled("button", {
             dark: { color: "$white" },
             light: {
                 color: "$dark",
-                "& > span": { color: "$dark", backgroundColor: "transparent" },
+                "& > span": { color: "$dark", backgroundColor: "$white" },
             },
         },
         fullWidth: {
