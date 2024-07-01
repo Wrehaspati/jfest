@@ -21,8 +21,8 @@ const ListItem = styled("li", {
     display: "block",
     height: "fit-content",
     width: "fit-content",
-    fontFamily: "batangas",
-    color: "$dark",
+    fontFamily: "dreadful",
+    color: "$white",
     cursor: "unset",
     "@desktop": { fontSize: "$normal-desktop" },
     "@laptop": { fontSize: "$normal-laptop" },
@@ -31,7 +31,7 @@ const ListItem = styled("li", {
 });
 
 const ListItemAnchor = styled("a", {
-    color: "$dark",
+    color: "$white",
     textDecoration: "none",
     textDecorationColor: "transparent",
     "&:hover": {
