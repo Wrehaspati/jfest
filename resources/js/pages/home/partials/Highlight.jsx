@@ -16,18 +16,18 @@ const Container = styled("section", {
     justifyContent: "center",
     width: "100%",
     backgroundColor: "$dark",
-    // "@desktop": { height: "155vh" },
-    // "@laptop": { height: "142.5vh" },
-    // "@tablet": { height: "100vh" },
-    // "@mobile": { height: "135vh" },
+    overflow: "hidden",
+    "@desktop": { height: "30vh" },
+    "@laptop": { height: "25vh" },
+    "@tablet": { height: "20vh" },
+    "@mobile": { height: "15vh" },
     [mediaOrientationLandscape]: {
         height: "210vh",
     },
 });
 
-export default function Hightlight(){
-    
-    return(
+export default function Hightlight() {
+    return (
         <Container>
             <div
                 className={css({
@@ -39,13 +39,20 @@ export default function Hightlight(){
                     zIndex: 1,
                 }).toString()}
             >
-                <Title css={{ textAlign: "center", fontSize: "3.5vw", "@mobile": { fontSize: "7.8vw" }}} color="light">
-                    Highlight   
+                <Title
+                    css={{
+                        textAlign: "center",
+                        fontSize: "3.5vw",
+                        "@mobile": { fontSize: "7.8vw" },
+                    }}
+                    color="light"
+                >
+                    Highlight
                 </Title>
                 <Divider />
             </div>
-            
+
             {/* <img src={} alt={"obake-pics"} /> */}
         </Container>
-    )
+    );
 }

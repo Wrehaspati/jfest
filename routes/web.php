@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RevokeController;
 use App\Http\Controllers\HomeController;
@@ -14,7 +14,6 @@ use App\Http\Controllers\User\Order\RemoveOrderController;
 use App\Http\Controllers\User\Payment\Fallbacks\MidtransFallbackController;
 use App\Http\Controllers\User\Payment\PaymentFallbackController;
 use App\Http\Controllers\User\Payment\PaymentRedirectController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
