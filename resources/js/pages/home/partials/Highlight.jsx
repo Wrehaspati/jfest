@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import examplepic from "@/assets/misc/coming-soon.png";
-import picone from "@/assets/misc/obakepic.png";
+import picone from "@/assets/misc/card1.png";
 import { css, styled } from "@/root/stitches.config";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
@@ -127,11 +127,9 @@ export default function Hightlight() {
                         <div
                             style={{
                                 position: "relative",
-                                // marginLeft: "30%",
-                                // left: "6%",
                             }}
                         >
-                            <img src={picone} alt="" width={"100%"} />
+                            <img src={picone} alt="" width={"60%"} />
                         </div>
                     </div>
                     <div>

@@ -1,11 +1,5 @@
 import { styled } from "@/root/stitches.config";
 
-import topMobile from "../../assets/misc/shared-land-mobile.png";
-import top from "../../assets/misc/shared-land.png";
-
-import bottomLeftMisc from "../../assets/footer/bottom-left-misc.png";
-import bottomRightMisc from "../../assets/footer/bottom-right-misc.png";
-
 import FooterContacts from "./FooterContacts";
 import FooterSocials from "./FooterSocials";
 import FooterBio from "./FooterBio";
@@ -40,8 +34,8 @@ const Container = styled("footer", {
     //     bottom: 0,
     // },
     "@desktop": { backgroundImage: `url("${backdrop}")` },
-    "@laptop": { backgroundImage: `url("${top}")` },
-    "@tablet": { backgroundImage: `url("${top}")` },
+    "@laptop": { backgroundImage: `url("${backdrop}")` },
+    "@tablet": { backgroundImage: `url("${backdrop}")` },
     // "@mobile": { backgroundImage: `url("${topMobile}")`, paddingTop: "8rem" },
 });
 

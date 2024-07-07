@@ -55,8 +55,7 @@ export default function Hero() {
     return (
         <Container>
             <Backdrop />
-            <Button as="a" color="light" href={orderTicketUrl} className={ css({
-                position: "absolute",
+            <Button as="a" color="light" href={orderTicketUrl} css={{ position: "absolute" }} className={ css({
                 bottom: "10vw",
                 width: "12vw",
                 "@laptop": { 
@@ -72,27 +71,6 @@ export default function Hero() {
             }).toString()}>
                 Buy Ticket
             </Button>
-            <div
-                className={css({
-                    position: "absolute",
-                    bottom: "2.5rem",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "1rem",
-                    color: "$white",
-                    fontFamily: "$main",
-                    fontSize: "1.5em",
-                    pointerEvents: "none",
-                    zIndex: 1,
-                    [mediaOrientationLandscape]: {
-                        bottom: "3rem",
-                    },
-                }).toString()}
-            >
-            </div>
         </Container>
     );
 }

@@ -7,8 +7,6 @@ import { generateMetadata } from "@/utils/helper";
 import Hero from "./partials/Hero";
 import Hightlight from "./partials/Highlight";
 import Activities from "./partials/Activities";
-import Bio from "./partials/Bio";
-import Special from "./partials/Special";
 
 import withNavbarMobile from "@/hooks/hoc/withNavbarMobile";
 
@@ -24,8 +22,6 @@ function HomePage({ activities, competitions, meta }) {
             {generateMetadata(meta.head)}
             <Hero />
             <Hightlight />
-            {/* <Bio /> */}
-            {/* <Special /> */}
             <Activities activities={activities} competitions={competitions} />
         </>
     );
