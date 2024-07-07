@@ -16,7 +16,6 @@ const mediaOrientationLandscape = `@media screen and ${[
     "(orientation: landscape)",
 ].join(" and ")}`;
 
-
 const Backdrop = styled("div", {
     position: "absolute",
     left: 0,
@@ -33,7 +32,6 @@ const Backdrop = styled("div", {
     "@tablet": { backgroundImage: `url("${backdrop}")` },
     // "@mobile": { backgroundImage: `url("${backdropMobile}")` },
 });
-
 
 const Container = styled("section", {
     position: "relative",
@@ -127,6 +125,9 @@ export default function Hightlight() {
                         <div
                             style={{
                                 position: "relative",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
                             }}
                         >
                             <img src={picone} alt="" width={"60%"} />
@@ -136,8 +137,9 @@ export default function Hightlight() {
                         <div
                             style={{
                                 position: "relative",
-                                marginLeft: "30%",
-                                left: "6%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
                             }}
                         >
                             <img src={examplepic} alt="" width={"40%"} />
@@ -147,8 +149,9 @@ export default function Hightlight() {
                         <div
                             style={{
                                 position: "relative",
-                                marginLeft: "30%",
-                                left: "6%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
                             }}
                         >
                             <img src={examplepic} alt="" width={"40%"} />
@@ -156,7 +159,7 @@ export default function Hightlight() {
                     </div>
                 </Slider>
             </div>
-            <Backdrop/>
+            <Backdrop />
         </Container>
     );
 }
