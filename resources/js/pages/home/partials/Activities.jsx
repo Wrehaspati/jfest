@@ -26,7 +26,7 @@ const Container = styled("section", {
     justifyContent: "center",
     gap: "2.5rem",
     padding: "3rem 5%",
-    backgroundColor: "$dark",
+    backgroundColor: "$white",
 });
 
 const Activity = styled("article", {
@@ -79,7 +79,7 @@ export default function Activities({ activities, competitions }) {
     const [acts] = useState([...activities, ...competitions]);
     const [filteredActs, setFilteredActs] = useState(acts);
 
-    console.log(activities);
+    // console.log(activities);
 
     const { isAuthenticated } = useAuth();
     const {
@@ -117,8 +117,13 @@ export default function Activities({ activities, competitions }) {
                     gap: "1rem",
                 }}
             >
-                <Title>Activities</Title>
-                <Divider css={{ marginBottom: "1rem" }} />
+                <Title 
+                css={{ textAlign: "center", fontSize: "3.5vw", "@mobile": { fontSize: "7.8vw" }}} 
+                // color="light"
+                >
+                    Activities
+                </Title>
+                <Divider color="dark" css={{ marginBottom: "1rem" }} />
                 <div
                     className={css({
                         display: "flex",
@@ -129,21 +134,21 @@ export default function Activities({ activities, competitions }) {
                     }).toString()}
                 >
                     <Button
-                        color="light"
+                        // color="light"
                         onClick={() => handleFilterActs("all")}
                         fullWidth
                     >
                         Alls
                     </Button>
                     <Button
-                        color="light"
+                        // color="light"
                         onClick={() => handleFilterActs("activity")}
                         fullWidth
                     >
                         Activities
                     </Button>
                     <Button
-                        color="light"
+                        // color="light"
                         onClick={() => handleFilterActs("competition")}
                         fullWidth
                     >
@@ -155,7 +160,7 @@ export default function Activities({ activities, competitions }) {
                 cols={3}
                 css={{
                     color: "$white",
-                    borderTop: "1.5px solid $primary",
+                    borderTop: "0.3vw solid $primary",
                     padding: "2rem 0",
                 }}
             >
@@ -178,6 +183,7 @@ export default function Activities({ activities, competitions }) {
                                                 width: "80%",
                                                 objectFit: "contain",
                                                 objectPosition: "center",
+                                                textAlign: "center",
                                             }).toString()}
                                             src={activity.image_url}
                                             alt="Coming soon"
@@ -189,6 +195,7 @@ export default function Activities({ activities, competitions }) {
                                                 width: "55%",
                                                 objectFit: "contain",
                                                 objectPosition: "center",
+                                                textAlign: "center",
                                             }).toString()}
                                             src={ComingSoon}
                                             alt="Coming soon"
@@ -203,7 +210,7 @@ export default function Activities({ activities, competitions }) {
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        <Text>{activity.name}</Text>
+                                        <Text css={{ color:"$dark" }} className={css({wordBreak: "keep-all", overflow: "hidden"}).toString()}>{activity.name}</Text>
                                         <ActivityTag tag={activity.type}>
                                             {isActivity ? (
                                                 <TagBlue width={12.5} />
@@ -214,7 +221,7 @@ export default function Activities({ activities, competitions }) {
                                                 css={{
                                                     fontSize: "1rem",
                                                     color: isActivity
-                                                        ? "$tertiary"
+                                                        ? "$dark"
                                                         : "$secondary",
                                                 }}
                                             >
@@ -224,17 +231,18 @@ export default function Activities({ activities, competitions }) {
                                     </div>
                                     <Text
                                         css={{
-                                            color: "rgba(255, 255, 255, .5)",
+                                            color: "$dark",
                                         }}
+                                        className={css({wordBreak: "keep-all", overflow: "hidden"}).toString()}
                                     >
                                         Rp{" "}
                                         {!isActivity
                                             ? activity.price.toLocaleString(
-                                                  "id-ID"
-                                              )
+                                                "id-ID"
+                                            )
                                             : activity.sale.price.toLocaleString(
-                                                  "id-ID"
-                                              )}
+                                                "id-ID"
+                                            )}
                                     </Text>
                                 </ActivityBody>
                                 {isActivity &&
@@ -271,7 +279,9 @@ export default function Activities({ activities, competitions }) {
                                             );
                                         }}
                                     >
-                                        <Button color="light" fullWidth>
+                                        <Button 
+                                        // color="light" 
+                                        fullWidth>
                                             {isActivity
                                                 ? "Order Now"
                                                 : "Register Now"}

@@ -9,6 +9,7 @@ import bottomRightMisc from "../../assets/footer/bottom-right-misc.png";
 import FooterContacts from "./FooterContacts";
 import FooterSocials from "./FooterSocials";
 import FooterBio from "./FooterBio";
+import backdrop from "@/assets/misc/footer.png";
 
 const Container = styled("footer", {
     position: "relative",
@@ -38,9 +39,9 @@ const Container = styled("footer", {
     //     left: 0,
     //     bottom: 0,
     // },
-    // "@desktop": { backgroundImage: `url("${top}")` },
-    // "@laptop": { backgroundImage: `url("${top}")` },
-    // "@tablet": { backgroundImage: `url("${top}")` },
+    "@desktop": { backgroundImage: `url("${backdrop}")` },
+    "@laptop": { backgroundImage: `url("${top}")` },
+    "@tablet": { backgroundImage: `url("${top}")` },
     // "@mobile": { backgroundImage: `url("${topMobile}")`, paddingTop: "8rem" },
 });
 

@@ -2,15 +2,9 @@ import { css, styled } from "@/root/stitches.config";
 import { Link } from "@inertiajs/react";
 
 import { Button } from "@/components/button";
-import { Divider } from "@/components/divider";
-import { Title } from "@/components/title";
 
 import useNavbar from "@/hooks/useNavbar";
-
-import toriGate from "@/assets/misc/tori-gate.svg";
-import burung from "@/assets/misc/burung.png";
-import ground from "@/assets/misc/ground.png";
-import pedang from "@/assets/misc/pedang.png";
+import backdrop from "@/assets/misc/backdrop.png";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",
@@ -27,10 +21,10 @@ const Container = styled("section", {
     backgroundColor: "$white",
     height: "64vw",
     overflow: "hidden",
-    // "@desktop": { height: "155vh" },
-    // "@laptop": { height: "142.5vh" },
-    // "@tablet": { height: "100vh" },
-    "@mobile": { height: "200vw" },
+    "@desktop": { height: "55vw" },
+    "@laptop": { height: "60vw" },
+    "@tablet": { height: "60vw" },
+    "@mobile": { height: "100vw" },
     [mediaOrientationLandscape]: {
         height: "210vh",
     },
@@ -47,9 +41,9 @@ const Backdrop = styled("div", {
     backgroundPositionX: "center",
     backgroundPositionY: "bottom",
     backgroundRepeat: "no-repeat",
-    // "@desktop": { backgroundImage: `url("${backdrop}")` },
-    // "@laptop": { backgroundImage: `url("${backdrop}")` },
-    // "@tablet": { backgroundImage: `url("${backdrop}")` },
+    "@desktop": { backgroundImage: `url("${backdrop}")` },
+    "@laptop": { backgroundImage: `url("${backdrop}")` },
+    "@tablet": { backgroundImage: `url("${backdrop}")` },
     // "@mobile": { backgroundImage: `url("${backdropMobile}")` },
 });
 
@@ -61,81 +55,23 @@ export default function Hero() {
     return (
         <Container>
             <Backdrop />
-            <div
-                className={css({
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    // paddingBottom: "10rem",
-                    // gap: "2rem",
-                    zIndex: 1,
-                }).toString()}
-            >
-                <img src={burung} className={css({
-                    top: "6vw",
-                    position: "absolute",
-                    left: "15vw",
-                    width: "14vw",
-                    transform: "scaleX(-1)",
-                    "@mobile": { top: "45vw"},
-                }).toString()} alt="burung"/>
-
-                <img src={burung} className={css({
-                    top: "6vw",
-                    position: "absolute",
-                    right: "15vw",
-                    width: "8vw",
-                    "@mobile": { top: "35vw"},
-                }).toString()} alt="burung"/>
-
-                <Title css={{ 
-                    textAlign: "center", 
-                    fontSize: "3.75vw",
-                    "@mobile": { fontSize: "7.8vw" },  
-                }}>
-                    Jidai no Henka
-                </Title>
-
-                <img src={toriGate} className={css({
-                    height: "25vw",
-                    "@mobile": { height: "50vw" },
-                }).toString()} alt="tori-gate"/>
-
-                <img src={pedang} className={css({
-                    top: "33vw",
-                    position: "absolute",
-                    right: "44vw",
-                    width: "12vw",
-                    transform: "rotate(10deg)",
-                    "@mobile": { 
-                        top: "104vw",
-                        right: "40vw",
-                        width: "20vw",
-                    },
-                }).toString()} alt="pedang"/>
-
-                <div className={css({
-                    backgroundImage: `url(${ground})`,
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
-                    height: "27vw",
-                    width: "100%",
-                    position: "absolute",
-                    top: "44vw",
-                    objectFit: "fill",
-                    "@mobile": { 
-                        height: "265vw",
-                        width: "289%",
-                        top: "29vw"
-                    },
-                }).toString()}></div>
-
-                {/* <Divider />
-                <Button as="a" href={orderTicketUrl}>
-                    Buy Entrance Ticket
-                </Button> */}
-            </div>
+            <Button as="a" color="light" href={orderTicketUrl} className={ css({
+                position: "absolute",
+                bottom: "10vw",
+                width: "12vw",
+                "@laptop": { 
+                    bottom: "4vw", 
+                },
+                "@tablet": { 
+                    bottom: "4vw",
+                },
+                "@mobile": { 
+                    bottom: "0",
+                },
+                zIndex: "2",
+            }).toString()}>
+                Buy Ticket
+            </Button>
             <div
                 className={css({
                     position: "absolute",
@@ -156,12 +92,6 @@ export default function Hero() {
                     },
                 }).toString()}
             >
-                {/* <span>Scroll Down</span>
-                <img
-                    src={pointDown}
-                    alt="Point down icon"
-                    style={{ height: 25, width: 25 }}
-                /> */}
             </div>
         </Container>
     );

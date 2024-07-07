@@ -7,8 +7,15 @@ const BaseDivider = styled(DividerIcon, {
     height: 10,
     objectFit: "cover",
     objectPosition: "center",
+    variants: {
+        color: {
+            dark: { color: "$dark" },
+            light: { color: "$white"},
+        }
+    },
+    defaultVariants: { color: "$white" },
 });
 
-export default function Divider({ ...props }) {
-    return <BaseDivider {...props} />;
+export default function Divider({ color='light', ...props }) {
+    return <BaseDivider color={color} {...props} />;
 }
