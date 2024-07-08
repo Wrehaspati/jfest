@@ -21,6 +21,7 @@ export default function HeaderSection({ data, isActivity }) {
                     alignItems: "center",
                     gap: "1rem",
                     "@mobile": { fontSize: "1.2rem" },
+                    color: "$dark"
                 }}
             >
                 <span>Register</span>
@@ -38,10 +39,14 @@ export default function HeaderSection({ data, isActivity }) {
             </Text>
             <Text
                 css={{
-                    "@desktop": { fontSize: "4rem" },
-                    "@laptop": { fontSize: "3rem" },
-                    "@tablet": { fontSize: "3rem" },
-                    "@mobile": { fontSize: "2rem" },
+                    "@desktop": { fontSize: "3vw" },
+                    "@laptop": { fontSize: "2.5vw" },
+                    "@tablet": { fontSize: "2.5vw" },
+                    "@mobile": { fontSize: "4vw" },
+                    color: "$dark",
+                    width: "60%",
+                    textAlign: "center",
+                    overflow: "clip",
                 }}
             >
                 {data.name}

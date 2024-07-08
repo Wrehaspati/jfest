@@ -9,6 +9,7 @@ import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
 import { Title } from "@/components/title";
 import backdrop from "@/assets/misc/backdrop2.png";
+import backdropMobile from "@/assets/misc/backdrop2-mobile.png";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",
@@ -30,7 +31,7 @@ const Backdrop = styled("div", {
     "@desktop": { backgroundImage: `url("${backdrop}")` },
     "@laptop": { backgroundImage: `url("${backdrop}")` },
     "@tablet": { backgroundImage: `url("${backdrop}")` },
-    // "@mobile": { backgroundImage: `url("${backdropMobile}")` },
+    "@mobile": { backgroundImage: `url("${backdropMobile}")` },
 });
 
 const Container = styled("section", {
@@ -44,7 +45,7 @@ const Container = styled("section", {
     "@desktop": { minHeight: "50vw" },
     "@laptop": { minHeight: "50vw" },
     "@tablet": { minHeight: "50vw" },
-    "@mobile": { minHeight: "50vw" },
+    "@mobile": { minHeight: "130vw" },
     [mediaOrientationLandscape]: {
         minHeight: "95vw",
     },
@@ -77,7 +78,7 @@ export default function Hightlight() {
                     display: "block",
                     background: "black",
                     marginLeft: "65px",
-                    zIndex: 100,
+                    zIndex: 2,
                     borderRadius: "100%",
                 }}
                 onClick={onClick}
@@ -130,7 +131,10 @@ export default function Hightlight() {
                                 alignItems: "center",
                             }}
                         >
-                            <img src={picone} alt="" width={"60%"} />
+                            <img src={picone} alt="" className={css({
+                                width: "60%",
+                                "@mobile": {width: "100%"}
+                            }).toString()} />
                         </div>
                     </div>
                     <div>

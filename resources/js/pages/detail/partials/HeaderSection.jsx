@@ -14,10 +14,10 @@ export default function HeaderSection({ name, type, isActivity }) {
         <section
             style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
         >
-            <Title>{name}</Title>
+            <Title css={{ color: "$dark", overflow: "hidden" }}>{name}</Title>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 {isActivity ? <TagBlue /> : <TagOrange />}
-                <Text css={{ color: isActivity ? "$tertiary" : "$secondary" }}>
+                <Text css={{ color: isActivity ? "$dark" : "$secondary", overflow: "hidden" }}>
                     {type}
                 </Text>
             </div>

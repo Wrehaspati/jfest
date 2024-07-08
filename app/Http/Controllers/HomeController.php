@@ -21,7 +21,7 @@ class HomeController extends Controller
                 ...compact('activities', 'competitions'),
                 ...$this->withLinkProps($request, [
                     'orderTicketUrl' => route('user.order.activity.create', [
-                        'activity' => $activities->where('slug', 'japanese-festival-7')->first()
+                        'activity' => $activities->where('slug', 'japanese-festival-8')->first()
                     ])
                 ]),
                 ...$this->withAuthProps($request),

@@ -15,7 +15,7 @@ use App\Models\User;
 class CreateRegistrationService
 {
     public const INDIVIDUAL_COUNT = 1;
-    public const TICKET_SLUG = 'japanese-festival-7';
+    public const TICKET_SLUG = 'japanese-festival-8';
     public const PRICE_OF_FREE_PASS = 0;
 
     public function handle(User $user, Competition $competition, array $data)

@@ -7,13 +7,13 @@ import { ReactComponent as WhatsappIcon } from "@/assets/icons/whatsapp.svg";
 const contacts = [
     {
         id: 1,
-        label: "Adit (?)",
+        label: "Person 1",
         href: "https://wa.me/?text=Hai%20kak%20%2C%20saya%20ingin%20bertanya.",
         Icon: WhatsappIcon,
     },
     {
         id: 2,
-        label: "Angga (895410930990)",
+        label: "Kak Angga (0895410930990)",
         href: "https://wa.me/895410930990?text=Hai%20kak%20Angga%2C%20saya%20ingin%20bertanya.",
         Icon: WhatsappIcon,
     },
@@ -54,7 +54,7 @@ export default function FooterContacts() {
                 "@mobile": { gridColumn: "1 / -1", paddingTop: "1.5rem" },
             }).toString()}
         >
-            <Title order={2} css={{ fontSize: "1.25em" }}>
+            <Title order={2} css={{ fontSize: "1.25em", color: "$white" }}>
                 Contact Us
             </Title>
             <div

@@ -18,7 +18,7 @@ const Container = styled("section", {
     flexDirection: "column",
     height: "max-content",
     padding: "2rem 5%",
-    backgroundColor: "$dark",
+    backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },
@@ -50,7 +50,7 @@ function CheckoutPage({ data, links: { redirectToPaymentUrl }, meta }) {
         flatAndGroupObjectsBy(data.registrations, "price")
     );
 
-    console.log(tickets);
+    // console.log(tickets);
 
     return (
         <>
@@ -78,7 +78,7 @@ function CheckoutPage({ data, links: { redirectToPaymentUrl }, meta }) {
                             {steps.map((step) => (
                                 <Step key={step.id} isActive={step.id === 1}>
                                     <span>{step.id}</span>
-                                    <Text>{step.label}</Text>
+                                    <Text css={{ color: "$dark", overflow: "hidden" }}>{step.label}</Text>
                                 </Step>
                             ))}
                         </StepContainer>

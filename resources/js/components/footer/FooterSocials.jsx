@@ -49,7 +49,7 @@ export default function FooterSocials() {
                 "@mobile": { gridColumn: "1 / -1", paddingTop: "1.5rem" },
             }).toString()}
         >
-            <Title order={2} css={{ fontSize: "1.25em" }}>
+            <Title order={2} css={{ fontSize: "1.25em", color: "$white" }}>
                 Social Media
             </Title>
             <div

@@ -4,6 +4,7 @@ import FooterContacts from "./FooterContacts";
 import FooterSocials from "./FooterSocials";
 import FooterBio from "./FooterBio";
 import backdrop from "@/assets/misc/footer.png";
+import backdropMobile from "@/assets/misc/footer-mobile.png";
 
 const Container = styled("footer", {
     position: "relative",
@@ -12,9 +13,10 @@ const Container = styled("footer", {
     gap: "1rem",
     width: "100%",
     height: "fit-content",
+    minHeight: "30vw",
     padding: "0rem 5%",
-    paddingTop: "10rem",
-    paddingBottom: "7.5rem",
+    paddingTop: "12.5vw",
+    paddingBottom: "6.25vw",
     backgroundColor: "$dark",
     backgroundPosition: "top",
     backgroundSize: "100% auto",
@@ -36,7 +38,7 @@ const Container = styled("footer", {
     "@desktop": { backgroundImage: `url("${backdrop}")` },
     "@laptop": { backgroundImage: `url("${backdrop}")` },
     "@tablet": { backgroundImage: `url("${backdrop}")` },
-    // "@mobile": { backgroundImage: `url("${topMobile}")`, paddingTop: "8rem" },
+    "@mobile": { backgroundImage: `url("${backdropMobile}")`, paddingTop: "9vw", paddingBottom: "20vw" },
 });
 
 export default function Footer() {

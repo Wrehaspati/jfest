@@ -28,6 +28,7 @@ export default function Item({ data, type }) {
                         display: "flex",
                         alignItems: "flex-end",
                         gap: "0.75rem",
+                        color: "$dark"
                     }}
                 >
                     <span>
@@ -41,6 +42,8 @@ export default function Item({ data, type }) {
                             display: "flex",
                             gap: "0.75rem",
                             fontSize: "1rem",
+                            color: "$dark", 
+                            overflow: "hidden"
                         }}
                     >
                         <span> X </span>
@@ -49,14 +52,15 @@ export default function Item({ data, type }) {
                 </Text>
                 <Text
                     css={{
-                        color: "rgba(255, 255, 255, 0.5)",
-                        fontSize: "1.25rem",
+                        color: "$dark",
+                        fontSize: "1.25rem", 
+                        overflow: "hidden"
                     }}
                 >
                     {isActivity ? "Activity" : "Competition"}
                 </Text>
             </div>
-            <Text>
+            <Text css={{ color: "$dark", overflow: "hidden" }}>
                 Rp{" "}
                 {(
                     (isActivity

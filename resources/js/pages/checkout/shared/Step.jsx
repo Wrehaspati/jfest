@@ -7,7 +7,7 @@ const BaseStep = styled("div", {
     display: "flex",
     alignItems: "center",
     gap: "0.75rem",
-    color: "rgba(255, 255, 255, 0.5)",
+    color: "$dark",
     fontSize: "0.8rem",
     "& > span": {
         display: "flex",

@@ -33,7 +33,7 @@ const RemoveButton = styled("button", {
     fontFamily: "$main",
     letterSpacing: 2,
     cursor: "pointer",
-    color: "$white",
+    color: "$dark",
     "&:hover": {
         color: "$secondary",
     },
@@ -51,7 +51,8 @@ const RemoveButton = styled("button", {
     },
     "@mobile": {
         height: "$button-mobile-height",
-        fontSize: "$normal-mobile",
+        fontSize: "3vw",
+        padding: "0",
     },
 });
 
@@ -107,7 +108,7 @@ export default function TeamSection({
     return (
         <Container>
             <header style={{ paddingTop: "1rem" }}>
-                <Text css={{ fontSize: "1.6rem" }}>Your Teams</Text>
+                <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden" }}>Your Teams</Text>
             </header>
             <main
                 style={{

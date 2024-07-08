@@ -13,7 +13,7 @@ const Container = styled("section", {
     height: "max-content",
     width: "100%",
     padding: "2rem 5%",
-    backgroundColor: "$dark",
+    backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },

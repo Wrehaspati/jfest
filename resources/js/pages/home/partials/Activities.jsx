@@ -160,7 +160,7 @@ export default function Activities({ activities, competitions }) {
                 cols={3}
                 css={{
                     color: "$white",
-                    borderTop: "0.3vw solid $primary",
+                    borderTop: "0.2vw solid $primary",
                     padding: "2rem 0",
                 }}
             >
@@ -210,7 +210,7 @@ export default function Activities({ activities, competitions }) {
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        <Text css={{ color:"$dark" }} className={css({wordBreak: "keep-all", overflow: "hidden"}).toString()}>{activity.name}</Text>
+                                        <Text css={{ color:"$dark" }} className={css({wordBreak: "keep-all", overflow: "hidden", "@mobile":{width: "min-content"}}).toString()}>{activity.name}</Text>
                                         <ActivityTag tag={activity.type}>
                                             {isActivity ? (
                                                 <TagBlue width={12.5} />
@@ -222,7 +222,7 @@ export default function Activities({ activities, competitions }) {
                                                     fontSize: "1rem",
                                                     color: isActivity
                                                         ? "$dark"
-                                                        : "$secondary",
+                                                        : "$secondary"
                                                 }}
                                             >
                                                 {activity.type}
@@ -253,7 +253,9 @@ export default function Activities({ activities, competitions }) {
                                             alignItems: "center",
                                             justifyContent: "center",
                                             width: "100%",
-                                            height: "$button-desktop-height",
+                                            height: "$button-desktop-height", 
+                                            border: "$secondary 0.3vw solid", 
+                                            borderRadius: "0.5rem",
                                             "@laptop": {
                                                 height: "$button-laptop-height",
                                             },

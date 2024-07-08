@@ -21,8 +21,8 @@ const Container = styled("section", {
     display: "flex",
     flexDirection: "column",
     height: "max-content",
-    padding: "0rem 5%",
-    backgroundColor: "$dark",
+    padding: "5rem 5%",
+    backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },
@@ -159,7 +159,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             gap: "0.25rem",
                                         }}
                                     >
-                                        <Text>@</Text>
+                                        <Text css={{ color: "$dark" }}>@</Text>
                                         <InputWrapper>
                                             <TextInput
                                                 name="instagram"
@@ -230,8 +230,8 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                     />
                                 )}
                                 <Button
-                                    color="light"
-                                    css={{ marginTop: "2rem" }}
+                                    // color="light"
+                                    css={{ marginTop: "2rem", "@mobile": {fontSize: "4vw"} }}
                                     type="submit"
                                     fullWidth
                                 >

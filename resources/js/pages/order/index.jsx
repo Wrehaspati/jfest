@@ -18,8 +18,8 @@ const Container = styled("section", {
     display: "flex",
     flexDirection: "column",
     height: "max-content",
-    padding: "2rem 5%",
-    backgroundColor: "$dark",
+    padding: "5rem 5%",
+    backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },
@@ -46,13 +46,15 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                         placeContent: "center",
                         height: "100vh",
                         width: "100%",
-                        backgroundColor: "$dark",
+                        backgroundColor: "$white",
                         textAlign: "center",
                         gap: "1rem",
                     }).toString()}
                 >
                     <Title order={4}>Nothing Here</Title>
-                    <Text css={{ color: "rgba(255, 255, 255, 0.5)" }}>
+                    <Text css={{ 
+                        color: "$dark" 
+                        }}>
                         You don&quot;t have any orders yet. Lets make an order
                         now!
                     </Text>
@@ -61,7 +63,7 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                         style={{ textDecoration: "none" }}
                     >
                         <Button
-                            color="light"
+                            // color="light"
                             css={{ margin: "0 auto", marginTop: "1rem" }}
                         >
                             Buy Tickets Now
@@ -90,6 +92,7 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                             fontSize: "2rem",
                             letterSpacing: 1.25,
                             "@mobile": { fontSize: "1.5rem" },
+                            color: "$dark"
                         }}
                     >
                         My Orders
@@ -102,6 +105,7 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                         gap: "1.5rem",
                         width: "100%",
                         padding: "2rem 0rem",
+                        color: "$dark",
                         "@mobile": {
                             gap: "1.25rem",
                             padding: "1.5rem 0rem",
@@ -121,7 +125,7 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                         ))}
                 </section>
                 <Link href={checkoutUrl} style={{ textDecoration: "none" }}>
-                    <Button color="light" fullWidth>
+                    <Button fullWidth>
                         Checkout Now
                     </Button>
                 </Link>

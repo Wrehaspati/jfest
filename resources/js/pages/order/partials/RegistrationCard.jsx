@@ -26,7 +26,7 @@ const RemoveButton = styled("button", {
     fontFamily: "$main",
     letterSpacing: 2,
     cursor: "pointer",
-    color: "$white",
+    color: "$tertiary",
     "&:hover": {
         color: "$secondary",
     },
@@ -82,10 +82,10 @@ function ConfirmRemoveElement({ removeItemUrl }) {
                     textAlign: "center",
                 }}
             >
-                <Text css={{ color: "$dark", fontSize: "2rem" }}>
+                <Text css={{ color: "$dark", fontSize: "2rem", overflow: "hidden" }}>
                     Remove it?
                 </Text>
-                <Text css={{ color: "$dark", fontSize: "1.25rem" }}>
+                <Text css={{ color: "$dark", fontSize: "1.25rem", overflow: "hidden" }}>
                     Are you sure you want to remove this item?
                 </Text>
             </div>
@@ -101,10 +101,10 @@ function ConfirmRemoveElement({ removeItemUrl }) {
                     },
                 }).toString()}
             >
-                <Button color="light" onClick={handleClose} fullWidth>
+                <Button onClick={handleClose} fullWidth>
                     No, Keep It!
                 </Button>
-                <Button onClick={handleRemoveItem(handleClose)} fullWidth>
+                <Button color="light" onClick={handleRemoveItem(handleClose)} fullWidth>
                     Yes, Delete It!
                 </Button>
             </div>
@@ -142,10 +142,10 @@ export default function RegistrationCard({ data }) {
                     gap: "0.5rem",
                 }}
             >
-                <Text>Competition {data.competition.name}</Text>
+                <Text css={{ color: "$dark" }}>Competition {data.competition.name}</Text>
                 <Text
                     css={{
-                        color: "rgba(255, 255, 255, 0.5)",
+                        color: "$dark",
                         fontSize: "1rem",
                     }}
                 >
@@ -164,7 +164,7 @@ export default function RegistrationCard({ data }) {
                 {width > 768 && (
                     <Text
                         css={{
-                            color: "rgba(255, 255, 255, 0.5)",
+                            color: "$dark",
                             fontSize: "1.5rem",
                             "@mobile": { fontSize: "1.25rem" },
                         }}
@@ -175,7 +175,7 @@ export default function RegistrationCard({ data }) {
                 {!data.uuid && (
                     <Text
                         css={{
-                            color: "$tertiary",
+                            color: "$dark",
                             fontSize: "1.5rem",
                             textAlign: "right",
                             "@mobile": { fontSize: "1.25rem" },

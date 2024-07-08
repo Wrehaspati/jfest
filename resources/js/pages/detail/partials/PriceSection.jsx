@@ -3,7 +3,7 @@ import { css } from "@/root/stitches.config";
 import { Button } from "@/components/button";
 import { Text } from "@/components/text";
 
-import { ReactComponent as Dollar } from "@/assets/icons/dollar.svg";
+import { ReactComponent as Dollar } from "@/assets/icons/dollar-dark.svg";
 
 export default function PriceSection({
     price,
@@ -16,11 +16,14 @@ export default function PriceSection({
         <section
             style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
         >
-            <Text css={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+            <Text css={{ display: "flex", gap: "1rem", alignItems: "center", color: "$dark" }}>
                 <Dollar />
                 <span>{isActivity ? "Price" : "Registration Fee"}</span>
             </Text>
-            <Text css={{ color: "rgba(255, 255, 255, 0.45)" }}>
+            <Text 
+                css={{ 
+                    color: "$dark", overflow: "hidden" 
+                }}>
                 Rp {price.toLocaleString("id-ID")} {priceTag && `(${priceTag})`}
             </Text>
             {isActivity && !isTicketsAvailable ? (
@@ -43,11 +46,11 @@ export default function PriceSection({
                         },
                     }).toString()}
                 >
-                    <Text css={{ color: "$secondary" }}>Sold Out</Text>
+                    <Text css={{ color: "$secondary", overflow: "hidden" }}>Sold Out</Text>
                 </div>
             ) : (
                 <Button
-                    color="light"
+                    // color="light"
                     css={{ "@mobile": { width: "100%" } }}
                     as="a"
                     href={orderUrl}

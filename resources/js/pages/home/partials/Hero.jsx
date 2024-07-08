@@ -5,6 +5,7 @@ import { Button } from "@/components/button";
 
 import useNavbar from "@/hooks/useNavbar";
 import backdrop from "@/assets/misc/backdrop.png";
+import backdropMobile from "@/assets/misc/backdrop-mobile.png";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",
@@ -24,9 +25,9 @@ const Container = styled("section", {
     "@desktop": { height: "55vw" },
     "@laptop": { height: "60vw" },
     "@tablet": { height: "60vw" },
-    "@mobile": { height: "100vw" },
+    "@mobile": { height: "130vw" },
     [mediaOrientationLandscape]: {
-        height: "210vh",
+        height: "60vw",
     },
 });
 
@@ -44,7 +45,7 @@ const Backdrop = styled("div", {
     "@desktop": { backgroundImage: `url("${backdrop}")` },
     "@laptop": { backgroundImage: `url("${backdrop}")` },
     "@tablet": { backgroundImage: `url("${backdrop}")` },
-    // "@mobile": { backgroundImage: `url("${backdropMobile}")` },
+    "@mobile": { backgroundImage: `url("${backdropMobile}")` },
 });
 
 export default function Hero() {
@@ -56,7 +57,7 @@ export default function Hero() {
         <Container>
             <Backdrop />
             <Button as="a" color="light" href={orderTicketUrl} css={{ position: "absolute" }} className={ css({
-                bottom: "10vw",
+                bottom: "8vw",
                 width: "12vw",
                 "@laptop": { 
                     bottom: "4vw", 
@@ -65,7 +66,7 @@ export default function Hero() {
                     bottom: "4vw",
                 },
                 "@mobile": { 
-                    bottom: "0",
+                    bottom: "9vw",
                 },
                 zIndex: "2",
             }).toString()}>

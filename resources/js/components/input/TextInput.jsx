@@ -3,17 +3,18 @@ import { styled } from "@/root/stitches.config";
 const BaseTextInput = styled("input", {
     display: "block",
     fontFamily: "$main",
-    fontSize: "1.5rem",
+    fontSize: "1vw",
     padding: "1rem 0rem",
     backgroundColor: "transparent",
     border: "none",
-    borderBottom: "1.5px solid rgba(255, 255, 255, 0.2)",
+    borderBottom: "1.5px solid rgba(0, 0, 0, 0.2)",
     outline: "none",
-    color: "$white",
+    color: "$dark",
     letterSpacing: 1.25,
     "&:placeholder": {
-        color: "rgba(255, 255, 255, 0.5)",
+        color: "rgba(0, 0, 0, 0.5)",
     },
+    "@mobile": {fontSize: "3vw"}
 });
 
 export default function TextInput({ ...props }) {

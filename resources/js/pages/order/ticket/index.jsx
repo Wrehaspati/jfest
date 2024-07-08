@@ -15,8 +15,9 @@ const Container = styled("section", {
     display: "flex",
     flexDirection: "column",
     height: "max-content",
-    padding: "0rem 5%",
-    backgroundColor: "$dark",
+    minHeight: "23.108vw",
+    padding: "5rem 5%",
+    backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },
@@ -59,7 +60,7 @@ function OrderTicketPage({ data, links: { submitUrl }, meta }) {
                     <div
                         className={css({
                             display: "grid",
-                            gridTemplateColumns: "auto 50px",
+                            gridTemplateColumns: "auto max-content",
                             width: "100%",
                             gap: "2rem",
                             alignItems: "center",
@@ -85,12 +86,13 @@ function OrderTicketPage({ data, links: { submitUrl }, meta }) {
                                 </Text>
                             )}
                         </InputWrapper>
-                        <Text css={{ fontSize: "1.5rem" }}>Tickets</Text>
+                        <Text css={{ fontSize: "1.5rem", color: "$dark", overflow: "hidden" }}>Tickets</Text>
                     </div>
                     <Button
-                        color="light"
+                        // color="light"
                         css={{
                             marginTop: "2rem",
+                            "@mobile": {fontSize: "4vw"}
                         }}
                         type="submit"
                         fullWidth

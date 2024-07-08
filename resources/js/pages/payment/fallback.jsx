@@ -20,18 +20,18 @@ function PaymentFallback({ data, links: { historyPageUrl }, meta }) {
                     height: "100vh",
                     width: "100%",
                     padding: "0rem 5%",
-                    backgroundColor: "$dark",
+                    backgroundColor: "$white",
                     textAlign: "center",
                     gap: "1rem",
                 }).toString()}
             >
-                <Title order={4}>Thanks For Your Payment</Title>
-                <Text css={{ color: "rgba(255, 255, 255, 0.5)" }}>
+                <Title css={{ color: "$dark" }} order={4}>Thanks For Your Payment</Title>
+                <Text css={{ color: "$dark" }}>
                     Your payment was received by us. Lets go check it now!
                 </Text>
                 <Link href={historyPageUrl} style={{ textDecoration: "none" }}>
                     <Button
-                        color="light"
+                        // color="light"
                         css={{ margin: "0 auto", marginTop: "1rem" }}
                     >
                         To History
@@ -39,7 +39,7 @@ function PaymentFallback({ data, links: { historyPageUrl }, meta }) {
                 </Link>
                 <Text
                     css={{
-                        color: "rgba(255, 255, 255, 0.5)",
+                        color: "$dark",
                         marginTop: "1rem",
                     }}
                 >

@@ -21,6 +21,7 @@ export default function HeaderSection({ data, isActivity }) {
                     alignItems: "center",
                     gap: "1rem",
                     "@mobile": { fontSize: "1.2rem" },
+                    color: "$dark"
                 }}
             >
                 <span>Order</span>
@@ -29,7 +30,8 @@ export default function HeaderSection({ data, isActivity }) {
                         display: "flex",
                         alignItems: "center",
                         gap: "1rem",
-                        color: isActivity ? "$tertiary" : "$secondary",
+                        color: isActivity ? "$dark" : "$secondary",
+                        overflow: "hidden"
                     }).toString()}
                 >
                     {isActivity ? <TagBlue /> : <TagOrange />}
@@ -42,6 +44,10 @@ export default function HeaderSection({ data, isActivity }) {
                     "@laptop": { fontSize: "3rem" },
                     "@tablet": { fontSize: "3rem" },
                     "@mobile": { fontSize: "2rem" },
+                    color: "$dark",
+                    width: "60%",
+                    textAlign: "center",
+                    overflow: "clip",
                 }}
             >
                 {data.name}

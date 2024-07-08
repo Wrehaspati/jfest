@@ -14,6 +14,7 @@ export default function StepContainer({ children }) {
                     gap: "1rem",
                     paddingBottom: "1.25rem",
                 },
+                color: "$dark"
             }).toString()}
         >
             {children}
