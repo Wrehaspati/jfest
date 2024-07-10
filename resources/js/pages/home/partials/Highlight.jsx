@@ -89,13 +89,39 @@ export default function Hightlight() {
     }
     const settings = {
         infinite: true,
-        speed: 500,
+        autoplay: true,
+        speed: 800,
+        autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    nextArrow: "",
+                    prevArrow: "",
+                    infinite: true,
+                    // dots: true,
+                },
+            },
+        ],
         appendDots: (dots) => (
-            <ul style={{ position: "absolute", bottom: "2px" }}> {dots} </ul>
+            <ul
+                style={{
+                    position: "absolute",
+                    bottom: "-28px",
+                }}
+            >
+                <div
+                    style={{
+                        color: "white",
+                    }}
+                >
+                    {dots}
+                </div>
+            </ul>
         ),
     };
     return (
@@ -131,10 +157,14 @@ export default function Hightlight() {
                                 alignItems: "center",
                             }}
                         >
-                            <img src={picone} alt="" className={css({
-                                width: "60%",
-                                "@mobile": {width: "100%"}
-                            }).toString()} />
+                            <img
+                                src={picone}
+                                alt=""
+                                className={css({
+                                    width: "60%",
+                                    "@mobile": { width: "100%" },
+                                }).toString()}
+                            />
                         </div>
                     </div>
                     <div>
@@ -146,7 +176,14 @@ export default function Hightlight() {
                                 alignItems: "center",
                             }}
                         >
-                            <img src={examplepic} alt="" width={"40%"} />
+                            <img
+                                src={examplepic}
+                                alt=""
+                                className={css({
+                                    width: "40%",
+                                    "@mobile": { width: "60%" },
+                                }).toString()}
+                            />
                         </div>
                     </div>
                     <div>
@@ -158,7 +195,14 @@ export default function Hightlight() {
                                 alignItems: "center",
                             }}
                         >
-                            <img src={examplepic} alt="" width={"40%"} />
+                            <img
+                                src={examplepic}
+                                alt=""
+                                className={css({
+                                    width: "40%",
+                                    "@mobile": { width: "60%" },
+                                }).toString()}
+                            />
                         </div>
                     </div>
                 </Slider>
