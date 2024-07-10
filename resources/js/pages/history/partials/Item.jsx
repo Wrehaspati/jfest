@@ -48,6 +48,8 @@ export default function Item({ data, type }) {
                         display: "flex",
                         alignItems: "flex-end",
                         gap: "0.75rem",
+                        color: "$dark",
+                        overflow: "hidden"
                     }}
                 >
                     <span>
@@ -67,8 +69,9 @@ export default function Item({ data, type }) {
                                 <Text
                                     key={member.id}
                                     css={{
-                                        color: "rgba(255, 255, 255, 0.5)",
                                         fontSize: "1.25rem",
+                                        color: "$dark",
+                                        overflow: "hidden"
                                     }}
                                 >
                                     - {member.name}
@@ -89,8 +92,9 @@ export default function Item({ data, type }) {
                     >
                         <Text
                             css={{
-                                color: "rgba(255, 255, 255, 0.5)",
                                 fontSize: "1.25rem",
+                                color: "$dark",
+                                overflow: "hidden"
                             }}
                         >
                             Ticket Code: {data.code}
@@ -99,8 +103,9 @@ export default function Item({ data, type }) {
                             css={{
                                 display: "flex",
                                 gap: "0.75rem",
-                                color: "rgba(255, 255, 255, 0.5)",
                                 fontSize: "1.25rem",
+                                color: "$dark",
+                                overflow: "hidden"
                             }}
                         >
                             Status:{" "}
@@ -108,9 +113,10 @@ export default function Item({ data, type }) {
                                 css={{
                                     color:
                                         data.attended_status !== "attended"
-                                            ? "#ff3333"
-                                            : "$white",
+                                            ? "$secondary"
+                                            : "$dark",
                                     fontSize: "1.25rem",
+                                    overflow: "hidden"
                                 }}
                             >
                                 {data.attended_status !== "attended"
@@ -122,7 +128,7 @@ export default function Item({ data, type }) {
                 )}
             </div>
             {isActivity ? (
-                <Button color="light" onClick={toggleShowQR}>
+                <Button onClick={toggleShowQR}>
                     Print Ticket
                 </Button>
             ) : (
@@ -134,7 +140,7 @@ export default function Item({ data, type }) {
                     }).toString()}
                 >
                     <Button
-                        color="light"
+                        // color="light"
                         as="a"
                         href={data.competition.guide_book_url}
                         target="_blank"
@@ -142,7 +148,7 @@ export default function Item({ data, type }) {
                         Download Guide Book
                     </Button>
                     <Button
-                        color="light"
+                        // color="light"
                         as="a"
                         href={data.competition.group_url}
                     >

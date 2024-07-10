@@ -20,7 +20,7 @@ class PaymentNotificationController extends Controller
                     array $meta
                 ) {
                     $order->status = $meta['order_status'];
-                    $payment->status = $payment['payment_status'];
+                    $payment->status = $meta['payment_status'];
 
                     $dbTicketsCount = Ticket::count();
                     $currTicketsCount = $order->tickets->count();

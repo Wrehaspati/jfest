@@ -69,7 +69,10 @@ function HistoryPage({ data, meta }) {
                                 },
                             }).toString()}
                         >
-                            <Text>Order: {order.reference}</Text>
+                            <Text css={{ 
+                                color: "$dark",
+                                overflow: "hidden" 
+                            }}>Order: {order.reference}</Text>
                             <ItemContainer>
                                 {order.tickets.map((ticket) => (
                                     <Item
