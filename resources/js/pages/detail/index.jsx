@@ -65,6 +65,7 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                                 isActivity ? data.sale.name : data.price_tag
                             }
                             isActivity={isActivity}
+                            isStillOpened={data.is_still_opened}
                             isTicketsAvailable={
                                 isActivity && data.sale.is_tickets_available
                             }

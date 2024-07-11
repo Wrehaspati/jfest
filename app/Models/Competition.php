@@ -46,6 +46,7 @@ class Competition extends Model
     {
         static::retrieved(function (Model $model) {
             $model->setAttribute('type', EventTypeEnum::Competition->value);
+            $model->setAttribute('is_still_opened', now()->greaterThanOrEqualTo($model->getAttribute('registration_closed_at')));
         });
     }
 }

@@ -9,6 +9,7 @@ export default function PriceSection({
     price,
     priceTag,
     isActivity,
+    isStillOpened,
     isTicketsAvailable,
     orderUrl,
 }) {
@@ -26,38 +27,58 @@ export default function PriceSection({
                 }}>
                 Rp {price.toLocaleString("id-ID")} {priceTag && `(${priceTag})`}
             </Text>
-            {isActivity && !isTicketsAvailable ? (
-                <div
-                    className={css({
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "max-content",
-                        padding: "0rem 0rem",
-                        height: "$button-desktop-height",
-                        "@laptop": {
-                            height: "$button-laptop-height",
-                        },
-                        "@tablet": {
-                            height: "$button-tablet-height",
-                        },
-                        "@mobile": {
-                            height: "$button-mobile-height",
-                        },
-                    }).toString()}
-                >
-                    <Text css={{ color: "$secondary", overflow: "hidden" }}>Sold Out</Text>
-                </div>
-            ) : (
-                <Button
-                    // color="light"
-                    css={{ "@mobile": { width: "100%" } }}
-                    as="a"
-                    href={orderUrl}
-                >
-                    {isActivity ? "Order Now" : "Register Now"}
-                </Button>
-            )}
+                {isActivity && !isTicketsAvailable ? (
+            <div
+                className={css({
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "max-content",
+                    padding: "0rem 0rem",
+                    height: "$button-desktop-height",
+                    "@laptop": {
+                        height: "$button-laptop-height",
+                    },
+                    "@tablet": {
+                        height: "$button-tablet-height",
+                    },
+                    "@mobile": {
+                        height: "$button-mobile-height",
+                    },
+                }).toString()}
+            >
+                <Text css={{ color: "$secondary", overflow: "hidden" }}>Sold Out</Text>
+            </div>
+        ) : !isActivity && isStillOpened ? (
+            <div
+                className={css({
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "max-content",
+                    height: "$button-desktop-height",
+                    "@laptop": {
+                        height: "$button-laptop-height",
+                    },
+                    "@tablet": {
+                        height: "$button-tablet-height",
+                    },
+                    "@mobile": {
+                        height: "$button-mobile-height",
+                    },
+                }).toString()}
+            >
+                <Text css={{ color: "$secondary" }}>Registration Closed</Text>
+            </div>
+        ) : (
+            <Button
+                css={{ "@mobile": { width: "100%" } }}
+                as="a"
+                href={orderUrl}
+            >
+                {isActivity ? "Order Now" : "Register Now"}
+            </Button>
+        )}
         </section>
     );
 }

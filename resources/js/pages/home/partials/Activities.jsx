@@ -79,8 +79,6 @@ export default function Activities({ activities, competitions }) {
     const [acts] = useState([...activities, ...competitions]);
     const [filteredActs, setFilteredActs] = useState(acts);
 
-    // console.log(activities);
-
     const { isAuthenticated } = useAuth();
     const {
         links: { authUrl },
@@ -167,7 +165,7 @@ export default function Activities({ activities, competitions }) {
                 {filteredActs.map((activity) => {
                     const isActivity =
                         activity.type.toLowerCase() === "activity";
-
+                    console.log(activity.is_still_opened);
                     return (
                         <Link
                             key={activity.id}
@@ -269,6 +267,31 @@ export default function Activities({ activities, competitions }) {
                                     >
                                         <Text css={{ color: "$secondary" }}>
                                             Sold Out
+                                        </Text>
+                                    </div>
+                                ) : !isActivity && activity.is_still_opened ? (
+                                <div
+                                        className={css({
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            width: "100%",
+                                            height: "$button-desktop-height", 
+                                            border: "$secondary 0.3vw solid", 
+                                            borderRadius: "0.5rem",
+                                            "@laptop": {
+                                                height: "$button-laptop-height",
+                                            },
+                                            "@tablet": {
+                                                height: "$button-tablet-height",
+                                            },
+                                            "@mobile": {
+                                                height: "$button-mobile-height",
+                                            },
+                                        }).toString()}
+                                    >
+                                        <Text css={{ color: "$secondary" }}>
+                                            Registration Closed
                                         </Text>
                                     </div>
                                 ) : (

@@ -10,6 +10,7 @@ const Title = styled(Text, {
 });
 
 export default function HeaderSection({ name, type, isActivity }) {
+    console.log("hello world");
     return (
         <section
             style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
