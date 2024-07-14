@@ -46,60 +46,64 @@ function OrderTicketPage({ data, links: { submitUrl }, meta }) {
             {generateMetadata(meta.head)}
             <Container css={{ gap: "2rem" }}>
                 <HeaderSection data={data} isActivity={isActivity} />
-                <form
-                    className={css({
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "1.25rem",
-                        width: "50%",
-                        margin: "0 auto",
-                        "@mobile": { width: "80%" },
-                    }).toString()}
-                    onSubmit={handleSubmitTicketsOrder}
-                >
-                    <div
+                {data.is_going_on && data.sale.is_tickets_available ? (
+                    <form
                         className={css({
-                            display: "grid",
-                            gridTemplateColumns: "auto max-content",
-                            width: "100%",
-                            gap: "2rem",
-                            alignItems: "center",
-                            "@mobile": { gap: "1rem" },
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "1.25rem",
+                            width: "50%",
+                            margin: "0 auto",
+                            "@mobile": { width: "80%" },
                         }).toString()}
+                        onSubmit={handleSubmitTicketsOrder}
                     >
-                        <InputWrapper>
-                            <TextInput
-                                name="amount"
-                                placeholder="Input tickets amount..."
-                                value={inputs.amount}
-                                onChange={handleChange}
-                                css={{ width: "100%", textAlign: "center" }}
-                            />
-                            {errors.amount && (
-                                <Text
-                                    css={{
-                                        fontSize: "1.25rem",
-                                        color: "#ff3333",
-                                    }}
-                                >
-                                    {errors.amount}
-                                </Text>
-                            )}
-                        </InputWrapper>
-                        <Text css={{ fontSize: "1.5rem", color: "$dark", overflow: "hidden" }}>Tickets</Text>
-                    </div>
-                    <Button
-                        // color="light"
-                        css={{
-                            marginTop: "2rem",
-                            "@mobile": {fontSize: "4vw"}
-                        }}
-                        type="submit"
-                        fullWidth
-                    >
-                        Add To My Orders Lists
-                    </Button>
-                </form>
+                        <div
+                            className={css({
+                                display: "grid",
+                                gridTemplateColumns: "auto max-content",
+                                width: "100%",
+                                gap: "2rem",
+                                alignItems: "center",
+                                "@mobile": { gap: "1rem" },
+                            }).toString()}
+                        >
+                            <InputWrapper>
+                                <TextInput
+                                    name="amount"
+                                    placeholder="Input tickets amount..."
+                                    value={inputs.amount}
+                                    onChange={handleChange}
+                                    css={{ width: "100%", textAlign: "center" }}
+                                />
+                                {errors.amount && (
+                                    <Text
+                                        css={{
+                                            fontSize: "1.25rem",
+                                            color: "#ff3333",
+                                        }}
+                                    >
+                                        {errors.amount}
+                                    </Text>
+                                )}
+                            </InputWrapper>
+                            <Text css={{ fontSize: "1.5rem", color: "$dark", overflow: "hidden" }}>Tickets</Text>
+                        </div>
+                        <Button
+                            // color="light"
+                            css={{
+                                marginTop: "2rem",
+                                "@mobile": {fontSize: "4vw"}
+                            }}
+                            type="submit"
+                            fullWidth
+                        >
+                            Add To My Orders Lists
+                        </Button>
+                    </form>
+                ) : (
+                    <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>{data.is_going_on ? "Sold Out" : "Event Ended"}</Text>
+                )}  
             </Container>
         </>
     );

@@ -69,6 +69,9 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                             isTicketsAvailable={
                                 isActivity && data.sale.is_tickets_available
                             }
+                            isGoingOn={
+                                isActivity && data.is_going_on
+                            }
                             orderUrl={orderUrl}
                         />
                         <Divider />

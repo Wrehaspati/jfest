@@ -15,7 +15,7 @@ const Container = styled("nav", {
     justifyContent: "space-between",
     height: "max-content",
     width: "100%",
-    padding: "1.75rem 5%",
+    padding: "1vw 5%",
     transition: "all .2s ease-in-out",
     transitionProperty: "backdrop-filter",
     zIndex: 9,

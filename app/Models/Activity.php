@@ -36,6 +36,7 @@ class Activity extends Model
     {
         static::retrieved(function (Model $model) {
             $model->setAttribute('type', EventTypeEnum::Activity->value);
+            $model->setAttribute('is_going_on', now()->lessThanOrEqualTo($model->getAttribute('purchase_closed_at')));
         });
     }
 

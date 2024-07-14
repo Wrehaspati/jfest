@@ -11,6 +11,7 @@ export default function PriceSection({
     isActivity,
     isStillOpened,
     isTicketsAvailable,
+    isGoingOn,
     orderUrl,
 }) {
     return (
@@ -27,7 +28,7 @@ export default function PriceSection({
                 }}>
                 Rp {price.toLocaleString("id-ID")} {priceTag && `(${priceTag})`}
             </Text>
-                {isActivity && !isTicketsAvailable ? (
+                { (isActivity && !isTicketsAvailable) || (isActivity && !isGoingOn) ? (
             <div
                 className={css({
                     display: "flex",
@@ -47,7 +48,7 @@ export default function PriceSection({
                     },
                 }).toString()}
             >
-                <Text css={{ color: "$secondary", overflow: "hidden" }}>Sold Out</Text>
+                <Text css={{ color: "$secondary", overflow: "hidden" }}>{isGoingOn ? "Sold Out" : "Event Ended"}</Text>
             </div>
         ) : !isActivity && isStillOpened ? (
             <div

@@ -22,12 +22,12 @@ const Container = styled("section", {
     backgroundColor: "$white",
     height: "64vw",
     overflow: "hidden",
-    "@desktop": { height: "55vw" },
-    "@laptop": { height: "60vw" },
-    "@tablet": { height: "60vw" },
+    "@desktop": { height: "50vw" },
+    "@laptop": { height: "55vw" },
+    "@tablet": { height: "55vw" },
     "@mobile": { height: "130vw" },
     [mediaOrientationLandscape]: {
-        height: "60vw",
+        height: "55vw",
     },
 });
 

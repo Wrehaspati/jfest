@@ -2,8 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import examplepic from "@/assets/misc/coming-soon.png";
-import picone from "@/assets/misc/card1.png";
+import comingSoon from "@/assets/misc/coming-soon.png";
+import firstCard from "@/assets/tickets/ticket.png";
+import secondCard from "@/assets/misc/bio.png";
+import secondCardMobile from "@/assets/misc/bio-mobile.png";
 import { css, styled } from "@/root/stitches.config";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
@@ -91,7 +93,7 @@ export default function Hightlight() {
         infinite: true,
         autoplay: true,
         speed: 800,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
@@ -158,11 +160,11 @@ export default function Hightlight() {
                             }}
                         >
                             <img
-                                src={picone}
+                                src={ firstCard }
                                 alt=""
                                 className={css({
-                                    width: "60%",
-                                    "@mobile": { width: "100%" },
+                                    width: "80%",
+                                    "@mobile": { width: "95%" },
                                 }).toString()}
                             />
                         </div>
@@ -177,12 +179,13 @@ export default function Hightlight() {
                             }}
                         >
                             <img
-                                src={examplepic}
+                                src={secondCard}
                                 alt=""
                                 className={css({
-                                    width: "40%",
-                                    "@mobile": { width: "60%" },
+                                    width: "80%",
+                                    "@mobile": { width: "95%"}
                                 }).toString()}
+                                css={{ "@mobile" : {content: "url("+secondCardMobile+")" } }}
                             />
                         </div>
                     </div>
@@ -196,7 +199,7 @@ export default function Hightlight() {
                             }}
                         >
                             <img
-                                src={examplepic}
+                                src={comingSoon}
                                 alt=""
                                 className={css({
                                     width: "40%",

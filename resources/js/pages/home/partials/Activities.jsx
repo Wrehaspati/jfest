@@ -13,8 +13,7 @@ import { Title } from "@/components/title";
 import { Text } from "@/components/text";
 
 import ComingSoon from "@/assets/misc/coming-soon.png";
-import FrameBlue from "@/assets/activities/frame-blue.svg";
-import FrameOrange from "@/assets/activities/frame-orange.svg";
+import Frame from "@/assets/activities/frame.png";
 import { ReactComponent as TagBlue } from "@/assets/activities/tag-blue.svg";
 import { ReactComponent as TagOrange } from "@/assets/activities/tag-orange.svg";
 import { useCallback, useState } from "react";
@@ -42,14 +41,15 @@ const ActivityImage = styled("span", {
     width: "auto",
     height: 350,
     backgroundPosition: "center",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     variants: {
         frame: {
             activity: {
-                backgroundImage: `url("${FrameBlue}")`,
+                backgroundImage: `url("${Frame}")`,
             },
             competition: {
-                backgroundImage: `url("${FrameOrange}")`,
+                backgroundImage: `url("${Frame}")`,
             },
         },
     },
@@ -165,8 +165,7 @@ export default function Activities({ activities, competitions }) {
                 {filteredActs.map((activity) => {
                     const isActivity =
                         activity.type.toLowerCase() === "activity";
-                    console.log(activity.is_still_opened);
-                    return (
+                        return (
                         <Link
                             key={activity.id}
                             href={activity.details_url}
@@ -190,7 +189,7 @@ export default function Activities({ activities, competitions }) {
                                         <img
                                             className={css({
                                                 height: "55%",
-                                                width: "55%",
+                                                width: "47%",
                                                 objectFit: "contain",
                                                 objectPosition: "center",
                                                 textAlign: "center",
@@ -243,8 +242,7 @@ export default function Activities({ activities, competitions }) {
                                             )}
                                     </Text>
                                 </ActivityBody>
-                                {isActivity &&
-                                !activity.sale.is_tickets_available ? (
+                                {(isActivity && !activity.sale.is_tickets_available) || (isActivity && !activity.is_going_on) ? (
                                     <div
                                         className={css({
                                             display: "flex",
@@ -266,7 +264,7 @@ export default function Activities({ activities, competitions }) {
                                         }).toString()}
                                     >
                                         <Text css={{ color: "$secondary" }}>
-                                            Sold Out
+                                            {activity.is_going_on ? "Sold Out" : "Event Ended"}
                                         </Text>
                                     </div>
                                 ) : !isActivity && activity.is_still_opened ? (
@@ -302,10 +300,12 @@ export default function Activities({ activities, competitions }) {
                                             handleRedirectToOrderPage(
                                                 activity.order_url
                                             );
+                                            useLayoutEffect(() => {
+                                                window.scrollTo(0, 0)
+                                            });
                                         }}
                                     >
-                                        <Button 
-                                        // color="light" 
+                                        <Button
                                         fullWidth>
                                             {isActivity
                                                 ? "Order Now"

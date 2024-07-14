@@ -91,156 +91,160 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
             {generateMetadata(meta.head)}
             <Container css={{ gap: "2rem" }}>
                 <HeaderSection data={data} isActivity={isActivity} />
-                <Formik
-                    initialValues={initialValues}
-                    onSubmit={handleSubmitRegistrationsOrder}
-                >
-                    {({ values, handleBlur, handleChange }) => {
-                        return (
-                            <Form
-                                className={css({
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "1.25rem",
-                                    width: "50%",
-                                    margin: "0 auto",
-                                    "@mobile": { width: "80%" },
-                                }).toString()}
-                            >
-                                <InputOuterWrapper>
-                                    <InputWrapper>
-                                        <TextInput
-                                            name="email"
-                                            placeholder="Type your email here..."
-                                            value={values.email}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            css={{ width: "100%" }}
-                                        />
-                                        {errors.email && (
-                                            <ErrorMessage msg={errors.email} />
-                                        )}
-                                    </InputWrapper>
-                                </InputOuterWrapper>
-                                <InputOuterWrapper>
-                                    <InputWrapper>
-                                        <TextInput
-                                            name="name"
-                                            placeholder="Type your name here..."
-                                            value={values.name}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            css={{ width: "100%" }}
-                                        />
-                                        {errors.name && (
-                                            <ErrorMessage msg={errors.name} />
-                                        )}
-                                    </InputWrapper>
-                                </InputOuterWrapper>
-                                <InputOuterWrapper>
-                                    <InputWrapper>
-                                        <TextInput
-                                            name="phone"
-                                            placeholder="Type your phone number here..."
-                                            value={values.phone}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            css={{ width: "100%" }}
-                                        />
-                                        {errors.phone && (
-                                            <ErrorMessage msg={errors.phone} />
-                                        )}
-                                    </InputWrapper>
-                                </InputOuterWrapper>
-                                {data.use_instagram_field && (
-                                    <InputOuterWrapper
-                                        css={{
-                                            gridTemplateColumns: "1.5rem auto",
-                                            gap: "0.25rem",
-                                        }}
-                                    >
-                                        <Text css={{ color: "$dark" }}>@</Text>
-                                        <InputWrapper>
-                                            <TextInput
-                                                name="instagram"
-                                                placeholder="Type your instagram username here..."
-                                                value={values.instagram}
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                css={{ width: "100%" }}
-                                            />
-                                            {errors.instagram && (
-                                                <ErrorMessage
-                                                    msg={errors.instagram}
-                                                />
-                                            )}
-                                        </InputWrapper>
-                                    </InputOuterWrapper>
-                                )}
-                                {data.use_nickname_field && (
+                { data.is_still_opened ? (
+                    <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>Registration is Closed</Text>
+                ) : (
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={handleSubmitRegistrationsOrder}
+                    >
+                        {({ values, handleBlur, handleChange }) => {
+                            return (
+                                <Form
+                                    className={css({
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "1.25rem",
+                                        width: "50%",
+                                        margin: "0 auto",
+                                        "@mobile": { width: "80%" },
+                                    }).toString()}
+                                >
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
-                                                name="nickname"
-                                                placeholder="Type your nickname here..."
-                                                value={values.nickname}
+                                                name="email"
+                                                placeholder="Type your email here..."
+                                                value={values.email}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
                                             />
-                                            {errors.nickname && (
-                                                <ErrorMessage
-                                                    msg={errors.nickname}
-                                                />
+                                            {errors.email && (
+                                                <ErrorMessage msg={errors.email} />
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                )}
-                                {data.use_multi_participant &&
-                                    values.teamMembers.length > 0 && (
-                                        <InputOuterWrapper>
+                                    <InputOuterWrapper>
+                                        <InputWrapper>
+                                            <TextInput
+                                                name="name"
+                                                placeholder="Type your name here..."
+                                                value={values.name}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                css={{ width: "100%" }}
+                                            />
+                                            {errors.name && (
+                                                <ErrorMessage msg={errors.name} />
+                                            )}
+                                        </InputWrapper>
+                                    </InputOuterWrapper>
+                                    <InputOuterWrapper>
+                                        <InputWrapper>
+                                            <TextInput
+                                                name="phone"
+                                                placeholder="Type your phone number here..."
+                                                value={values.phone}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                css={{ width: "100%" }}
+                                            />
+                                            {errors.phone && (
+                                                <ErrorMessage msg={errors.phone} />
+                                            )}
+                                        </InputWrapper>
+                                    </InputOuterWrapper>
+                                    {data.use_instagram_field && (
+                                        <InputOuterWrapper
+                                            css={{
+                                                gridTemplateColumns: "1.5rem auto",
+                                                gap: "0.25rem",
+                                            }}
+                                        >
+                                            <Text css={{ color: "$dark" }}>@</Text>
                                             <InputWrapper>
                                                 <TextInput
-                                                    name="teamName"
-                                                    placeholder="Type your team name here..."
-                                                    value={values.teamName}
+                                                    name="instagram"
+                                                    placeholder="Type your instagram username here..."
+                                                    value={values.instagram}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     css={{ width: "100%" }}
                                                 />
-                                                {errors.teamName && (
+                                                {errors.instagram && (
                                                     <ErrorMessage
-                                                        msg={errors.teamName}
+                                                        msg={errors.instagram}
                                                     />
                                                 )}
                                             </InputWrapper>
                                         </InputOuterWrapper>
                                     )}
-                                {data.use_multi_participant && (
-                                    <TeamSection
-                                        errors={errors}
-                                        values={values}
-                                        maxParticipants={data.max_participants}
-                                        useInstagramField={
-                                            data.use_instagram_field
-                                        }
-                                        useNicknameField={
-                                            data.use_nickname_field
-                                        }
-                                    />
-                                )}
-                                <Button
-                                    // color="light"
-                                    css={{ marginTop: "2rem", "@mobile": {fontSize: "4vw"} }}
-                                    type="submit"
-                                    fullWidth
-                                >
-                                    Add To My Orders Lists
-                                </Button>
-                            </Form>
-                        );
-                    }}
-                </Formik>
+                                    {data.use_nickname_field && (
+                                        <InputOuterWrapper>
+                                            <InputWrapper>
+                                                <TextInput
+                                                    name="nickname"
+                                                    placeholder="Type your nickname here..."
+                                                    value={values.nickname}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                />
+                                                {errors.nickname && (
+                                                    <ErrorMessage
+                                                        msg={errors.nickname}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
+                                    {data.use_multi_participant &&
+                                        values.teamMembers.length > 0 && (
+                                            <InputOuterWrapper>
+                                                <InputWrapper>
+                                                    <TextInput
+                                                        name="teamName"
+                                                        placeholder="Type your team name here..."
+                                                        value={values.teamName}
+                                                        onChange={handleChange}
+                                                        onBlur={handleBlur}
+                                                        css={{ width: "100%" }}
+                                                    />
+                                                    {errors.teamName && (
+                                                        <ErrorMessage
+                                                            msg={errors.teamName}
+                                                        />
+                                                    )}
+                                                </InputWrapper>
+                                            </InputOuterWrapper>
+                                        )}
+                                    {data.use_multi_participant && (
+                                        <TeamSection
+                                            errors={errors}
+                                            values={values}
+                                            maxParticipants={data.max_participants}
+                                            useInstagramField={
+                                                data.use_instagram_field
+                                            }
+                                            useNicknameField={
+                                                data.use_nickname_field
+                                            }
+                                        />
+                                    )}
+                                    <Button
+                                        // color="light"
+                                        css={{ marginTop: "2rem", "@mobile": {fontSize: "4vw"} }}
+                                        type="submit"
+                                        fullWidth
+                                    >
+                                        Add To My Orders Lists
+                                    </Button>
+                                </Form>
+                            );
+                        }}
+                    </Formik>
+                )}
             </Container>
         </>
     );

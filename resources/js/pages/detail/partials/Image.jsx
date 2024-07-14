@@ -1,8 +1,7 @@
 import { css, styled } from "@/root/stitches.config";
 
 import ComingSoon from "@/assets/misc/coming-soon.png";
-import FrameBlue from "@/assets/activities/frame-blue.svg";
-import FrameOrange from "@/assets/activities/frame-orange.svg";
+import Frame from "@/assets/activities/frame.png";
 
 const BaseImageInner = styled("img", {
     display: "block",
@@ -21,13 +20,13 @@ const BaseImageOuter = styled("div", {
     width: 350,
     height: 350,
     border: "none",
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     variants: {
         frame: {
-            activity: { backgroundImage: `url("${FrameBlue}")` },
-            competition: { backgroundImage: `url("${FrameOrange}")` },
+            activity: { backgroundImage: `url("${Frame}")` },
+            competition: { backgroundImage: `url("${Frame}")` },
         },
     },
     defaultVariants: {

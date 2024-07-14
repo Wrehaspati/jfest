@@ -13,6 +13,7 @@ const BaseText = styled("p", {
     "@laptop": { fontSize: "$normal-laptop" },
     "@tablet": { fontSize: "$normal-tablet" },
     "@mobile": { fontSize: "$normal-mobile" },
+    overflow: "hidden"
 });
 
 export default function Text({ children, ...props }) {
