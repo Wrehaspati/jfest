@@ -36,10 +36,12 @@ const Activity = styled("article", {
 
 const ActivityImage = styled("span", {
     display: "flex",
+    position: "relative",
+    zIndex: "1",
     alignItems: "center",
     justifyContent: "center",
     width: "auto",
-    height: 350,
+    height: "18.2292vw",
     backgroundPosition: "center",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -53,6 +55,12 @@ const ActivityImage = styled("span", {
             },
         },
     },
+    "@tablet": {
+        height: "35vw",
+    },
+    "@mobile": {
+        height: "72vw"
+    }
 });
 
 const ActivityBody = styled("div", {
@@ -172,33 +180,58 @@ export default function Activities({ activities, competitions }) {
                             style={{ textDecoration: "none" }}
                         >
                             <Activity key={activity.id}>
-                                <ActivityImage frame={activity.type}>
+                                <div className={css({ position: "relative" }).toString()}>
+                                    <ActivityImage frame={activity.type}/>
                                     {activity.image_url ? (
                                         <img
-                                            className={css({
-                                                height: "80%",
-                                                width: "80%",
-                                                objectFit: "contain",
+                                        className={css({
+                                                height: "85%",
+                                                width: "50%",
+                                                objectFit: "cover",
                                                 objectPosition: "center",
                                                 textAlign: "center",
+                                                position: "absolute",
+                                                top: "54%",
+                                                left: "50%",
+                                                translate: "-50% -50%",
+                                                lineHeight: "16vw",
+                                                fontSize: "1vw",
+                                                "@tablet": {
+                                                    width: "60%"
+                                                },
+                                                "@mobile": {
+                                                    width: "65%"
+                                                }
                                             }).toString()}
                                             src={activity.image_url}
                                             alt="Coming soon"
-                                        />
+                                            />
                                     ) : (
                                         <img
                                             className={css({
-                                                height: "55%",
-                                                width: "47%",
+                                                height: "50%",
+                                                width: "40%",
                                                 objectFit: "contain",
                                                 objectPosition: "center",
                                                 textAlign: "center",
+                                                position: "absolute",
+                                                top: "50%",
+                                                left: "50%",
+                                                translate: "-50% -50%",
+                                                lineHeight: "16vw",
+                                                fontSize: "1vw",
+                                                "@tablet": {
+                                                    width: "55%"
+                                                },
+                                                "@mobile": {
+                                                    width: "60%"
+                                                }
                                             }).toString()}
                                             src={ComingSoon}
                                             alt="Coming soon"
-                                        />
-                                    )}
-                                </ActivityImage>
+                                            />
+                                        )}
+                                </div>
                                 <ActivityBody>
                                     <div
                                         style={{
@@ -207,7 +240,15 @@ export default function Activities({ activities, competitions }) {
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        <Text css={{ color:"$dark" }} className={css({wordBreak: "keep-all", overflow: "hidden", "@mobile":{width: "min-content"}}).toString()}>{activity.name}</Text>
+                                        <Text css={{color: "$dark"}} className={css({
+                                                wordBreak: "keep-all", 
+                                                overflow: "hidden",
+                                                width: "60%",
+                                                padding: "0.1vw 0",
+                                                "@mobile":{width:  "min-content"}
+                                            }).toString()}>
+                                            {activity.name}
+                                        </Text>
                                         <ActivityTag tag={activity.type}>
                                             {isActivity ? (
                                                 <TagBlue width={12.5} />

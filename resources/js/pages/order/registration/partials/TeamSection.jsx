@@ -73,12 +73,12 @@ const InputWithIcon = function ({ errors, icon, idx, name, field, ...props }) {
     return (
         <InputOuterWrapper
             css={{
-                gridTemplateColumns: "auto auto",
-                gap: "0.25rem",
+                display: 'flex',
+                width: '100%',
             }}
         >
-            <Text>{icon}</Text>
-            <InputWrapper>
+            <Text css={{ color: "$dark" }}>{icon}</Text>
+            <InputWrapper css={{ width: "100%" }}>
                 <TextInput css={{ width: "100%" }} {...props} {...field} />
                 {"teamMembers" in errors && errors.teamMembers[idx]?.[name] && (
                     <ErrorMessage msg={errors.teamMembers[idx][name]} />

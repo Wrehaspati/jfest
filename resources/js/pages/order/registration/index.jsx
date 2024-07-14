@@ -158,12 +158,12 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                     {data.use_instagram_field && (
                                         <InputOuterWrapper
                                             css={{
-                                                gridTemplateColumns: "1.5rem auto",
-                                                gap: "0.25rem",
+                                                display: 'flex',
+                                                width: "100%",
                                             }}
                                         >
                                             <Text css={{ color: "$dark" }}>@</Text>
-                                            <InputWrapper>
+                                            <InputWrapper css={{ width: '100%' }}>
                                                 <TextInput
                                                     name="instagram"
                                                     placeholder="Type your instagram username here..."

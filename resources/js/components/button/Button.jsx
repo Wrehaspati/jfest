@@ -20,6 +20,8 @@ const BaseButton = styled("button", {
     borderRadius: "0.5rem",
     "&:hover": {
         color: "$secondary",
+        transform: "scale(0.95)",
+        transition: "all 0.3s ease-in-out",
     },
     "@desktop": {
         height: "$button-desktop-height",

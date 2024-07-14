@@ -41,7 +41,7 @@ const ListItemAnchor = styled("a", {
     variants: {
         isActive: {
             true: {
-                color: "$secondary",
+                // borderBottom: "2px solid $dark",
             },
         },
     },

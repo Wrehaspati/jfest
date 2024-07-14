@@ -45,7 +45,7 @@ class Jfest8Seeder extends Seeder
                 'name' => 'Japanese Festival 8',
                 'description' => 'Jfest is a japanese culture special event held by JCOS (Japanese Community of STIKOM Bali)',
                 'image_url' => null,
-                'date' => Carbon::create(2023, 10, 8),
+                'date' => Carbon::create(2024, 10, 8),
                 'purchase_opened_at' => Carbon::create(2024, 8, 1),
                 'purchase_closed_at' => Carbon::create(2024, 10, 8)
             ])
@@ -78,7 +78,7 @@ class Jfest8Seeder extends Seeder
                 'price_tag' => 'pre-sale',
                 'group_url' => null,
                 'guide_book_url' => 'https://docs.google.com/spreadsheets/d/1YrCTFy5loILnXk93lTC4PWW8C8OpEajO11jczpKiKZs/edit?gid=719376848#gid=719376848',
-                'image_url' => null,
+                'image_url' => 'https://bucket.jfestbali.id/images/competitions/japan-song-cover.png',
                 'with_ticket' => true,
                 'use_instagram_field' => true,
                 'use_nickname_field' => true,

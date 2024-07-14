@@ -136,6 +136,9 @@ export default function Hightlight() {
                     paddingBottom: "28vw",
                     gap: "2rem",
                     zIndex: 1,
+                    "@mobile": {
+                        paddingBottom: "50vw",
+                    }
                 }).toString()}
             >
                 <Title
@@ -178,15 +181,17 @@ export default function Hightlight() {
                                 alignItems: "center",
                             }}
                         >
-                            <img
-                                src={secondCard}
-                                alt=""
-                                className={css({
+                            <div className={css({
                                     width: "80%",
-                                    "@mobile": { width: "95%"}
-                                }).toString()}
-                                css={{ "@mobile" : {content: "url("+secondCardMobile+")" } }}
-                            />
+                                    height: "25vw",
+                                    backgroundPosition: "center",
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundSize: "contain",
+                                    backgroundImage: `url("${secondCard}")`,
+                                    "@mobile": { width: "95%", height: "50vw", backgroundImage: `url("${secondCardMobile}")`,}
+                                }).toString()}>
+
+                            </div>
                         </div>
                     </div>
                     <div>

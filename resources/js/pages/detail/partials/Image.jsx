@@ -4,29 +4,38 @@ import ComingSoon from "@/assets/misc/coming-soon.png";
 import Frame from "@/assets/activities/frame.png";
 
 const BaseImageInner = styled("img", {
-    display: "block",
-    height: "80%",
-    width: "80%",
+    height: 260,
+    width: 240,
     objectFit: "cover",
     objectPosition: "center",
-    outline: "none",
-    border: "none",
+    textAlign: "center",
+    position: "absolute",
+    top: "51%",
+    left: "50%",
+    translate: "-50% -50%",
+    lineHeight: 10,
+    fontSize: 30
 });
 
-const BaseImageOuter = styled("div", {
+const BaseImageOuter = styled("span", {
     display: "flex",
+    position: "relative",
+    zIndex: "1",
     alignItems: "center",
     justifyContent: "center",
-    width: 350,
+    width: "auto",
     height: 350,
-    border: "none",
-    backgroundSize: "contain",
     backgroundPosition: "center",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     variants: {
         frame: {
-            activity: { backgroundImage: `url("${Frame}")` },
-            competition: { backgroundImage: `url("${Frame}")` },
+            activity: {
+                backgroundImage: `url("${Frame}")`,
+            },
+            competition: {
+                backgroundImage: `url("${Frame}")`,
+            },
         },
     },
     defaultVariants: {
@@ -36,21 +45,28 @@ const BaseImageOuter = styled("div", {
 
 export default function Image({ src = null, type, ...props }) {
     return (
-        <BaseImageOuter frame={type}>
-            {src ? (
-                <BaseImageInner src={src} {...props} />
-            ) : (
-                <img
-                    className={css({
-                        height: "55%",
-                        width: "55%",
-                        objectFit: "contain",
-                        objectPosition: "center",
-                    }).toString()}
-                    src={ComingSoon}
-                    alt="Image for this activity will be released soon"
-                />
-            )}
-        </BaseImageOuter>
+        <div className={css({ position: "relative", height: "min-content" }).toString()}>
+            <BaseImageOuter frame={type} />
+                {src ? (
+                    <BaseImageInner src={src} alt={"Image Fail Load"} {...props} />
+                ) : (
+                    <img
+                        className={css({
+                            height: 300,
+                            width: 200,
+                            objectFit: "contain",
+                            objectPosition: "center",
+                            position: "absolute",
+                            top: "51%",
+                            left: "50%",
+                            translate: "-50% -50%",
+                            lineHeight: 10,
+                            fontSize: 30
+                        }).toString()}
+                        src={ComingSoon}
+                        alt="Image for this activity will be released soon"
+                    />
+                )}
+        </div>
     );
 }

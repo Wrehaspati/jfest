@@ -1,4 +1,5 @@
 import { styled } from "@/root/stitches.config";
+import React from 'react';
 
 import { Text } from "@/components/text";
 
@@ -9,8 +10,10 @@ const Title = styled(Text, {
     fontSize: "2.5em",
 });
 
-export default function HeaderSection({ name, type, isActivity }) {
-    console.log("hello world");
+export default function HeaderSection({ name, type, isActivity, closedDate }) {
+    const date = new Date(closedDate);
+    const option = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-GB', option);
     return (
         <section
             style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
@@ -20,6 +23,9 @@ export default function HeaderSection({ name, type, isActivity }) {
                 {isActivity ? <TagBlue /> : <TagOrange />}
                 <Text css={{ color: isActivity ? "$dark" : "$secondary", overflow: "hidden" }}>
                     {type}
+                </Text>
+                <Text css={{ color: "$dark", "@mobile": {width: "60%"} }}>
+                    {isActivity ? "" : " closed at "+formattedDate}
                 </Text>
             </div>
         </section>

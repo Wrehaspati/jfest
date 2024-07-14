@@ -19,15 +19,15 @@ const Container = styled("section", {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    backgroundColor: "$white",
+    backgroundColor: "$dark",
     height: "64vw",
     overflow: "hidden",
-    "@desktop": { height: "50vw" },
-    "@laptop": { height: "55vw" },
-    "@tablet": { height: "55vw" },
-    "@mobile": { height: "130vw" },
+    "@desktop": { height: "49vw" },
+    "@laptop": { height: "49vw" },
+    "@tablet": { height: "49vw" },
+    "@mobile": { height: "99vw" },
     [mediaOrientationLandscape]: {
-        height: "55vw",
+        height: "49vw",
     },
 });
 

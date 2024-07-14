@@ -23,8 +23,8 @@ const Container = styled("section", {
 const Divider = styled("span", {
     display: "block",
     width: "100%",
-    height: 1.5,
-    backgroundColor: "rgba(255, 255, 255, .1)",
+    height: "0.2vw",
+    backgroundColor: "$dark",
 });
 
 function DetailPage({ data, links: { orderUrl }, meta }) {
@@ -57,6 +57,7 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                             name={data.name}
                             type={data.type}
                             isActivity={isActivity}
+                            closedDate={isActivity ? data.date : data.registration_closed_at}
                         />
                         <Divider />
                         <PriceSection
@@ -72,6 +73,7 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                             isGoingOn={
                                 isActivity && data.is_going_on
                             }
+                            guideBook={isActivity ? null : data.guide_book_url}
                             orderUrl={orderUrl}
                         />
                         <Divider />
