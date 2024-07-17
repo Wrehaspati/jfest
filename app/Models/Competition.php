@@ -18,6 +18,8 @@ class Competition extends Model
         'use_multi_participant' => 'boolean',
         'min_participants' => 'integer',
         'max_participants' => 'integer',
+        'registration_quota' => 'integer',
+        'use_institution_field' => 'boolean',
         'registration_opened_at' => 'datetime:Y-m-d',
         'registration_closed_at' => 'datetime:Y-m-d'
     ];
@@ -37,7 +39,9 @@ class Competition extends Model
         'min_participants',
         'max_participants',
         'registration_opened_at',
-        'registration_closed_at'
+        'registration_closed_at',
+        'registration_quota',
+        'use_institution_field'
     ];
 
     protected $guarded = ['id'];
@@ -47,6 +51,12 @@ class Competition extends Model
         static::retrieved(function (Model $model) {
             $model->setAttribute('type', EventTypeEnum::Competition->value);
             $model->setAttribute('is_still_opened', now()->greaterThanOrEqualTo($model->getAttribute('registration_closed_at')));
+            $model->setAttribute('is_quota_full', $model->getAttribute('registration_quota') <= $model->registrations()->count());
         });
+    }
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
     }
 }

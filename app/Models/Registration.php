@@ -22,7 +22,9 @@ class Registration extends Model
         'name',
         'phone',
         'instagram',
-        'nickname'
+        'nickname',
+        'institution',
+        'address',
     ];
 
     protected $guarded = ['id'];
