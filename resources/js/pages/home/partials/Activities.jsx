@@ -204,7 +204,7 @@ export default function Activities({ activities, competitions }) {
                                                 }
                                             }).toString()}
                                             src={activity.image_url}
-                                            alt="Coming soon"
+                                            alt="Failed to load"
                                             />
                                     ) : (
                                         <img

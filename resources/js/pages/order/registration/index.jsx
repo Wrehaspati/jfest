@@ -238,7 +238,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         type="submit"
                                         fullWidth
                                     >
-                                        Add To My Orders Lists
+                                        Order Now
                                     </Button>
                                 </Form>
                             );

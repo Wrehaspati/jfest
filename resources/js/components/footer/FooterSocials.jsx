@@ -3,7 +3,7 @@ import { Title } from "../title";
 
 // import { ReactComponent as FacebookIcon } from "@/assets/icons/facebook.svg";
 import { ReactComponent as InstagramIcon } from "@/assets/icons/instagram.svg";
-// import { ReactComponent as TiktokIcon } from "@/assets/icons/tiktok.svg";
+import { ReactComponent as TiktokIcon } from "@/assets/icons/tiktok.svg";
 
 const socials = [
     {
@@ -11,6 +11,12 @@ const socials = [
         label: "@jfestbali",
         href: "https://instagram.com/jfestbali",
         Icon: InstagramIcon,
+    },
+    {
+        id: 2,
+        label: "@jfest.bali",
+        href: "https://www.tiktok.com/@jfest.bali?lang=id-ID",
+        Icon: TiktokIcon,
     },
 ];
 
@@ -21,7 +27,7 @@ const SocialLink = styled("a", {
     gap: "1rem",
     color: "$white",
     fontFamily: "$main",
-    fontSize: "1.3em",
+    fontSize: "1rem",
     letterSpacing: 2,
     textDecoration: "none",
     textDecorationColor: "transparent",
@@ -49,7 +55,7 @@ export default function FooterSocials() {
                 "@mobile": { gridColumn: "1 / -1", paddingTop: "1.5rem" },
             }).toString()}
         >
-            <Title order={2} css={{ fontSize: "1.25em", color: "$white" }}>
+            <Title order={2} css={{ fontSize: "1.25rem", color: "$white" }}>
                 Social Media
             </Title>
             <div
@@ -60,7 +66,7 @@ export default function FooterSocials() {
                 }).toString()}
             >
                 {socials.map((social) => (
-                    <SocialLink key={social.id} href={social.href}>
+                    <SocialLink key={social.id} href={social.href} target="_blank">
                         <social.Icon />
                         <span>{social.label}</span>
                     </SocialLink>

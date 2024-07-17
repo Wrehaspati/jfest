@@ -55,8 +55,7 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                     <Text css={{ 
                         color: "$dark" 
                         }}>
-                        You don&quot;t have any orders yet. Lets make an order
-                        now!
+                        You don't have any orders yet. Let's make an order now!
                     </Text>
                     <Link
                         href={orderTicketUrl}

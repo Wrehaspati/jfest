@@ -48,7 +48,7 @@ export default function Image({ src = null, type, ...props }) {
         <div className={css({ position: "relative", height: "min-content" }).toString()}>
             <BaseImageOuter frame={type} />
                 {src ? (
-                    <BaseImageInner src={src} alt={"Image Fail Load"} {...props} />
+                    <BaseImageInner src={src} alt={"Failed to load"} {...props} />
                 ) : (
                     <img
                         className={css({
