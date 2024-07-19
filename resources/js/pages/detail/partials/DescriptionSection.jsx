@@ -7,7 +7,7 @@ export default function DescriptionSection({ description }) {
         <section
             style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
         >
-            <Text css={{ display: "flex", gap: "1rem", alignItems: "center", color: "$dark", overflow: "hidden" }}>
+            <Text css={{ display: "flex", gap: "1rem", alignItems: "center", color: "$dark", overflow: "hidden", textTransform: "capitalized" }}>
                 <Dollar />
                 Description
             </Text>

@@ -185,14 +185,14 @@ export default function Activities({ activities, competitions }) {
                                     {activity.image_url ? (
                                         <img
                                         className={css({
-                                                height: "85%",
-                                                width: "50%",
-                                                objectFit: "cover",
+                                                height: "67%",
+                                                width: "44%",
+                                                objectFit: "contain",
                                                 objectPosition: "center",
                                                 textAlign: "center",
                                                 position: "absolute",
-                                                top: "54%",
-                                                left: "50%",
+                                                top: "57%",
+                                                left: "49%",
                                                 translate: "-50% -50%",
                                                 lineHeight: "16vw",
                                                 fontSize: "1vw",
@@ -242,10 +242,12 @@ export default function Activities({ activities, competitions }) {
                                     >
                                         <Text css={{color: "$dark"}} className={css({
                                                 wordBreak: "keep-all", 
+                                                fontSize: "1.2vw",
                                                 overflow: "hidden",
-                                                width: "60%",
+                                                width: "70%",
                                                 padding: "0.1vw 0",
-                                                "@mobile":{width:  "min-content"}
+                                                "@mobile":{width:  "60%", fontSize: "1.2rem"},
+                                                "@tablet":{fontSize: "2vw"}
                                             }).toString()}>
                                             {activity.name}
                                         </Text>
@@ -308,7 +310,7 @@ export default function Activities({ activities, competitions }) {
                                             {activity.is_going_on ? "Sold Out" : "Event Ended"}
                                         </Text>
                                     </div>
-                                ) : !isActivity && activity.is_still_opened ? (
+                                ) : (!isActivity && activity.is_closed) || (!isActivity && activity.is_quota_full) ? (
                                 <div
                                         className={css({
                                             display: "flex",

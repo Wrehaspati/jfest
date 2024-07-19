@@ -1,6 +1,7 @@
 import { Link, usePage } from "@inertiajs/react";
-import { styled } from "@/root/stitches.config";
+import { styled, css } from "@/root/stitches.config";
 import { useEffect } from "react";
+import { UserCardAvatar, UserCardName } from "./UserCard";
 
 import useAuth from "@/hooks/useAuth";
 import useNavbar from "@/hooks/useNavbar";
@@ -24,6 +25,31 @@ const Container = styled("nav", {
         },
     },
 });
+
+const Profile = styled("div", {
+    position: "fixed",
+    left: 0,
+    right: 0,
+    bottom: 25,
+    zIndex: 99,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+});
+
+const Login = styled("a", {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textDecoration: "none",
+    color: "$dark",
+    fontFamily: "$main",
+    fontSize: "2rem",
+    border: "none",
+    borderRadius: "0.5rem",
+    backgroundColor: "transparent",
+    outline: "none",
+})
 
 const Menu = styled("div", {
     display: "flex",
@@ -49,6 +75,20 @@ const MenuLink = styled(Link, {
     },
 });
 
+const LogoutButton = styled("button", {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textDecoration: "none",
+    color: "$dark",
+    fontFamily: "$main",
+    fontSize: "2rem",
+    border: "none",
+    borderRadius: "0.5rem",
+    backgroundColor: "transparent",
+    outline: "none",
+});
+
 const CloseButton = styled("div", {
     position: "absolute",
     top: 0,
@@ -66,12 +106,18 @@ const CloseButton = styled("div", {
 
 export default function NavbarResponsive() {
     const {
-        links: { navbarUrl },
+        links: { navbarUrl, authUrl },
         isMobileNavbarOpened,
         toggleIsMobileNavbarOpened,
     } = useNavbar();
-    const { isAuthenticated } = useAuth();
+
     const { url } = usePage();
+    const { auth, isAuthenticated, revokeAuth } = useAuth();
+
+    function handleRevokeAuth(evt) {
+        evt.preventDefault();
+        revokeAuth(authUrl.revoke);
+    }
 
     useEffect(() => {
         if (isMobileNavbarOpened) toggleIsMobileNavbarOpened();
@@ -92,7 +138,28 @@ export default function NavbarResponsive() {
                         </MenuLink>
                     ) : null
                 )}
+                {isAuthenticated ? (
+                    <LogoutButton
+                        onClick={handleRevokeAuth}
+                    >
+                        Sign Out
+                    </LogoutButton>
+                ) : (
+                    <Login
+                        href={authUrl.attempt}
+                    >
+                        Sign In
+                    </Login>
+                )}
             </Menu>
+            {isAuthenticated ? (    
+                <Profile>
+                    <UserCardAvatar>
+                        <img src={auth.avatar} alt={`${auth.email} avatar`} />
+                    </UserCardAvatar>
+                    <UserCardName css={{ fontSize: "1rem" }}>{auth.name}</UserCardName>
+                </Profile>
+            ) : null}
             <CloseButton onClick={toggleIsMobileNavbarOpened}>
                 &times;
             </CloseButton>

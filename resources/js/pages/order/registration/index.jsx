@@ -64,6 +64,8 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
         email: "",
         name: "",
         phone: "",
+        address: "",
+        institution: null,
         instagram: null,
         nickname: null,
         teamName: null,
@@ -72,7 +74,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                 ? data.min_participants - 1
                 : data.min_participants
         ).fill({
-            name: "",
+            name: null,
             instagram: null,
             nickname: null,
         }),
@@ -91,7 +93,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
             {generateMetadata(meta.head)}
             <Container css={{ gap: "2rem" }}>
                 <HeaderSection data={data} isActivity={isActivity} />
-                { data.is_still_opened ? (
+                { data.is_closed ? (
                     <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>Registration is Closed</Text>
                 ) : (
                     <Formik
@@ -155,6 +157,40 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
+                                    <InputOuterWrapper>
+                                        <InputWrapper>
+                                            <TextInput
+                                                name="address"
+                                                placeholder="Type your home address here..."
+                                                value={values.address}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                css={{ width: "100%" }}
+                                            />
+                                            {errors.address && (
+                                                <ErrorMessage msg={errors.address} />
+                                            )}
+                                        </InputWrapper>
+                                    </InputOuterWrapper>
+                                    {data.use_institution_field && (
+                                        <InputOuterWrapper>
+                                            <InputWrapper>
+                                                <TextInput
+                                                    name="institution"
+                                                    placeholder="Type your institution (SMK/SMA/UMUM) here..."
+                                                    value={values.institution}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                />
+                                                {errors.institution && (
+                                                    <ErrorMessage
+                                                        msg={errors.institution}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
                                     {data.use_instagram_field && (
                                         <InputOuterWrapper
                                             css={{

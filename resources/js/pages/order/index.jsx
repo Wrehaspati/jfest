@@ -49,11 +49,15 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                         backgroundColor: "$white",
                         textAlign: "center",
                         gap: "1rem",
+                        justifyItems: "center",
                     }).toString()}
                 >
                     <Title order={4}>Nothing Here</Title>
                     <Text css={{ 
-                        color: "$dark" 
+                        color: "$dark",
+                        "@mobile": {
+                            width: "80%",
+                        } 
                         }}>
                         You don't have any orders yet. Let's make an order now!
                     </Text>

@@ -9,7 +9,7 @@ export const UserCard = styled("div", {
 });
 
 export const UserCardName = styled(Text, {
-    color: "$dark",
+    color: "inherit",
     whiteSpace: "nowrap",
     overflow: "hidden",
 });
@@ -20,7 +20,7 @@ export const UserCardAvatar = styled("span", {
     justifyContent: "center",
     height: "2.25rem",
     width: "2.25rem",
-    border: "1.5px solid $dark",
+    border: "1.5px solid $white",
     borderRadius: "50%",
     backgroundColor: "transparent",
     "& > img": {

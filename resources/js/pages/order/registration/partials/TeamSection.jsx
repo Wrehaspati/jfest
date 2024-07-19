@@ -137,7 +137,7 @@ export default function TeamSection({
                                                 {({ field }) => (
                                                     <InputPlain
                                                         name="name"
-                                                        placeholder="Type your name here"
+                                                        placeholder="Type the name of your team member here..."
                                                         errors={errors}
                                                         field={field}
                                                         idx={idx}
@@ -152,7 +152,7 @@ export default function TeamSection({
                                                         <InputWithIcon
                                                             icon="@"
                                                             name="instagram"
-                                                            placeholder="Type your instagram username..."
+                                                            placeholder="Type your team member's Instagram username..."
                                                             errors={errors}
                                                             field={field}
                                                             idx={idx}
@@ -167,7 +167,7 @@ export default function TeamSection({
                                                     {({ field }) => (
                                                         <InputPlain
                                                             name="nickname"
-                                                            placeholder="Type your desired nickname..."
+                                                            placeholder="Type your team member's desired nickname..."
                                                             errors={errors}
                                                             field={field}
                                                             idx={idx}

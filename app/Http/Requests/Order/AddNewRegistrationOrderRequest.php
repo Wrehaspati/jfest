@@ -24,6 +24,14 @@ class AddNewRegistrationOrderRequest extends FormRequest
                 'required' => 'Field :attribute is required',
                 'string' => 'Field :attribute must be a string',
             ],
+            'address' => [
+                'required' => 'Field :attribute is required',
+                'string' => 'Field :attribute must be a string',
+            ],
+            'institution' => [
+                'required' => 'Field :attribute is required',
+                'string' => 'Field :attribute must be a string',
+            ],
             'phone' => [
                 'required' => 'Field :attribute is required',
                 'numeric' => 'Field :attribute must be a numeric values',
@@ -64,6 +72,8 @@ class AddNewRegistrationOrderRequest extends FormRequest
         return [
             'email' => 'required|email',
             'name' => 'required|string',
+            'address' => 'required|string|min:10',
+            'institution' => 'required|string',
             'phone' => 'required|numeric|min:10',
             'instagram' => 'nullable|string|min:3',
             'nickname' => 'nullable|string|min:3',

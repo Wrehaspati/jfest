@@ -28,11 +28,19 @@ const LogoutButton = styled("button", {
     "& > svg": {
         height: "70%",
         width: "70%",
-        fill: "$dark",
-    },
+        fill: "inherit",
+    }
 });
 
-const MenuButton = styled(LogoutButton, {});
+const MenuButton = styled(LogoutButton, {
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
+    backdropFilter: "blur(10px)",
+    height: "3rem",
+    width: "3rem",
+    "& > svg": {
+        fill: "$white",
+    }
+});
 
 export default function NavbarCta({ theme }) {
     const { width } = useWindowSize();
@@ -51,23 +59,33 @@ export default function NavbarCta({ theme }) {
         <>
             {isAuthenticated ? (
                 <UserCard>
-                    <UserCardName>{auth.name}</UserCardName>
-                    <UserCardAvatar>
-                        <img src={auth.avatar} alt={`${auth.email} avatar`} />
-                    </UserCardAvatar>
-                    <LogoutButton onClick={handleRevokeAuth}>
-                        <LogoutIcon />
-                    </LogoutButton>
-                    {width < 500 && (
+                    
+                    {width <= 768 ? (
                         <MenuButton onClick={toggleIsMobileNavbarOpened}>
                             <MenuIcon />
                         </MenuButton>
+                    ) : (
+                        <>
+                            <UserCardName>{auth.name}</UserCardName>
+                            <UserCardAvatar>
+                                <img src={auth.avatar} alt={`${auth.email} avatar`} />
+                            </UserCardAvatar>
+                            <LogoutButton onClick={handleRevokeAuth}>
+                                <LogoutIcon />
+                            </LogoutButton>
+                        </>
                     )}
                 </UserCard>
             ) : (
-                <Button color={theme} as="a" href={authUrl.attempt}>
-                    Login / Register
-                </Button>
+                width <= 768 ? (
+                    <MenuButton onClick={toggleIsMobileNavbarOpened}>
+                        <MenuIcon />
+                    </MenuButton>
+                ) : (
+                    <Button color={theme} as="a" href={authUrl.attempt}>
+                        Login / Register
+                    </Button>
+                )
             )}
         </>
     );

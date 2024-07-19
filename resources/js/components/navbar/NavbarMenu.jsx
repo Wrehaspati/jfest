@@ -22,7 +22,7 @@ const ListItem = styled("li", {
     height: "fit-content",
     width: "fit-content",
     fontFamily: "batangas",
-    color: "$dark",
+    color: "inherit",
     cursor: "unset",
     "@desktop": { fontSize: "$normal-desktop" },
     "@laptop": { fontSize: "$normal-laptop" },
@@ -31,7 +31,7 @@ const ListItem = styled("li", {
 });
 
 const ListItemAnchor = styled("a", {
-    color: "$dark",
+    color: "inherit",
     textDecoration: "none",
     textDecorationColor: "transparent",
     "&:hover": {
@@ -59,7 +59,7 @@ export default function NavbarMenu() {
         setCurrentUrl(window.location.href.replace(/\/$/, ""));
     }, [window.location.href]);
 
-    if (width <= 500) {
+    if (width <= 768) {
         return null;
     }
 

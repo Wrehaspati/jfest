@@ -12,7 +12,7 @@ const Title = styled(Text, {
 
 export default function HeaderSection({ name, type, isActivity, closedDate }) {
     const date = new Date(closedDate);
-    const option = { day: 'numeric', month: 'long', year: 'numeric' };
+    const option = { day: 'numeric', month: 'short', year: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-GB', option);
     return (
         <section

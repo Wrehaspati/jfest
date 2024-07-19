@@ -15,6 +15,30 @@ class AddNewRegistrationOrderController extends Controller
 {
     public function create(Request $request, Competition $competition)
     {
+        if ($competition->is_quota_full) {
+            $request->session()->flash(
+                'message',
+                sprintf(
+                    'Registration quota for %s is already reached.',
+                    $competition->name
+                )
+            );
+
+            return Inertia::location(route('global.home'));
+        }
+
+        if ($competition->is_closed) {
+            $request->session()->flash(
+                'message',
+                sprintf(
+                    'Registration for %s is already closed.',
+                    $competition->name
+                )
+            );
+
+            return Inertia::location(route('global.home'));
+        }
+
         $competition->type = EventTypeEnum::Competition->value;
 
         return Inertia::render('order/registration/index', [
@@ -37,6 +61,30 @@ class AddNewRegistrationOrderController extends Controller
         Competition $competition,
         OrderService $orderService
     ) {
+        if ($competition->is_quota_full) {
+            $request->session()->flash(
+                'message',
+                sprintf(
+                    'Registration quota for %s is already reached.',
+                    $competition->name
+                )
+            );
+
+            return Inertia::location(route('global.home'));
+        }
+
+        if ($competition->is_closed) {
+            $request->session()->flash(
+                'message',
+                sprintf(
+                    'Registration for %s is already closed.',
+                    $competition->name
+                )
+            );
+
+            return Inertia::location(route('global.home'));
+        }
+
         $data = $request->validated();
         $user = $request->user();
 
