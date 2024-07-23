@@ -138,7 +138,7 @@ export default function TicketCard({ data }) {
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "0.5rem",
+                    gap: "0.5rem"
                 }}
             >
                 <Text css={{ color: "$dark", overflow: "hidden" }}>Ticket {data.activity.name}</Text>
@@ -146,7 +146,10 @@ export default function TicketCard({ data }) {
                     css={{
                         color: "$dark",
                         fontSize: "1rem", 
-                        overflow: "hidden"
+                        overflow: "hidden",
+                        "@mobile" : {
+                            fontSize: "0.7rem"
+                        }
                     }}
                 >
                     Activity - {data.activity.dateStr}
@@ -158,7 +161,7 @@ export default function TicketCard({ data }) {
                     alignItems: "center",
                     justifyContent: "flex-end",
                     gap: "2rem",
-                    "@mobile": { gap: "1rem" },
+                    "@mobile": { gap: "0rem" },
                 }).toString()}
             >
                 {width > 768 && (
@@ -179,10 +182,12 @@ export default function TicketCard({ data }) {
                             fontSize: "1.5rem",
                             textAlign: "right",
                             overflow: "hidden",
-                            "@mobile": { fontSize: "3vw", wordBreak: "break-all" },
+                            "@mobile": { fontSize: "0.7rem", wordBreak: "" },
                         }}
                     >
+                        <marquee scrollamount="3">
                         Pending
+                        </marquee>
                     </Text>
                 )}
                 {!data.registration_id && (

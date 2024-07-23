@@ -18,9 +18,9 @@ export default function NavbarLogo() {
         links: { homeUrl },
     } = useNavbar();
 
-    // if (width <= 768) {
-    //     return null;
-    // }
+    if (width <= 768) {
+        return null;
+    }
 
     return (
         <Link href={homeUrl}>

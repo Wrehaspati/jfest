@@ -157,7 +157,7 @@ export default function NavbarResponsive() {
                     <UserCardAvatar>
                         <img src={auth.avatar} alt={`${auth.email} avatar`} />
                     </UserCardAvatar>
-                    <UserCardName css={{ fontSize: "1rem" }}>{auth.name}</UserCardName>
+                    <UserCardName css={{ fontSize: "1rem", paddingLeft: "0.5rem" }}>{auth.name}</UserCardName>
                 </Profile>
             ) : null}
             <CloseButton onClick={toggleIsMobileNavbarOpened}>

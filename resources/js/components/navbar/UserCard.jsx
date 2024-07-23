@@ -20,7 +20,7 @@ export const UserCardAvatar = styled("span", {
     justifyContent: "center",
     height: "2.25rem",
     width: "2.25rem",
-    border: "1.5px solid $white",
+    border: "1.5px solid $dark",
     borderRadius: "50%",
     backgroundColor: "transparent",
     "& > img": {

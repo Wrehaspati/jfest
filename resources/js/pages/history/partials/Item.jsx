@@ -71,7 +71,8 @@ export default function Item({ data, type }) {
                                     css={{
                                         fontSize: "1.25rem",
                                         color: "$dark",
-                                        overflow: "hidden"
+                                        overflow: "hidden",
+                                        textTransform: "capitalize",
                                     }}
                                 >
                                     - {member.name}
@@ -114,7 +115,7 @@ export default function Item({ data, type }) {
                                     color:
                                         data.attended_status !== "attended"
                                             ? "$secondary"
-                                            : "$dark",
+                                            : "green",
                                     fontSize: "1.25rem",
                                     overflow: "hidden"
                                 }}

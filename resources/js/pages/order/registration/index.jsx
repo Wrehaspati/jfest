@@ -116,7 +116,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         <InputWrapper>
                                             <TextInput
                                                 name="email"
-                                                placeholder="Type your email here..."
+                                                placeholder="Ketikan email..."
                                                 value={values.email}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
@@ -127,6 +127,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
+                                    {/* {data.use_name_field && (
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
@@ -142,11 +143,31 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
+                                    )} */}
+                                    {data.use_nickname_field && (
+                                        <InputOuterWrapper>
+                                            <InputWrapper>
+                                                <TextInput
+                                                    name="nickname"
+                                                    placeholder="Ketikan nickname atau alias..."
+                                                    value={values.nickname}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                />
+                                                {errors.nickname && (
+                                                    <ErrorMessage
+                                                        msg={errors.nickname}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
                                                 name="phone"
-                                                placeholder="Type your phone number here..."
+                                                placeholder="Ketikan nomor telepon..."
                                                 value={values.phone}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
@@ -161,7 +182,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         <InputWrapper>
                                             <TextInput
                                                 name="address"
-                                                placeholder="Type your home address here..."
+                                                placeholder="Ketikan alamat tinggal..."
                                                 value={values.address}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
@@ -177,7 +198,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             <InputWrapper>
                                                 <TextInput
                                                     name="institution"
-                                                    placeholder="Type your institution (SMK/SMA/UMUM) here..."
+                                                    placeholder="Ketikan institusi (SMK/SMA/UMUM)..."
                                                     value={values.institution}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
@@ -202,7 +223,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             <InputWrapper css={{ width: '100%' }}>
                                                 <TextInput
                                                     name="instagram"
-                                                    placeholder="Type your instagram username here..."
+                                                    placeholder="Ketikan username Instagram..."
                                                     value={values.instagram}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
@@ -216,32 +237,13 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             </InputWrapper>
                                         </InputOuterWrapper>
                                     )}
-                                    {data.use_nickname_field && (
-                                        <InputOuterWrapper>
-                                            <InputWrapper>
-                                                <TextInput
-                                                    name="nickname"
-                                                    placeholder="Type your nickname here..."
-                                                    value={values.nickname}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    css={{ width: "100%" }}
-                                                />
-                                                {errors.nickname && (
-                                                    <ErrorMessage
-                                                        msg={errors.nickname}
-                                                    />
-                                                )}
-                                            </InputWrapper>
-                                        </InputOuterWrapper>
-                                    )}
                                     {data.use_multi_participant &&
                                         values.teamMembers.length > 0 && (
                                             <InputOuterWrapper>
                                                 <InputWrapper>
                                                     <TextInput
                                                         name="teamName"
-                                                        placeholder="Type your team name here..."
+                                                        placeholder="Ketikan nama tim yang diinginkan..."
                                                         value={values.teamName}
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}
