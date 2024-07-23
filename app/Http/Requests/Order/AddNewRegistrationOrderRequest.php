@@ -21,7 +21,7 @@ class AddNewRegistrationOrderRequest extends FormRequest
                 'email' => 'Invalid email provided',
             ],
             'name' => [
-                'required' => 'Field :attribute is required',
+                // 'required' => 'Field :attribute is required',
                 'string' => 'Field :attribute must be a string',
             ],
             'address' => [
@@ -64,6 +64,9 @@ class AddNewRegistrationOrderRequest extends FormRequest
                 'string' => 'Field nickname must be a string',
                 'min' => 'Field nickname must be at least :min characters'
             ],
+            'institution' => [
+                'string' => 'Field :attribute must be a string'
+            ]
         ];
     }
 
@@ -71,7 +74,7 @@ class AddNewRegistrationOrderRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'name' => 'required|string',
+            'name' => 'nullable|string',
             'address' => 'required|string|min:10',
             'institution' => 'required|string',
             'phone' => 'required|numeric|min:10',

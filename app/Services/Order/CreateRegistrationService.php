@@ -79,7 +79,9 @@ class CreateRegistrationService
             'phone' => $data['phone'],
             'instagram' => $data['instagram'],
             'nickname' => $data['nickname'],
-            'price' => $competition->price
+            'price' => $competition->price,
+            'address' => $data['address'],
+            'institution' => $data['institution']
         ]);
 
         $order->registrations()->save($registration);
