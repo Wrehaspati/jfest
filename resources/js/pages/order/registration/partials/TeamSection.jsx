@@ -137,7 +137,7 @@ export default function TeamSection({
                                                 {({ field }) => (
                                                     <InputPlain
                                                         name="name"
-                                                        placeholder="Type your name here"
+                                                        placeholder="Ketikan nama lengkap anggota tim..."
                                                         errors={errors}
                                                         field={field}
                                                         idx={idx}
@@ -152,7 +152,7 @@ export default function TeamSection({
                                                         <InputWithIcon
                                                             icon="@"
                                                             name="instagram"
-                                                            placeholder="Type your instagram username..."
+                                                            placeholder="Ketikan Instagram anggota tim..."
                                                             errors={errors}
                                                             field={field}
                                                             idx={idx}
@@ -167,7 +167,7 @@ export default function TeamSection({
                                                     {({ field }) => (
                                                         <InputPlain
                                                             name="nickname"
-                                                            placeholder="Type your desired nickname..."
+                                                            placeholder="Ketikan nickname untuk anggota tim..."
                                                             errors={errors}
                                                             field={field}
                                                             idx={idx}

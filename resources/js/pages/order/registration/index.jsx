@@ -64,6 +64,8 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
         email: "",
         name: "",
         phone: "",
+        address: "",
+        institution: null,
         instagram: null,
         nickname: null,
         teamName: null,
@@ -72,7 +74,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                 ? data.min_participants - 1
                 : data.min_participants
         ).fill({
-            name: "",
+            name: null,
             instagram: null,
             nickname: null,
         }),
@@ -91,7 +93,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
             {generateMetadata(meta.head)}
             <Container css={{ gap: "2rem" }}>
                 <HeaderSection data={data} isActivity={isActivity} />
-                { data.is_still_opened ? (
+                { data.is_closed ? (
                     <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>Registration is Closed</Text>
                 ) : (
                     <Formik
@@ -114,7 +116,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         <InputWrapper>
                                             <TextInput
                                                 name="email"
-                                                placeholder="Type your email here..."
+                                                placeholder="Ketikan email..."
                                                 value={values.email}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
@@ -125,6 +127,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
+                                    {/* {data.use_name_field && (
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
@@ -140,52 +143,13 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                    <InputOuterWrapper>
-                                        <InputWrapper>
-                                            <TextInput
-                                                name="phone"
-                                                placeholder="Type your phone number here..."
-                                                value={values.phone}
-                                                onChange={handleChange}
-                                                onBlur={handleBlur}
-                                                css={{ width: "100%" }}
-                                            />
-                                            {errors.phone && (
-                                                <ErrorMessage msg={errors.phone} />
-                                            )}
-                                        </InputWrapper>
-                                    </InputOuterWrapper>
-                                    {data.use_instagram_field && (
-                                        <InputOuterWrapper
-                                            css={{
-                                                display: 'flex',
-                                                width: "100%",
-                                            }}
-                                        >
-                                            <Text css={{ color: "$dark" }}>@</Text>
-                                            <InputWrapper css={{ width: '100%' }}>
-                                                <TextInput
-                                                    name="instagram"
-                                                    placeholder="Type your instagram username here..."
-                                                    value={values.instagram}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    css={{ width: "100%" }}
-                                                />
-                                                {errors.instagram && (
-                                                    <ErrorMessage
-                                                        msg={errors.instagram}
-                                                    />
-                                                )}
-                                            </InputWrapper>
-                                        </InputOuterWrapper>
-                                    )}
+                                    )} */}
                                     {data.use_nickname_field && (
                                         <InputOuterWrapper>
                                             <InputWrapper>
                                                 <TextInput
                                                     name="nickname"
-                                                    placeholder="Type your nickname here..."
+                                                    placeholder="Ketikan nickname atau alias..."
                                                     value={values.nickname}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
@@ -199,13 +163,87 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             </InputWrapper>
                                         </InputOuterWrapper>
                                     )}
+                                    <InputOuterWrapper>
+                                        <InputWrapper>
+                                            <TextInput
+                                                name="phone"
+                                                placeholder="Ketikan nomor telepon..."
+                                                value={values.phone}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                css={{ width: "100%" }}
+                                            />
+                                            {errors.phone && (
+                                                <ErrorMessage msg={errors.phone} />
+                                            )}
+                                        </InputWrapper>
+                                    </InputOuterWrapper>
+                                    <InputOuterWrapper>
+                                        <InputWrapper>
+                                            <TextInput
+                                                name="address"
+                                                placeholder="Ketikan alamat tinggal..."
+                                                value={values.address}
+                                                onChange={handleChange}
+                                                onBlur={handleBlur}
+                                                css={{ width: "100%" }}
+                                            />
+                                            {errors.address && (
+                                                <ErrorMessage msg={errors.address} />
+                                            )}
+                                        </InputWrapper>
+                                    </InputOuterWrapper>
+                                    {data.use_institution_field && (
+                                        <InputOuterWrapper>
+                                            <InputWrapper>
+                                                <TextInput
+                                                    name="institution"
+                                                    placeholder="Ketikan institusi (SMK/SMA/UMUM)..."
+                                                    value={values.institution}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                />
+                                                {errors.institution && (
+                                                    <ErrorMessage
+                                                        msg={errors.institution}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
+                                    {data.use_instagram_field && (
+                                        <InputOuterWrapper
+                                            css={{
+                                                display: 'flex',
+                                                width: "100%",
+                                            }}
+                                        >
+                                            <Text css={{ color: "$dark" }}>@</Text>
+                                            <InputWrapper css={{ width: '100%' }}>
+                                                <TextInput
+                                                    name="instagram"
+                                                    placeholder="Ketikan username Instagram..."
+                                                    value={values.instagram}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                />
+                                                {errors.instagram && (
+                                                    <ErrorMessage
+                                                        msg={errors.instagram}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
                                     {data.use_multi_participant &&
                                         values.teamMembers.length > 0 && (
                                             <InputOuterWrapper>
                                                 <InputWrapper>
                                                     <TextInput
                                                         name="teamName"
-                                                        placeholder="Type your team name here..."
+                                                        placeholder="Ketikan nama tim yang diinginkan..."
                                                         value={values.teamName}
                                                         onChange={handleChange}
                                                         onBlur={handleBlur}

@@ -4,14 +4,14 @@ import ComingSoon from "@/assets/misc/coming-soon.png";
 import Frame from "@/assets/activities/frame.png";
 
 const BaseImageInner = styled("img", {
-    height: 260,
-    width: 240,
-    objectFit: "cover",
+    height: "67%",
+    width: "44%",
+    objectFit: "contain",
     objectPosition: "center",
     textAlign: "center",
     position: "absolute",
-    top: "51%",
-    left: "50%",
+    top: "57%",
+    left: "49%",
     translate: "-50% -50%",
     lineHeight: 10,
     fontSize: 30

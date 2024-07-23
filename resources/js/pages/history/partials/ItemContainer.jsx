@@ -7,6 +7,7 @@ const Container = styled("div", {
     width: "100%",
     height: "max-content",
     paddingTop: "0.5rem",
+    borderBottom: "0.3rem solid $dark"
 });
 
 export default function ItemContainer({ children }) {

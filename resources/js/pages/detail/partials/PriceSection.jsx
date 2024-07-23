@@ -9,7 +9,8 @@ export default function PriceSection({
     price,
     priceTag,
     isActivity,
-    isStillOpened,
+    isClosed,
+    isFull,
     isTicketsAvailable,
     isGoingOn,
     guideBook,
@@ -52,7 +53,7 @@ export default function PriceSection({
                     >
                         <Text css={{ color: "$secondary", overflow: "hidden" }}>{isGoingOn ? "Sold Out" : "Event Ended"}</Text>
                     </div>
-                ) : !isActivity && isStillOpened ? (
+                ) : (!isActivity && isClosed) || (!isActivity && isFull) ? (
                     <div
                         className={css({
                             display: "flex",

@@ -19,6 +19,8 @@ const Container = styled("nav", {
     transition: "all .2s ease-in-out",
     transitionProperty: "backdrop-filter",
     zIndex: 9,
+    color: "$dark",
+    fill: "$dark",
     "& > .left": {
         display: "flex",
         alignItems: "center",
@@ -37,6 +39,9 @@ const Container = styled("nav", {
     defaultVariants: {
         px: "desktop",
     },
+    "@mobile": {
+        top: 14
+    }
 });
 
 export default function Navbar({ theme = "dark" }) {
@@ -45,7 +50,11 @@ export default function Navbar({ theme = "dark" }) {
     return (
         <Container css={state.y > 20 ? { 
             backdropFilter: "blur(10px)",
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            "@mobile": {
+                backdropFilter: "none",
+                backgroundColor: "transparent",
+            }
         } : null}>
             <div className="left">
                 <NavbarLogo />
