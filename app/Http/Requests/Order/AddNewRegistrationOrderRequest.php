@@ -66,6 +66,9 @@ class AddNewRegistrationOrderRequest extends FormRequest
             ],
             'institution' => [
                 'string' => 'Field :attribute must be a string'
+            ],
+            'withTools' => [
+                'boolean' => 'Field :attribute must be a boolean'
             ]
         ];
     }
@@ -85,6 +88,7 @@ class AddNewRegistrationOrderRequest extends FormRequest
             'teamMembers.*.name' => 'required_unless:teamName,null|string',
             'teamMembers.*.instagram' => 'nullable|string|min:3',
             'teamMembers.*.nickname' => 'nullable|string|min:3',
+            'withTools' => 'nullable|boolean'
         ];
     }
 }

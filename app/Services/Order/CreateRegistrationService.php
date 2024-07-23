@@ -81,7 +81,8 @@ class CreateRegistrationService
             'nickname' => $data['nickname'],
             'price' => $competition->price,
             'address' => $data['address'],
-            'institution' => $data['institution']
+            'institution' => $data['institution'],
+            'with_tools' => $data['withTools']
         ]);
 
         $order->registrations()->save($registration);

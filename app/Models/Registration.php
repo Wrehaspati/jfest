@@ -11,6 +11,7 @@ class Registration extends Model
 {
     protected $casts = [
         'price' => 'integer',
+        'with_tools' => 'boolean'
     ];
 
     protected $fillable = [
@@ -25,6 +26,7 @@ class Registration extends Model
         'nickname',
         'institution',
         'address',
+        'with_tools'
     ];
 
     protected $guarded = ['id'];

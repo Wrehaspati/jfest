@@ -20,6 +20,8 @@ class Competition extends Model
         'max_participants' => 'integer',
         'registration_quota' => 'integer',
         'use_institution_field' => 'boolean',
+        'use_name_field' => 'boolean',
+        'use_tool_field' => 'boolean',
         'registration_opened_at' => 'datetime:Y-m-d',
         'registration_closed_at' => 'datetime:Y-m-d'
     ];
@@ -41,7 +43,9 @@ class Competition extends Model
         'registration_opened_at',
         'registration_closed_at',
         'registration_quota',
-        'use_institution_field'
+        'use_institution_field',
+        'use_name_field',
+        'use_tool_field',
     ];
 
     protected $guarded = ['id'];
