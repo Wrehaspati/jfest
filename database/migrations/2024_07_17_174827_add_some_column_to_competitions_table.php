@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('competitions', function (Blueprint $table) {
             $table->integer('registration_quota')->nullable()->default(null)->after('max_participants');
-            $table->boolean(('use_institution_field'))->default(false)->after('use_nickname_field');
+            $table->boolean('use_institution_field')->default(false)->after('use_nickname_field');
         });
     }
 

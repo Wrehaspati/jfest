@@ -173,7 +173,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registraion_quota' => 10,
+                'registration_quota' => 10,
                 'registration_opened_at' => Carbon::create(2024, 8, 1),
                 'registration_closed_at' => Carbon::create(2024, 9, 17),
             ]),
