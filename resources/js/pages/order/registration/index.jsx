@@ -193,7 +193,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                    {data.use_institution_field && (
+                                    {/* {data.use_institution_field && (
                                         <InputOuterWrapper>
                                             <InputWrapper>
                                                 <TextInput
@@ -211,7 +211,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 )}
                                             </InputWrapper>
                                         </InputOuterWrapper>
-                                    )}
+                                    )} */}
                                     {data.use_instagram_field && (
                                         <InputOuterWrapper
                                             css={{

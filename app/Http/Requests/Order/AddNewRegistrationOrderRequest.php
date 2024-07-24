@@ -64,9 +64,6 @@ class AddNewRegistrationOrderRequest extends FormRequest
                 'string' => 'Field nickname must be a string',
                 'min' => 'Field nickname must be at least :min characters'
             ],
-            'institution' => [
-                'string' => 'Field :attribute must be a string'
-            ],
             'withTools' => [
                 'boolean' => 'Field :attribute must be a boolean'
             ]
