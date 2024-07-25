@@ -108,7 +108,7 @@ export default function TeamSection({
     return (
         <Container>
             <header style={{ paddingTop: "1rem" }}>
-                <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden" }}>Your Teams</Text>
+                <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden" }}>Data Anggota Tim</Text>
             </header>
             <main
                 style={{

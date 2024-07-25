@@ -69,6 +69,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
         instagram: null,
         nickname: null,
         teamName: null,
+        withTools: true,
         teamMembers: new Array(
             data.min_participants === data.max_participants
                 ? data.min_participants - 1
@@ -112,44 +113,47 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         "@mobile": { width: "80%" },
                                     }).toString()}
                                 >
+                                    <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden" }}>Identitas Peserta</Text>
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
                                                 name="email"
-                                                placeholder="Ketikan email..."
+                                                placeholder="Ketikan email mu..."
                                                 value={values.email}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
+                                                required="required"
                                             />
                                             {errors.email && (
                                                 <ErrorMessage msg={errors.email} />
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                    {/* {data.use_name_field && (
+                                    {data.use_name_field && (
                                     <InputOuterWrapper>
                                         <InputWrapper>
                                             <TextInput
                                                 name="name"
-                                                placeholder="Type your name here..."
+                                                placeholder="Ketikan nama mu..."
                                                 value={values.name}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
+                                                required="required"
                                             />
                                             {errors.name && (
                                                 <ErrorMessage msg={errors.name} />
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                    )} */}
+                                    )}
                                     {data.use_nickname_field && (
                                         <InputOuterWrapper>
                                             <InputWrapper>
                                                 <TextInput
                                                     name="nickname"
-                                                    placeholder="Ketikan nickname atau alias..."
+                                                    placeholder="Ketikan nickname atau alias mu (opsional)..."
                                                     value={values.nickname}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
@@ -167,11 +171,12 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         <InputWrapper>
                                             <TextInput
                                                 name="phone"
-                                                placeholder="Ketikan nomor telepon..."
+                                                placeholder="Ketikan nomor telepon mu..."
                                                 value={values.phone}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
+                                                required="required"
                                             />
                                             {errors.phone && (
                                                 <ErrorMessage msg={errors.phone} />
@@ -182,27 +187,29 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                         <InputWrapper>
                                             <TextInput
                                                 name="address"
-                                                placeholder="Ketikan alamat tinggal..."
+                                                placeholder="Ketikan alamat tinggal mu..."
                                                 value={values.address}
                                                 onChange={handleChange}
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
+                                                required="required"
                                             />
                                             {errors.address && (
                                                 <ErrorMessage msg={errors.address} />
                                             )}
                                         </InputWrapper>
                                     </InputOuterWrapper>
-                                    {/* {data.use_institution_field && (
+                                    {data.use_institution_field && (
                                         <InputOuterWrapper>
                                             <InputWrapper>
                                                 <TextInput
                                                     name="institution"
-                                                    placeholder="Ketikan institusi (SMK/SMA/UMUM)..."
+                                                    placeholder="Ketikan institusi mu (SMK/SMA/UMUM)..."
                                                     value={values.institution}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     css={{ width: "100%" }}
+                                                    required="required"
                                                 />
                                                 {errors.institution && (
                                                     <ErrorMessage
@@ -211,11 +218,11 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 )}
                                             </InputWrapper>
                                         </InputOuterWrapper>
-                                    )} */}
+                                    )}
                                     {data.use_instagram_field && (
                                         <InputOuterWrapper
                                             css={{
-                                                display: 'flex',
+                                                display: "flex",
                                                 width: "100%",
                                             }}
                                         >
@@ -223,7 +230,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             <InputWrapper css={{ width: '100%' }}>
                                                 <TextInput
                                                     name="instagram"
-                                                    placeholder="Ketikan username Instagram..."
+                                                    placeholder="Ketikan username Instagram mu (opsional)..."
                                                     value={values.instagram}
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
@@ -237,25 +244,66 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                             </InputWrapper>
                                         </InputOuterWrapper>
                                     )}
+                                    {data.use_tool_field && (
+                                    <>
+                                        <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden", paddingTop: "1rem" }}>Pilihan Penggunaan Alat</Text>
+                                        <InputOuterWrapper css={{ display: "flex", fontSize: "1.4rem" }}>
+                                            <InputWrapper css={{ flexDirection: "row" }}>
+                                                <TextInput
+                                                    name="withTools"
+                                                    type="radio"
+                                                    value={0}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ display: "inline" }}
+                                                    id="withtools"
+                                                    required="required"
+                                                />
+                                                <label htmlFor="withtools" className={css({ userSelect: "none", fontSize: "1vw", "@mobile" : {fontSize: "3vw"} }).toString()}>pakai peralatan yang disediakan</label>
+                                            </InputWrapper>
+                                            <InputWrapper css={{ flexDirection: "row", fontSize: "1.4rem", fontWeight: "medium" }}>
+                                                <TextInput
+                                                    name="withTools"
+                                                    type="radio"
+                                                    value={1}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ display: "inline" }}
+                                                    id="withouttools"
+                                                    required="required"
+                                                />
+                                                <label htmlFor="withouttools" className={css({ userSelect: "none", fontSize: "1vw", "@mobile" : {fontSize: "3vw"} }).toString()}>pakai peralatan pribadi</label>
+                                            </InputWrapper>
+                                            {errors.withTools && (
+                                                <ErrorMessage
+                                                    msg={errors.withTools}
+                                                />
+                                            )}
+                                        </InputOuterWrapper>
+                                    </>
+                                    )}
                                     {data.use_multi_participant &&
                                         values.teamMembers.length > 0 && (
-                                            <InputOuterWrapper>
-                                                <InputWrapper>
-                                                    <TextInput
-                                                        name="teamName"
-                                                        placeholder="Ketikan nama tim yang diinginkan..."
-                                                        value={values.teamName}
-                                                        onChange={handleChange}
-                                                        onBlur={handleBlur}
-                                                        css={{ width: "100%" }}
-                                                    />
-                                                    {errors.teamName && (
-                                                        <ErrorMessage
-                                                            msg={errors.teamName}
+                                            <>
+                                                <Text css={{ fontSize: "1.6rem", color: "$dark", overflow: "hidden", paddingTop: "1rem" }}>Identitas Tim</Text>
+                                                <InputOuterWrapper>
+                                                    <InputWrapper>
+                                                        <TextInput
+                                                            name="teamName"
+                                                            placeholder="Ketikan nama tim yang diinginkan..."
+                                                            value={values.teamName}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            css={{ width: "100%" }}
                                                         />
-                                                    )}
-                                                </InputWrapper>
-                                            </InputOuterWrapper>
+                                                        {errors.teamName && (
+                                                            <ErrorMessage
+                                                                msg={errors.teamName}
+                                                            />
+                                                        )}
+                                                    </InputWrapper>
+                                                </InputOuterWrapper>
+                                            </>
                                         )}
                                     {data.use_multi_participant && (
                                         <TeamSection

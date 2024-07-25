@@ -14,7 +14,7 @@ const Container = styled("section", {
     display: "flex",
     flexDirection: "column",
     height: "max-content",
-    minHeight: "20vw",
+    minHeight: "70vh",
     padding: "2rem 5%",
     backgroundColor: "$white",
     "@desktop": { paddingTop: "9.5rem" },

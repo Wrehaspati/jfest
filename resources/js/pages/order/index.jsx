@@ -20,6 +20,7 @@ const Container = styled("section", {
     height: "max-content",
     padding: "5rem 5%",
     backgroundColor: "$white",
+    minHeight: "70vh",
     "@desktop": { paddingTop: "9.5rem" },
     "@laptop": { paddingTop: "9rem" },
     "@tablet": { paddingTop: "8.5rem" },

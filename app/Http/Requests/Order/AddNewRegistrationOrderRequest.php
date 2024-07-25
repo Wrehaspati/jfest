@@ -76,7 +76,7 @@ class AddNewRegistrationOrderRequest extends FormRequest
             'email' => 'required|email',
             'name' => 'nullable|string',
             'address' => 'required|string|min:10',
-            'institution' => 'required|string',
+            'institution' => 'nullable|string',
             'phone' => 'required|numeric|min:10',
             'instagram' => 'nullable|string|min:3',
             'nickname' => 'nullable|string|min:3',

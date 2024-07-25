@@ -181,7 +181,9 @@ export default function RegistrationCard({ data }) {
                             "@mobile": { fontSize: "1.25rem" },
                         }}
                     >
+                        <marquee scrollamount="3">
                         Pending
+                        </marquee>
                     </Text>
                 )}
                 <RemoveButton onClick={handleRemoveOrder}>Remove</RemoveButton>
