@@ -45,8 +45,9 @@ class MidtransProvider implements PaymentProvider
         }
 
         $orderId = Str::upper(sprintf('%s#%s', $order->reference, Str::random(4)));
-        $orderFee = (int) ($order->total_price * self::FEE);
-        $orderGrossAmount = $order->total_price + $orderFee;
+        // $orderFee = (int) ($order->total_price * self::FEE);
+        // $orderGrossAmount = $order->total_price + $orderFee;
+        $orderGrossAmount = $order->total_price;
 
         $params = [
             'transaction_details' => [
@@ -54,12 +55,12 @@ class MidtransProvider implements PaymentProvider
                 'gross_amount' => $orderGrossAmount
             ],
             'item_details' => array_merge(
-                [[
-                    'price' => $orderFee,
-                    'quantity' => 1,
-                    'name' => 'Transaction Fee',
-                    'category' => 'fee'
-                ]],
+                // [[
+                //     'price' => $orderFee,
+                //     'quantity' => 1,
+                //     'name' => 'Transaction Fee',
+                //     'category' => 'fee'
+                // ]],
                 $this->mapTicketsToItems($order->tickets),
                 $this->mapRegistrationsToItems($order->registrations)
             ),
@@ -82,7 +83,7 @@ class MidtransProvider implements PaymentProvider
             $order,
             [
                 'link' => $transaction->redirect_url,
-                'fee' => $orderFee
+                // 'fee' => $orderFee
             ]
         ]);
 
@@ -160,7 +161,8 @@ class MidtransProvider implements PaymentProvider
                 case self::STATUS_FAILURE:
                     $meta['payment_status'] = PaymentStatusEnum::Failed;
                     break;
-                default: break;
+                default:
+                    break;
             }
 
             if ($meta['order_status'] == OrderStatusEnum::Paid) {
@@ -196,7 +198,7 @@ class MidtransProvider implements PaymentProvider
                 'message' => 'Invalid order id provided',
                 'status' => Response::HTTP_BAD_REQUEST
             ];
-        } catch (\Exception|\Throwable $exception) {
+        } catch (\Exception | \Throwable $exception) {
             logger()->channel('error')->error($exception->getMessage(), [
                 'order_id' => $orderId
             ]);
@@ -249,8 +251,7 @@ class MidtransProvider implements PaymentProvider
         string $orderId,
         string $statusCode,
         string $grossAmount,
-        ): bool
-    {
+    ): bool {
         $serverKey = config('services.midtrans.server_key');
 
         $hashedSigKey = $orderId;

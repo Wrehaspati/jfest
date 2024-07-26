@@ -19,7 +19,7 @@ class PaymentRedirectController extends Controller
                 function (Order $order, array $meta) {
                     $payment = new Payment([
                         'amount' => $order->total_price,
-                        'fee' => $meta['fee'],
+                        // 'fee' => $meta['fee'],
                         'link' => $meta['link']
                     ]);
 
@@ -30,7 +30,7 @@ class PaymentRedirectController extends Controller
                     ]);
                 }
             );
-        } catch (\Throwable|\Exception $exception) {
+        } catch (\Throwable | \Exception $exception) {
             logger()->channel('error')->error($exception->getMessage());
         }
     }

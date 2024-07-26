@@ -32,7 +32,7 @@ class CheckoutInfoController extends Controller
                     ]
                 ])
             ]);
-        } catch (\Throwable|ModelNotFoundException $exception) {
+        } catch (\Throwable | ModelNotFoundException $exception) {
             logger()->channel('error')->error($exception->getMessage());
         }
     }

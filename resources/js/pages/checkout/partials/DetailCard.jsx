@@ -14,7 +14,8 @@ const Container = styled("div", {
     backgroundColor: "rgba(0, 0, 0, 0.05)",
 });
 
-export default function DetailCard({ fee, totalPrice, redirectToPaymentUrl }) {
+// export default function DetailCard({ fee, totalPrice, redirectToPaymentUrl }) {
+export default function DetailCard({ totalPrice, redirectToPaymentUrl }) {
     return (
         <Container>
             <div
@@ -52,7 +53,7 @@ export default function DetailCard({ fee, totalPrice, redirectToPaymentUrl }) {
                             Rp {totalPrice.toLocaleString("id-ID")}
                         </Text>
                     </li>
-                    <li
+                    {/* <li
                         style={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -70,8 +71,8 @@ export default function DetailCard({ fee, totalPrice, redirectToPaymentUrl }) {
                         <Text css={{ fontSize: "1.25rem", color: "$dark", overflow: "hidden" }}>
                             Rp {fee.toLocaleString("id-ID")}
                         </Text>
-                    </li>
-                    <li
+                    </li> */}
+                    {/* <li
                         style={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -89,6 +90,26 @@ export default function DetailCard({ fee, totalPrice, redirectToPaymentUrl }) {
                         </Text>
                         <Text css={{ fontSize: "1.25rem", color: "$dark", overflow: "hidden" }}>
                             Rp {(totalPrice + fee).toLocaleString("id-ID")}
+                        </Text>
+                    </li> */}
+                    <li
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            width: "100%",
+                            marginTop: "0.5rem",
+                        }}
+                    >
+                        <Text
+                            css={{
+                                fontSize: "1.25rem",
+                                color: "$dark",
+                            }}
+                        >
+                            Grand Total
+                        </Text>
+                        <Text css={{ fontSize: "1.25rem", color: "$dark", overflow: "hidden" }}>
+                            Rp {(totalPrice).toLocaleString("id-ID")}
                         </Text>
                     </li>
                 </ul>

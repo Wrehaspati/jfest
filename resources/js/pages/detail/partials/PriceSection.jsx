@@ -22,7 +22,8 @@ export default function PriceSection({
         >
             <Text css={{ display: "flex", gap: "1rem", alignItems: "center", color: "$dark" }}>
                 <Dollar />
-                <span>{isActivity ? "Price" : "Registration Fee"}</span>
+                {/* <span>{isActivity ? "Price" : "Registration Fee"}</span> */}
+                <span>{isActivity ? "Price" : "-"}</span>
             </Text>
             <Text
                 css={{
