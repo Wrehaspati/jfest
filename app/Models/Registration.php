@@ -27,6 +27,7 @@ class Registration extends Model
         'institution',
         'address',
         'with_tools'
+        'description'
     ];
 
     protected $guarded = ['id'];
