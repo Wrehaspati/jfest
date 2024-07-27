@@ -26,7 +26,7 @@ class Registration extends Model
         'nickname',
         'institution',
         'address',
-        'with_tools'
+        'with_tools',
         'description'
     ];
 
