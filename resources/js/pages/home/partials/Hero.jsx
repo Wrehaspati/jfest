@@ -4,8 +4,8 @@ import { Link } from "@inertiajs/react";
 import { Button } from "@/components/button";
 
 import useNavbar from "@/hooks/useNavbar";
-import backdrop from "@/assets/misc/backdrop.png";
-import backdropMobile from "@/assets/misc/backdrop-mobile.png";
+import backdrop from "@/assets/misc/backdrop.webp";
+import backdropMobile from "@/assets/misc/backdrop-mobile.webp";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",

@@ -130,6 +130,7 @@ export default function NavbarResponsive() {
                     !item.requireAuthenticated ||
                     (item.requireAuthenticated && isAuthenticated) ? (
                         <MenuLink
+                            onClick={toggleIsMobileNavbarOpened}
                             key={index}
                             href={item.href}
                             isActive={url == new URL(item.href).pathname}

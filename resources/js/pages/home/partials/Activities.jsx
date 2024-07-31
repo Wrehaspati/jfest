@@ -12,8 +12,8 @@ import { Divider } from "@/components/divider";
 import { Title } from "@/components/title";
 import { Text } from "@/components/text";
 
-import ComingSoon from "@/assets/misc/coming-soon.png";
-import Frame from "@/assets/activities/frame.png";
+import ComingSoon from "@/assets/misc/coming-soon.webp";
+import Frame from "@/assets/activities/frame.webp";
 import { ReactComponent as TagBlue } from "@/assets/activities/tag-blue.svg";
 import { ReactComponent as TagOrange } from "@/assets/activities/tag-orange.svg";
 import { useCallback, useState } from "react";
@@ -32,6 +32,25 @@ const Activity = styled("article", {
     display: "flex",
     flexDirection: "column",
     gap: "1.5rem",
+});
+
+const DisabledBtn = styled("div", {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "$button-desktop-height", 
+    border: "$secondary 0.3vw solid", 
+    borderRadius: "0.5rem",
+    "@laptop": {
+        height: "$button-laptop-height",
+    },
+    "@tablet": {
+        height: "$button-tablet-height",
+    },
+    "@mobile": {
+        height: "$button-mobile-height",
+    },
 });
 
 const ActivityImage = styled("span", {
@@ -286,55 +305,23 @@ export default function Activities({ activities, competitions }) {
                                     </Text>
                                 </ActivityBody>
                                 {(isActivity && !activity.sale.is_tickets_available) || (isActivity && !activity.is_going_on) ? (
-                                    <div
-                                        className={css({
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            width: "100%",
-                                            height: "$button-desktop-height", 
-                                            border: "$secondary 0.3vw solid", 
-                                            borderRadius: "0.5rem",
-                                            "@laptop": {
-                                                height: "$button-laptop-height",
-                                            },
-                                            "@tablet": {
-                                                height: "$button-tablet-height",
-                                            },
-                                            "@mobile": {
-                                                height: "$button-mobile-height",
-                                            },
-                                        }).toString()}
-                                    >
+                                    <DisabledBtn>
                                         <Text css={{ color: "$secondary" }}>
                                             {activity.is_going_on ? "Sold Out" : "Event Ended"}
                                         </Text>
-                                    </div>
+                                    </DisabledBtn>
                                 ) : (!isActivity && activity.is_closed) || (!isActivity && activity.is_quota_full) ? (
-                                <div
-                                        className={css({
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            width: "100%",
-                                            height: "$button-desktop-height", 
-                                            border: "$secondary 0.3vw solid", 
-                                            borderRadius: "0.5rem",
-                                            "@laptop": {
-                                                height: "$button-laptop-height",
-                                            },
-                                            "@tablet": {
-                                                height: "$button-tablet-height",
-                                            },
-                                            "@mobile": {
-                                                height: "$button-mobile-height",
-                                            },
-                                        }).toString()}
-                                    >
+                                    <DisabledBtn>
                                         <Text css={{ color: "$secondary" }}>
                                             Registration Closed
                                         </Text>
-                                    </div>
+                                    </DisabledBtn>
+                                ) : (!isActivity && activity.price_tag == "ots") ? (
+                                    <DisabledBtn css={{ borderColor: "$dark" }}>
+                                        <Text css={{ color: "$dark" }}>
+                                            Offline Registration
+                                        </Text>
+                                    </DisabledBtn>
                                 ) : (
                                     <Link
                                         style={{ textDecoration: "none" }}

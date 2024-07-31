@@ -2,16 +2,16 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import comingSoon from "@/assets/misc/coming-soon.png";
-import firstCard from "@/assets/tickets/ticket.png";
-import secondCard from "@/assets/misc/bio.png";
-import secondCardMobile from "@/assets/misc/bio-mobile.png";
+import comingSoon from "@/assets/misc/coming-soon.webp";
+import firstBanner from "@/assets/tickets/ticket.webp";
+import secondBanner from "@/assets/misc/banner.webp";
+import secondBannerMobile from "@/assets/misc/bannerMobile.webp";
 import { css, styled } from "@/root/stitches.config";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
 import { Title } from "@/components/title";
-import backdrop from "@/assets/misc/backdrop2.png";
-import backdropMobile from "@/assets/misc/backdrop2-mobile.png";
+import backdrop from "@/assets/misc/backdrop2.webp";
+import backdropMobile from "@/assets/misc/backdrop2-mobile.webp";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",
@@ -163,7 +163,7 @@ export default function Hightlight() {
                             }}
                         >
                             <img
-                                src={ firstCard }
+                                src={ firstBanner }
                                 alt=""
                                 className={css({
                                     width: "80%",
@@ -187,8 +187,12 @@ export default function Hightlight() {
                                     backgroundPosition: "center",
                                     backgroundRepeat: "no-repeat",
                                     backgroundSize: "contain",
-                                    backgroundImage: `url("${secondCard}")`,
-                                    "@mobile": { width: "95%", height: "50vw", backgroundImage: `url("${secondCardMobile}")`,}
+                                    backgroundImage: `url("${secondBanner}")`,
+                                    "@mobile": { 
+                                        width: "95%", 
+                                        height: "50vw", 
+                                        backgroundImage: `url("${secondBannerMobile}")`,
+                                    }
                                 }).toString()}>
 
                             </div>

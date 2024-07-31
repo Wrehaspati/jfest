@@ -26,9 +26,9 @@ const SocialLink = styled("a", {
     gap: "1rem",
     color: "$white",
     fontFamily: "$main",
-    fontSize: "1rem",
     letterSpacing: 2,
     textDecoration: "none",
+    fontSize: "1vw",
     textDecorationColor: "transparent",
     "&:hover": {
         textDecoration: "underline",
@@ -37,6 +37,9 @@ const SocialLink = styled("a", {
     "& > svg": {
         width: "1.45rem",
     },
+    "@mobile": {
+        fontSize: "1rem",
+    }
 });
 
 export default function FooterContacts() {

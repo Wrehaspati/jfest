@@ -29,6 +29,23 @@ const Container = styled("section", {
     "@mobile": { paddingTop: "8rem" },
 });
 
+const TextArea = styled("textarea", {
+    display: "block",
+    fontFamily: "$main",
+    fontSize: "1vw",
+    padding: "1rem 0rem",
+    backgroundColor: "transparent",
+    border: "none",
+    borderBottom: "1.5px solid rgba(0, 0, 0, 0.2)",
+    outline: "none",
+    color: "$dark",
+    letterSpacing: 0,
+    "&:placeholder": {
+        color: "rgba(0, 0, 0, 0.5)",
+    },
+    "@mobile": {fontSize: "3vw"}
+});
+
 function toObject(data) {
     const result = {};
 
@@ -66,6 +83,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
         phone: "",
         address: "",
         institution: null,
+        description: "",
         instagram: null,
         nickname: null,
         teamName: null,
@@ -124,6 +142,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
                                                 required="required"
+                                                autocomplete="email"
                                             />
                                             {errors.email && (
                                                 <ErrorMessage msg={errors.email} />
@@ -141,6 +160,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
                                                 required="required"
+                                                autocomplete="name"
                                             />
                                             {errors.name && (
                                                 <ErrorMessage msg={errors.name} />
@@ -158,6 +178,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                     onChange={handleChange}
                                                     onBlur={handleBlur}
                                                     css={{ width: "100%" }}
+                                                    autocomplete="nickname"
                                                 />
                                                 {errors.nickname && (
                                                     <ErrorMessage
@@ -177,6 +198,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
                                                 required="required"
+                                                autocomplete="tel"
                                             />
                                             {errors.phone && (
                                                 <ErrorMessage msg={errors.phone} />
@@ -193,6 +215,7 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                 onBlur={handleBlur}
                                                 css={{ width: "100%" }}
                                                 required="required"
+                                                autocomplete="street-address"
                                             />
                                             {errors.address && (
                                                 <ErrorMessage msg={errors.address} />
@@ -210,10 +233,32 @@ function OrderRegistrationPage({ data, links: { submitUrl }, meta }) {
                                                     onBlur={handleBlur}
                                                     css={{ width: "100%" }}
                                                     required="required"
+                                                    autocomplete="organization"
                                                 />
                                                 {errors.institution && (
                                                     <ErrorMessage
                                                         msg={errors.institution}
+                                                    />
+                                                )}
+                                            </InputWrapper>
+                                        </InputOuterWrapper>
+                                    )}
+                                    {data.use_description_field && (
+                                        <InputOuterWrapper>
+                                            <InputWrapper>
+                                                <TextArea
+                                                    name="description"
+                                                    placeholder="Masukan keterangan judul lagu/tema/karakter yang akan diperlombakan..."
+                                                    value={values.description}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    css={{ width: "100%" }}
+                                                    required="required"
+                                                    autocomplete="off"
+                                                />
+                                                {errors.description && (
+                                                    <ErrorMessage
+                                                        msg={errors.description}
                                                     />
                                                 )}
                                             </InputWrapper>

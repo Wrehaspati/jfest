@@ -1,7 +1,7 @@
 import { css, styled } from "@/root/stitches.config";
 
-import ComingSoon from "@/assets/misc/coming-soon.png";
-import Frame from "@/assets/activities/frame.png";
+import ComingSoon from "@/assets/misc/coming-soon.webp";
+import Frame from "@/assets/activities/frame.webp";
 
 const BaseImageInner = styled("img", {
     height: "67%",
