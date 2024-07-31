@@ -83,7 +83,7 @@ class CreateRegistrationService
             'address' => $data['address'],
             'institution' => $data['institution'],
             'with_tools' => $data['withTools'],
-            'description' => $data['description']
+            'description' => $data['description'] ?? null,
         ]);
 
         $order->registrations()->save($registration);
