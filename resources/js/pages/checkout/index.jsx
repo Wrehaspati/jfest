@@ -50,7 +50,12 @@ function CheckoutPage({ data, links: { redirectToPaymentUrl }, meta }) {
         flatAndGroupObjectsBy(data.registrations, "price")
     );
 
-    // console.log(tickets);
+    let totalTicket = tickets
+        .map(([_, data]) => data)
+        .filter(data => data.item.price !== 0)
+        .reduce((total, data) => total + data.count, 0);
+    
+    let totalRegistration = registrations.map(([_, data]) => data).reduce((total, data) => total + data.count, 0);
 
     return (
         <>
@@ -107,7 +112,10 @@ function CheckoutPage({ data, links: { redirectToPaymentUrl }, meta }) {
                         }).toString()}
                     >
                         <DetailCard
-                            fee={data.total_price * 0.07}
+                            // fee persentase
+                            // fee={data.total_price * 0.07}
+                            // fee fixed 2500
+                            fee={(totalTicket + totalRegistration) * 2500}
                             totalPrice={data.total_price}
                             redirectToPaymentUrl={redirectToPaymentUrl}
                         />

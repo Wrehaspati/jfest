@@ -40,12 +40,18 @@ class MidtransProvider implements PaymentProvider
             ['expired_at', '>', now()]
         ])->latest()->first();
 
+        $ticketCount = $order->tickets()->where('price', '>', 0)->count();
+        $registrationCount = $order->registrations()->count();
+
         if (!is_null($order->payment) && $order->payment->amount === $order->total_price) {
             return Redirect::away($order->payment->link);
         }
 
         $orderId = Str::upper(sprintf('%s#%s', $order->reference, Str::random(4)));
-        $orderFee = (int) ($order->total_price * self::FEE);
+        // fee persentase per transaksi
+        // $orderFee = (int) ($order->total_price * self::FEE);
+        // fee fixed per transaksi
+        $orderFee = (int) ($ticketCount + $registrationCount) * self::FEE;
         $orderGrossAmount = $order->total_price + $orderFee;
 
         $params = [
@@ -160,7 +166,8 @@ class MidtransProvider implements PaymentProvider
                 case self::STATUS_FAILURE:
                     $meta['payment_status'] = PaymentStatusEnum::Failed;
                     break;
-                default: break;
+                default:
+                    break;
             }
 
             if ($meta['order_status'] == OrderStatusEnum::Paid) {
@@ -196,7 +203,7 @@ class MidtransProvider implements PaymentProvider
                 'message' => 'Invalid order id provided',
                 'status' => Response::HTTP_BAD_REQUEST
             ];
-        } catch (\Exception|\Throwable $exception) {
+        } catch (\Exception | \Throwable $exception) {
             logger()->channel('error')->error($exception->getMessage(), [
                 'order_id' => $orderId
             ]);
@@ -249,8 +256,7 @@ class MidtransProvider implements PaymentProvider
         string $orderId,
         string $statusCode,
         string $grossAmount,
-        ): bool
-    {
+    ): bool {
         $serverKey = config('services.midtrans.server_key');
 
         $hashedSigKey = $orderId;
