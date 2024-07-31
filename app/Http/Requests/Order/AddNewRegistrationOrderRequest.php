@@ -66,6 +66,9 @@ class AddNewRegistrationOrderRequest extends FormRequest
             ],
             'withTools' => [
                 'boolean' => 'Field :attribute must be a boolean'
+            ],
+            'description' => [
+                'string' => 'Field :attribute must be a string'
             ]
         ];
     }
@@ -85,7 +88,8 @@ class AddNewRegistrationOrderRequest extends FormRequest
             'teamMembers.*.name' => 'required_unless:teamName,null|string',
             'teamMembers.*.instagram' => 'nullable|string|min:3',
             'teamMembers.*.nickname' => 'nullable|string|min:3',
-            'withTools' => 'nullable|boolean'
+            'withTools' => 'nullable|boolean',
+            'description' => 'nullable|string'
         ];
     }
 }
