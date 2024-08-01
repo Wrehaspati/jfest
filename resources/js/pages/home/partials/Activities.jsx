@@ -39,8 +39,8 @@ const DisabledBtn = styled("div", {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    height: "$button-desktop-height", 
-    border: "$secondary 0.3vw solid", 
+    height: "$button-desktop-height",
+    border: "$secondary 0.3vw solid",
     borderRadius: "0.5rem",
     "@laptop": {
         height: "$button-laptop-height",
@@ -142,8 +142,8 @@ export default function Activities({ activities, competitions }) {
                     gap: "1rem",
                 }}
             >
-                <Title 
-                css={{ textAlign: "center", fontSize: "3.5vw", "@mobile": { fontSize: "7.8vw" }}} 
+                <Title
+                    css={{ textAlign: "center", fontSize: "3.5vw", "@mobile": { fontSize: "7.8vw" } }}
                 // color="light"
                 >
                     Activities
@@ -190,20 +190,19 @@ export default function Activities({ activities, competitions }) {
                 }}
             >
                 {filteredActs.map((activity) => {
-                    const isActivity =
-                        activity.type.toLowerCase() === "activity";
-                        return (
+                    const isActivity = activity.type.toLowerCase() === "activity";
+                    return (
                         <Link
                             key={activity.id}
                             href={activity.details_url}
                             style={{ textDecoration: "none" }}
                         >
-                            <Activity key={activity.id}>
+                            <Activity>
                                 <div className={css({ position: "relative" }).toString()}>
-                                    <ActivityImage frame={activity.type}/>
+                                    <ActivityImage frame={activity.type} />
                                     {activity.image_url ? (
                                         <img
-                                        className={css({
+                                            className={css({
                                                 height: "67%",
                                                 width: "44%",
                                                 objectFit: "contain",
@@ -224,7 +223,7 @@ export default function Activities({ activities, competitions }) {
                                             }).toString()}
                                             src={activity.image_url}
                                             alt="Failed to load"
-                                            />
+                                        />
                                     ) : (
                                         <img
                                             className={css({
@@ -248,8 +247,8 @@ export default function Activities({ activities, competitions }) {
                                             }).toString()}
                                             src={ComingSoon}
                                             alt="Coming soon"
-                                            />
-                                        )}
+                                        />
+                                    )}
                                 </div>
                                 <ActivityBody>
                                     <div
@@ -259,15 +258,15 @@ export default function Activities({ activities, competitions }) {
                                             justifyContent: "space-between",
                                         }}
                                     >
-                                        <Text css={{color: "$dark"}} className={css({
-                                                wordBreak: "keep-all", 
-                                                fontSize: "1.2vw",
-                                                overflow: "hidden",
-                                                width: "70%",
-                                                padding: "0.1vw 0",
-                                                "@mobile":{width:  "60%", fontSize: "1.2rem"},
-                                                "@tablet":{fontSize: "2vw"}
-                                            }).toString()}>
+                                        <Text css={{ color: "$dark" }} className={css({
+                                            wordBreak: "keep-all",
+                                            fontSize: "1.2vw",
+                                            overflow: "hidden",
+                                            width: "70%",
+                                            padding: "0.1vw 0",
+                                            "@mobile": { width: "60%", fontSize: "1.2rem" },
+                                            "@tablet": { fontSize: "2vw" }
+                                        }).toString()}>
                                             {activity.name}
                                         </Text>
                                         <ActivityTag tag={activity.type}>
@@ -292,7 +291,7 @@ export default function Activities({ activities, competitions }) {
                                         css={{
                                             color: "$dark",
                                         }}
-                                        className={css({wordBreak: "keep-all", overflow: "hidden"}).toString()}
+                                        className={css({ wordBreak: "keep-all", overflow: "hidden" }).toString()}
                                     >
                                         Rp{" "}
                                         {!isActivity
@@ -336,7 +335,7 @@ export default function Activities({ activities, competitions }) {
                                         }}
                                     >
                                         <Button
-                                        fullWidth>
+                                            fullWidth>
                                             {isActivity
                                                 ? "Order Now"
                                                 : "Register Now"}
