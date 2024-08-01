@@ -134,6 +134,11 @@ export default function TicketCard({ data }) {
 
     return (
         <Wrapper>
+            {width < 768 && (
+                <>
+                    <RemoveButton onClick={handleRemoveOrder}>X</RemoveButton>
+                </>
+            )}
             <div
                 style={{
                     display: "flex",
@@ -185,14 +190,12 @@ export default function TicketCard({ data }) {
                             "@mobile": { fontSize: "0.7rem", wordBreak: "" },
                         }}
                     >
-                        <marquee scrollamount="3">
                         Pending
-                        </marquee>
                     </Text>
                 )}
-                {!data.registration_id && (
+                {width > 768 && !data.registration_id && (
                     <RemoveButton onClick={handleRemoveOrder}>
-                        Remove
+                        Hapus
                     </RemoveButton>
                 )}
             </div>

@@ -127,6 +127,16 @@ function OrderPage({ data, links: { checkoutUrl, orderTicketUrl }, meta }) {
                                 data={registration}
                             />
                         ))}
+                    <Text
+                        css={{
+                            color: "$secondary",
+                            fontSize: "0.8rem", 
+                            overflow: "hidden",
+                        }}
+                    >
+                        * Harga tertera belum termasuk tarif PPN sebesar{' '} 
+                        <span className={css({ whiteSpace: "nowrap" }).toString()}>Rp 2.500</span> per Item     
+                    </Text>
                 </section>
                 <Link href={checkoutUrl} style={{ textDecoration: "none" }}>
                     <Button fullWidth>

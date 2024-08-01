@@ -16,7 +16,7 @@ const BaseStep = styled("div", {
         width: 26,
         height: 25,
         fontSize: "1rem",
-        backgroundImage: `url("${BgStepDark}")`,
+        backgroundImage: `url("${BgStepLight}")`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
@@ -24,7 +24,7 @@ const BaseStep = styled("div", {
     variants: {
         isActive: {
             true: {
-                color: "$dark",
+                color: "$secondary",
                 "& > span": { backgroundImage: `url("${BgStepLight}")` },
             },
         },

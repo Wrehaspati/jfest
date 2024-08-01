@@ -9,26 +9,41 @@ const Container = styled("div", {
     width: "100%",
     height: "max-content",
     marginBottom: "0.75rem",
+    "@mobile": {
+        flexDirection: "column",
+    }
 });
 
 export default function Item({ data, type }) {
     const isActivity = type === "activity";
 
+    console.log(data.item);
     return (
-        <Container>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.5rem",
-                }}
-            >
+        <div>
+            {
+                (isActivity && !data.item.price && (
+                    <Text
+                        css={{
+                            color: "green",
+                            fontSize: "0.8rem", 
+                            overflow: "hidden",
+                        }}
+                    >
+                        Tiket berikut termasuk dalam syarat registrasi lomba
+                    </Text>
+                ))
+            }
+            <Container>
                 <Text
                     css={{
                         display: "flex",
-                        alignItems: "flex-end",
+                        alignItems: "center",
                         gap: "0.75rem",
-                        color: "$dark"
+                        color: "$dark",
+                        "@mobile": {
+                            width: "100%",
+                            justifyContent: "space-between",
+                        }
                     }}
                 >
                     <span>
@@ -42,7 +57,7 @@ export default function Item({ data, type }) {
                             display: "flex",
                             gap: "0.75rem",
                             fontSize: "1rem",
-                            color: "$dark", 
+                            color: "$dark",
                             overflow: "hidden"
                         }}
                     >
@@ -50,24 +65,14 @@ export default function Item({ data, type }) {
                         <span>{data.count} pcs</span>
                     </Text>
                 </Text>
-                <Text
-                    css={{
-                        color: "$dark",
-                        fontSize: "1.25rem", 
-                        overflow: "hidden"
-                    }}
-                >
-                    {isActivity ? "Activity" : "Competition"}
+                <Text css={{ color: "$dark", overflow: "hidden", width: "max-content" }}>
+                    Rp{" "}
+                    {(
+                        (isActivity ? (data.item.price ?  data.item.activity.sale.price : 0) : data.item.price) * data.count
+                    ).toLocaleString("id-ID")}
+
                 </Text>
-            </div>
-            <Text css={{ color: "$dark", overflow: "hidden" }}>
-                Rp{" "}
-                {(
-                    (isActivity
-                        ? data.item.activity.sale.price
-                        : data.item.price) * data.count
-                ).toLocaleString("id-ID")}
-            </Text>
-        </Container>
+            </Container>
+        </div>
     );
 }

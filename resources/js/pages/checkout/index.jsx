@@ -25,7 +25,7 @@ const Container = styled("section", {
     "@mobile": { paddingTop: "8rem" },
 });
 
-const steps = [{ id: 1, label: "Information" }];
+const steps = [{ id: 1, label: "Checkout" }, { id: 2, label: "Payment" }, { id: 3, label: "Finish" }];
 
 function flatAndGroupObjectsBy(array, identifier) {
     return array.reduce((result, obj) => {
@@ -103,6 +103,16 @@ function CheckoutPage({ data, links: { redirectToPaymentUrl }, meta }) {
                                 />
                             ))}
                         </ItemContainer>
+                        <Text
+                            css={{
+                                color: "$secondary",
+                                fontSize: "0.8rem", 
+                                overflow: "hidden",
+                            }}
+                        >
+                            Harga diatas belum termasuk tarif PPN sebesar{' '} 
+                            <span className={css({ whiteSpace: "nowrap" }).toString()}>Rp 2.500</span> per Item 
+                        </Text>
                     </section>
                     <section
                         className={css({

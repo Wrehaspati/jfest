@@ -135,6 +135,11 @@ export default function RegistrationCard({ data }) {
 
     return (
         <Wrapper>
+            {width < 768 && (
+                <>
+                    <RemoveButton onClick={handleRemoveOrder}>X</RemoveButton>
+                </>
+            )}
             <div
                 style={{
                     display: "flex",
@@ -142,11 +147,14 @@ export default function RegistrationCard({ data }) {
                     gap: "0.5rem",
                 }}
             >
-                <Text css={{ color: "$dark" }}>Competition {data.competition.name}</Text>
+                <Text css={{ color: "$dark" }}>{data.competition.name}</Text>
                 <Text
                     css={{
                         color: "$dark",
                         fontSize: "1rem",
+                        "@mobile": {
+                            fontSize: "0.7rem",
+                        }
                     }}
                 >
                     Competition - {data.competition.registrationCloseAtStr}
@@ -162,15 +170,18 @@ export default function RegistrationCard({ data }) {
                 }).toString()}
             >
                 {width > 768 && (
-                    <Text
-                        css={{
-                            color: "$dark",
-                            fontSize: "1.5rem",
-                            "@mobile": { fontSize: "1.25rem" },
-                        }}
-                    >
-                        Rp {data.price.toLocaleString("id-ID")}
-                    </Text>
+                    <>
+                        <Text
+                            css={{
+                                color: "$dark",
+                                fontSize: "1.5rem",
+                                "@mobile": { fontSize: "1.25rem" },
+                            }}
+                        >
+                            Rp {data.price.toLocaleString("id-ID")}
+                        </Text>
+                        <RemoveButton onClick={handleRemoveOrder}>Hapus</RemoveButton>
+                    </>
                 )}
                 {!data.uuid && (
                     <Text
@@ -178,15 +189,12 @@ export default function RegistrationCard({ data }) {
                             color: "$dark",
                             fontSize: "1.5rem",
                             textAlign: "right",
-                            "@mobile": { fontSize: "1.25rem" },
+                            "@mobile": { fontSize: "0.7rem" },
                         }}
                     >
-                        <marquee scrollamount="3">
                         Pending
-                        </marquee>
                     </Text>
                 )}
-                <RemoveButton onClick={handleRemoveOrder}>Remove</RemoveButton>
             </div>
         </Wrapper>
     );
