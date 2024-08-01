@@ -25,7 +25,10 @@ export default function Item({ data, type }) {
     const [showQR, toggleShowQR] = useToggle(false);
 
     function handleDownloadQRCode() {
-        html2canvas(document.getElementById(data.code)).then((canvas) => {
+        html2canvas(document.getElementById(data.code), {
+            useCORS: true,
+            // allowTaint: true
+        }).then((canvas) => {
             const ctaDownload = document.createElement("a");
 
             ctaDownload.href = canvas.toDataURL();
@@ -163,6 +166,7 @@ export default function Item({ data, type }) {
                 onRequestClose={toggleShowQR}
                 shouldCloseOnEsc={true}
                 shouldCloseOnOverlayClick={true}
+                ariaHideApp={false}
                 style={{
                     overlay: {
                         backgroundColor: "rgba(13, 59, 68, 0.25)",
@@ -199,6 +203,7 @@ export default function Item({ data, type }) {
                     size={250}
                     quietZone={10}
                     ecLevel="H"
+                    enableCORS="true"
                 />
                 <Button onClick={handleDownloadQRCode} fullWidth>
                     Download Qr

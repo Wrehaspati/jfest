@@ -17,7 +17,6 @@ const Container = styled("div", {
 export default function Item({ data, type }) {
     const isActivity = type === "activity";
 
-    console.log(data.item);
     return (
         <div>
             {

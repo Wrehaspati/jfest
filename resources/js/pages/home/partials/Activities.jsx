@@ -1,5 +1,6 @@
 import { Link, router } from "@inertiajs/react";
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';
 
 import { css, styled } from "@/root/stitches.config";
 
@@ -191,9 +192,10 @@ export default function Activities({ activities, competitions }) {
             >
                 {filteredActs.map((activity) => {
                     const isActivity = activity.type.toLowerCase() === "activity";
+                    const uniqueKey = uuidv4();
                     return (
                         <Link
-                            key={activity.id}
+                            key={uniqueKey}
                             href={activity.details_url}
                             style={{ textDecoration: "none" }}
                         >
@@ -322,8 +324,7 @@ export default function Activities({ activities, competitions }) {
                                         </Text>
                                     </DisabledBtn>
                                 ) : (
-                                    <Link
-                                        style={{ textDecoration: "none" }}
+                                    <div
                                         onClick={(evt) => {
                                             evt.preventDefault();
                                             handleRedirectToOrderPage(
@@ -340,7 +341,7 @@ export default function Activities({ activities, competitions }) {
                                                 ? "Order Now"
                                                 : "Register Now"}
                                         </Button>
-                                    </Link>
+                                    </div>
                                 )}
                             </Activity>
                         </Link>

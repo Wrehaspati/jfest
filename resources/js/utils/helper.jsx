@@ -5,10 +5,10 @@ export function generateMetadata(metadata = {}) {
         <Head>
             {Object.entries(metadata).map(([key, value]) => {
                 if (key.toLowerCase() === "title") {
-                    return <title>{value}</title>;
+                    return <title key={key}>{value}</title>;
                 }
 
-                return <meta name={key} content={value} />;
+                return <meta key={key} name={key} content={value} />;
             })}
         </Head>
     );

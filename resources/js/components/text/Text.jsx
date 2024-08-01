@@ -1,6 +1,6 @@
 import { styled } from "@/root/stitches.config";
 
-const BaseText = styled("p", {
+const BaseText = styled("div", {
     display: "block",
     color: "$white",
     fontFamily: "$main",

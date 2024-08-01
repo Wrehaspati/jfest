@@ -56,6 +56,7 @@ function HistoryPage({ data, meta }) {
                 >
                     {data.map((order) => (
                         <div
+                            key={order.reference}
                             className={css({
                                 display: "flex",
                                 flexDirection: "column",
