@@ -90,7 +90,7 @@ class Jfest8Seeder extends Seeder
                 'use_name_field' => true,
                 'with_ticket' => true,
                 'use_description_field' => true,
-                'use_instagram_field' => false,
+                'use_instagram_field' => true,
                 'use_nickname_field' => false,
                 'use_multi_participant' => false,
                 'min_participants' => 1,
@@ -176,7 +176,7 @@ class Jfest8Seeder extends Seeder
             new Competition([
                 'name' => 'Jfestography',
                 'description' => 'PESERTA LOMBA JFESTOGRAPHY AKAN MENGIRIMKAN FOTO TERBAIK MEREKA DENGAN KONSEP MEREKA MASING-MASING',
-                'price' => (50000),
+                'price' => (65000),
                 'price_tag' => 'sale',
                 'group_url' => null,
                 'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
