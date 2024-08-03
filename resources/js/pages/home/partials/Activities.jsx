@@ -212,7 +212,7 @@ export default function Activities({ activities, competitions }) {
                                                 textAlign: "center",
                                                 position: "absolute",
                                                 top: "57%",
-                                                left: "49%",
+                                                left: "50%",
                                                 translate: "-50% -50%",
                                                 lineHeight: "16vw",
                                                 fontSize: "1vw",

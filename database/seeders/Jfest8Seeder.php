@@ -18,7 +18,7 @@ class Jfest8Seeder extends Seeder
         $sales = collect([
             new ActivitySale([
                 'unique_id' => 'EB',
-                'name' => 'Early Bid',
+                'name' => 'Early Bird',
                 'price' => 45000,
                 'tickets_qty_available' => 100
             ]),
@@ -52,7 +52,7 @@ class Jfest8Seeder extends Seeder
                 'description' => 'Jfest is a japanese culture special event held by JCOS (Japanese Community of STIKOM Bali)',
                 'image_url' => null,
                 'date' => Carbon::create(2024, 10, 8),
-                'purchase_opened_at' => Carbon::create(2024, 8, 4),
+                'purchase_opened_at' => Carbon::create(2024, 8, 7),
                 'purchase_closed_at' => Carbon::create(2024, 10, 19)
             ])
         ])->each(function ($activity) {
@@ -76,7 +76,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -95,7 +95,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -114,7 +114,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -132,7 +132,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -152,7 +152,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -170,7 +170,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -189,7 +189,7 @@ class Jfest8Seeder extends Seeder
                 'min_participants' => 1,
                 'max_participants' => 1,
                 'registration_quota' => 10,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -208,7 +208,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
             new Competition([
@@ -228,7 +228,7 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 4),
+                'registration_opened_at' => Carbon::create(2024, 8, 7),
                 'registration_closed_at' => Carbon::create(2024, 8, 18),
             ]),
         ])->each(function ($competition) {

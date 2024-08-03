@@ -11,7 +11,7 @@ const BaseImageInner = styled("img", {
     textAlign: "center",
     position: "absolute",
     top: "57%",
-    left: "49%",
+    left: "50%",
     translate: "-50% -50%",
     lineHeight: 10,
     fontSize: 30
