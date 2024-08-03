@@ -298,14 +298,9 @@ export default function Activities({ activities, competitions }) {
                                         }}
                                         className={css({ wordBreak: "keep-all", overflow: "hidden" }).toString()}
                                     >
-                                        Rp{" "}
                                         {!isActivity
-                                            ? activity.price.toLocaleString(
-                                                "id-ID"
-                                            )
-                                            : activity.sale.price.toLocaleString(
-                                                "id-ID"
-                                            )}
+                                            ? "Rp " +activity.price.toLocaleString("id-ID")
+                                            : "TBA (to be announced)"}
                                     </Text>
                                 </ActivityBody>
                                 {(isActivity && !activity.sale.is_tickets_available) || (isActivity && !activity.is_going_on) ? (

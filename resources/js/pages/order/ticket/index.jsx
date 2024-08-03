@@ -46,7 +46,7 @@ function OrderTicketPage({ data, links: { submitUrl }, meta }) {
             {generateMetadata(meta.head)}
             <Container css={{ gap: "2rem" }}>
                 <HeaderSection data={data} isActivity={isActivity} />
-                {data.is_going_on && data.sale.is_tickets_available ? (
+                {data.is_going_on && data.sale.is_tickets_available && !data.is_coming_up ? (
                     <form
                         className={css({
                             display: "flex",
@@ -102,7 +102,7 @@ function OrderTicketPage({ data, links: { submitUrl }, meta }) {
                         </Button>
                     </form>
                 ) : (
-                    <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>{data.is_going_on ? "Sold Out" : "Event Ended"}</Text>
+                    <Text css={{ color:"$secondary", overflow:"hidden", textAlign: "center" }}>{data.is_going_on ? (data.is_coming_up ? "Belum dibuka" : "Sold Out") : "Event Ended"}</Text>
                 )}  
             </Container>
         </>

@@ -29,7 +29,8 @@ export default function PriceSection({
                 css={{
                     color: "$dark", overflow: "hidden"
                 }}>
-                Rp {price.toLocaleString("id-ID")} {priceTag && `(${priceTag})`}
+                    {isActivity ? ("TBA (to be announced)") : ("Rp"+price.toLocaleString("id-ID")+" "+(priceTag && `(${priceTag})`))}
+                
             </Text>
             <div className={css({ display: "flex", gap: "1.25rem", flexDirection: "column", "@desktop": { flexDirection: "row" } }).toString()}>
                 {(isActivity && !isTicketsAvailable) || (isActivity && !isGoingOn) || (isComingUp) ? (
