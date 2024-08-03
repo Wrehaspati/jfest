@@ -270,8 +270,11 @@ export default function Activities({ activities, competitions }) {
                                             "@tablet": { fontSize: "2vw" }
                                         }).toString()}>
                                             {activity.name}
+                                            {isActivity && (
+                                                " (" + activity.sale.name+")"
+                                            )}
                                         </Text>
-                                        <ActivityTag tag={activity.type}>
+                                        <ActivityTag tag={activity.type} css={{ alignItems: "center" }}>
                                             {isActivity ? (
                                                 <TagBlue width={12.5} />
                                             ) : (
@@ -315,6 +318,12 @@ export default function Activities({ activities, competitions }) {
                                     <DisabledBtn>
                                         <Text css={{ color: "$secondary" }}>
                                             Registration Closed
+                                        </Text>
+                                    </DisabledBtn>
+                                ) : (isActivity && activity.is_coming_up) || (!isActivity && activity.is_opened) ? (
+                                    <DisabledBtn css={{ borderColor: "$dark" }}>
+                                        <Text css={{ color: "$dark" }}>
+                                            Belum dibuka
                                         </Text>
                                     </DisabledBtn>
                                 ) : (!isActivity && activity.price_tag == "ots") ? (

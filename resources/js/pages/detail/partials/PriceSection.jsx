@@ -13,6 +13,7 @@ export default function PriceSection({
     isFull,
     isTicketsAvailable,
     isGoingOn,
+    isComingUp,
     guideBook,
     orderUrl,
 }) {
@@ -31,7 +32,7 @@ export default function PriceSection({
                 Rp {price.toLocaleString("id-ID")} {priceTag && `(${priceTag})`}
             </Text>
             <div className={css({ display: "flex", gap: "1.25rem", flexDirection: "column", "@desktop": { flexDirection: "row" } }).toString()}>
-                {(isActivity && !isTicketsAvailable) || (isActivity && !isGoingOn) ? (
+                {(isActivity && !isTicketsAvailable) || (isActivity && !isGoingOn) || (isComingUp) ? (
                     <div
                         className={css({
                             display: "flex",
@@ -51,7 +52,7 @@ export default function PriceSection({
                             },
                         }).toString()}
                     >
-                        <Text css={{ color: "$secondary", overflow: "hidden" }}>{isGoingOn ? "Sold Out" : "Event Ended"}</Text>
+                        <Text css={{ color: "$secondary", overflow: "hidden" }}>{(isComingUp) ? "Belum dibuka" :((isGoingOn) ? "Sold Out" : "Event Ended")}</Text>
                     </div>
                 ) : (!isActivity && isClosed) || (!isActivity && isFull) ? (
                     <div

@@ -74,6 +74,9 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                             isGoingOn={
                                 isActivity && data.is_going_on
                             }
+                            isComingUp={
+                                isActivity ? data.is_coming_up : data.is_opened
+                            }
                             guideBook={isActivity ? null : data.guide_book_url}
                             orderUrl={orderUrl}
                         />
