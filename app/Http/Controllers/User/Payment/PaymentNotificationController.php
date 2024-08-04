@@ -14,7 +14,9 @@ class PaymentNotificationController extends Controller
     public function __invoke(PaymentService $paymentService)
     {
         try {
-            $response = $paymentService->callback('midtrans', function (
+            $response = $paymentService->callback(
+                'midtrans',
+                function (
                     Order $order,
                     Payment $payment,
                     array $meta
@@ -33,13 +35,14 @@ class PaymentNotificationController extends Controller
 
                         $ticket->uuid = Str::uuid();
                         $ticket->code = Str::upper(Str::slug(sprintf(
-                            '%s-%s',
+                            '%s-%s-%s',
                             sprintf(
                                 '%s-%s-%s',
                                 env('APP_NAME'),
                                 $ticket->activity->id,
                                 explode('-', $ticket->user_id)[0]
                             ),
+                            Str::random(8),
                             Str::padLeft($uniqueCount, 7, '0')
                         )));
 
