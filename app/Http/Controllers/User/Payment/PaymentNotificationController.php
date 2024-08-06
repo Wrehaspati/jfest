@@ -39,7 +39,7 @@ class PaymentNotificationController extends Controller
                             sprintf(
                                 '%s-%s-%s',
                                 env('APP_NAME'),
-                                $ticket->activity->id,
+                                $ticket->activity->sale->id,
                                 explode('-', $ticket->user_id)[0]
                             ),
                             Str::random(8),
