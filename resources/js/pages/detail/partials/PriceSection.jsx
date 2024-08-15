@@ -100,7 +100,7 @@ export default function PriceSection({
                     </div>
                 ) : (!isActivity && altLink) ? (
                     <Button 
-                        href={"https://"+altLink}
+                        href={altLink}
                         as="a"
                         target="_blank"
                         className={css({
