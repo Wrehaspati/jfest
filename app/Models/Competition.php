@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use App\Enums\EventTypeEnum;
 use App\Traits\Slug;
+use App\Enums\EventTypeEnum;
+use App\Enums\OrderStatusEnum;
+use App\Enums\PaymentStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 class Competition extends Model
@@ -60,7 +62,7 @@ class Competition extends Model
             $model->setAttribute('is_opened', now()->lessThan($model->getAttribute('registration_opened_at')));
 
             $quota = $model->getAttribute('registration_quota');
-            $countRegistered = $model->registrations()->count();
+            $countRegistered = $model->countRegisteredWithPaidStatus();
 
             $model->setAttribute('is_quota_full', is_null($quota) ? false : ($quota <= $countRegistered));
         });
@@ -69,5 +71,12 @@ class Competition extends Model
     public function registrations()
     {
         return $this->hasMany(Registration::class);
+    }
+
+    public function countRegisteredWithPaidStatus()
+    {
+        return $this->registrations()->whereHas('order', function ($query) {
+            $query->where('status', OrderStatusEnum::Paid->value);
+        })->count();
     }
 }
