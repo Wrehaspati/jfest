@@ -60,6 +60,7 @@ class Competition extends Model
             $model->setAttribute('type', EventTypeEnum::Competition->value);
             $model->setAttribute('is_closed', now()->greaterThanOrEqualTo($model->getAttribute('registration_closed_at')));
             $model->setAttribute('is_opened', now()->lessThan($model->getAttribute('registration_opened_at')));
+            $model->setAttribute('is_alt_link', $model->getAttribute('alt_registration_link'));
 
             $quota = $model->getAttribute('registration_quota');
             $countRegistered = $model->countRegisteredWithPaidStatus();

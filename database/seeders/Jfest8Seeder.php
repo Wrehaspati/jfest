@@ -52,7 +52,7 @@ class Jfest8Seeder extends Seeder
                 'description' => 'Jfest is a japanese culture special event held by JCOS (Japanese Community of STIKOM Bali)',
                 'image_url' => 'https://bucket.jfestbali.id/images/early_bird.webp',
                 'date' => Carbon::create(2024, 10, 8),
-                'purchase_opened_at' => Carbon::create(2024, 8, 7),
+                'purchase_opened_at' => Carbon::create(2024, 9, 1),
                 'purchase_closed_at' => Carbon::create(2024, 10, 19)
             ])
         ])->each(function ($activity) {
@@ -76,8 +76,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Japanese Song Cover',
@@ -95,8 +95,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Japan Mading',
@@ -114,8 +114,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Seiyuu Speech Contest',
@@ -133,8 +133,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Kana Taikai',
@@ -153,8 +153,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Original Character',
@@ -171,8 +171,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Jfestography',
@@ -190,8 +190,8 @@ class Jfest8Seeder extends Seeder
                 'min_participants' => 1,
                 'max_participants' => 1,
                 'registration_quota' => 10,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Cosplay Walk',
@@ -209,8 +209,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
             new Competition([
                 'name' => 'Pidato Bahasa Jepang',
@@ -229,8 +229,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 8, 7),
-                'registration_closed_at' => Carbon::create(2024, 8, 18),
+                'registration_opened_at' => Carbon::create(2024, 9, 1),
+                'registration_closed_at' => Carbon::create(2024, 9, 28),
             ]),
         ])->each(function ($competition) {
             $competition->save();

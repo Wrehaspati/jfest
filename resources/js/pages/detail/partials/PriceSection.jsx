@@ -16,6 +16,7 @@ export default function PriceSection({
     isComingUp,
     guideBook,
     orderUrl,
+    altLink,
 }) {
     return (
         <section
@@ -97,6 +98,30 @@ export default function PriceSection({
                     >
                         <Text css={{ color: "green" }}>Offline Registration</Text>
                     </div>
+                ) : (!isActivity && altLink) ? (
+                    <Button 
+                        href={altLink}
+                        as="a"
+                        target="_blank"
+                        className={css({
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "max-content",
+                            height: "$button-desktop-height",
+                            "@laptop": {
+                                height: "$button-laptop-height",
+                            },
+                            "@tablet": {
+                                height: "$button-tablet-height",
+                            },
+                            "@mobile": {
+                                height: "$button-mobile-height",
+                            },
+                        }).toString()}
+                    >
+                        Daftar Disini
+                    </Button>
                 ) : (
                     <Button
                         css={{ "@mobile": { width: "100%" } }}
