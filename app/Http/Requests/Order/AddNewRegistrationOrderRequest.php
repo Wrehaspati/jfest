@@ -47,7 +47,8 @@ class AddNewRegistrationOrderRequest extends FormRequest
             ],
             'teamName' => [
                 'string' => 'Field :attribute must be a string',
-                'min' => 'Field :attribute must be at least :min characters'
+                'min' => 'Field :attribute must be at least :min characters',
+                'unique' => 'Field :attribute already exists'
             ],
             'teamMembers' => [
                 'array' => 'Field :attribute must be an array'
@@ -83,7 +84,7 @@ class AddNewRegistrationOrderRequest extends FormRequest
             'phone' => 'required|numeric|min:10',
             'instagram' => 'nullable|string|min:3',
             'nickname' => 'nullable|string|min:3',
-            'teamName' => 'nullable|string|min:3',
+            'teamName' => 'nullable|string|min:3|unique:teams,name',
             'teamMembers' => 'required_unless:teamName,null|array',
             'teamMembers.*.name' => 'required_unless:teamName,null|string',
             'teamMembers.*.instagram' => 'nullable|string|min:3',
