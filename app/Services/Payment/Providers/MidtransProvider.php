@@ -161,6 +161,7 @@ class MidtransProvider implements PaymentProvider
                     $meta['payment_status'] = PaymentStatusEnum::Failed;
                     break;
                 case self::STATUS_EXPIRE:
+                    $meta['order_status'] = OrderStatusEnum::Expired;
                     $meta['payment_status'] = PaymentStatusEnum::Expired;
                     break;
                 case self::STATUS_FAILURE:
