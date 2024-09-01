@@ -17,27 +17,27 @@ class Jfest8Seeder extends Seeder
     {
         $sales = collect([
             new ActivitySale([
-                'unique_id' => 'EB',
-                'name' => 'Early Bird',
-                'price' => 45000,
-                'tickets_qty_available' => 100
-            ]),
-            new ActivitySale([
                 'unique_id' => 'PS1',
                 'name' => 'Pre-Sale 1',
-                'price' => 65000,
-                'tickets_qty_available' => 5000
+                'price' => 35000,
+                'tickets_qty_available' => 200
             ]),
             new ActivitySale([
                 'unique_id' => 'PS2',
                 'name' => 'Pre-Sale 2',
-                'price' => 65000,
-                'tickets_qty_available' => 5000
+                'price' => 40000,
+                'tickets_qty_available' => 300
+            ]),
+            new ActivitySale([
+                'unique_id' => 'PS3',
+                'name' => 'Pre-Sale 3',
+                'price' => 45000,
+                'tickets_qty_available' => 10000
             ]),
             new ActivitySale([
                 'unique_id' => 'OTS',
                 'name' => 'On The Spot',
-                'price' => 75000,
+                'price' => 50000,
                 'tickets_qty_available' => 10000
             ])
         ])->map(function ($activitySale) {
@@ -50,7 +50,7 @@ class Jfest8Seeder extends Seeder
                 'activity_sale_id' => $sales[0]->id,
                 'name' => 'Japanese Festival 8',
                 'description' => 'Jfest is a japanese culture special event held by JCOS (Japanese Community of STIKOM Bali)',
-                'image_url' => 'https://bucket.jfestbali.id/images/early_bird.webp',
+                'image_url' => 'https://bucket.jfestbali.id/images/presale1.webp',
                 'date' => Carbon::create(2024, 10, 8),
                 'purchase_opened_at' => Carbon::create(2024, 9, 1),
                 'purchase_closed_at' => Carbon::create(2024, 10, 19)
@@ -66,7 +66,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (80000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/coscomp.webp',
                 'with_ticket' => true,
                 'use_name_field' => true,
@@ -76,8 +76,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Japanese Song Cover',
@@ -85,7 +85,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (65000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/japanese-song-cover.webp',
                 'use_name_field' => true,
                 'with_ticket' => true,
@@ -95,8 +95,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Japan Mading',
@@ -104,7 +104,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (80000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/mading.webp',
                 'with_ticket' => false,
                 'use_name_field' => true,
@@ -114,8 +114,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => true,
                 'min_participants' => 1,
                 'max_participants' => 3,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Seiyuu Speech Contest',
@@ -123,7 +123,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (35000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/seiyuu.webp',
                 'with_ticket' => false,
                 'use_name_field' => true,
@@ -133,8 +133,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Kana Taikai',
@@ -142,7 +142,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (50000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/kanatakai.webp',
                 'with_ticket' => false,
                 'use_tool_field' => true,
@@ -153,8 +153,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Original Character',
@@ -162,7 +162,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (65000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/original-character.webp',
                 'with_ticket' => true,
                 'use_name_field' => true,
@@ -171,8 +171,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Jfestography',
@@ -180,7 +180,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (65000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/photography.webp',
                 'with_ticket' => true,
                 'use_name_field' => true,
@@ -190,8 +190,8 @@ class Jfest8Seeder extends Seeder
                 'min_participants' => 1,
                 'max_participants' => 1,
                 'registration_quota' => 10,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Cosplay Walk',
@@ -199,7 +199,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (15000),
                 'price_tag' => 'ots',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/coswalk.webp',
                 'with_ticket' => false,
                 'use_name_field' => false,
@@ -209,8 +209,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
             new Competition([
                 'name' => 'Pidato Bahasa Jepang',
@@ -218,7 +218,7 @@ class Jfest8Seeder extends Seeder
                 'price' => (35000),
                 'price_tag' => 'sale',
                 'group_url' => "https://chat.whatsapp.com/Kfa1O6JsVVtFWtTteRAP8t",
-                'guide_book_url' => 'https://drive.google.com/file/d/1tgpbGdQ2P-BHJXrbih7bHKGJB8F8WfFs/view?usp=drive_link',
+                'guide_book_url' => 'https://drive.google.com/file/d/1_C2kZH5gbqoVzcIjsc2JgTY5nEEaAyTa/view?usp=drive_link',
                 'image_url' => 'https://bucket.jfestbali.id/images/competitions/pidato.webp',
                 'with_ticket' => false,
                 'use_name_field' => true,
@@ -229,8 +229,8 @@ class Jfest8Seeder extends Seeder
                 'use_multi_participant' => false,
                 'min_participants' => 1,
                 'max_participants' => 1,
-                'registration_opened_at' => Carbon::create(2024, 9, 1),
-                'registration_closed_at' => Carbon::create(2024, 9, 28),
+                'registration_opened_at' => Carbon::create(2024, 8, 16),
+                'registration_closed_at' => Carbon::create(2024, 9, 16),
             ]),
         ])->each(function ($competition) {
             $competition->save();
