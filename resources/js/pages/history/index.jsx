@@ -5,9 +5,13 @@ import withNavbarMobile from "@/hooks/hoc/withNavbarMobile";
 
 import { Text } from "@/components/text";
 import { Title } from "@/components/title";
+import { Button } from "@/components/button";
 
 import Item from "./partials/Item";
 import ItemContainer from "./partials/ItemContainer";
+import { useToggle } from "@uidotdev/usehooks";
+import { useEffect } from "react";
+import Modal from "react-modal";
 
 const Container = styled("section", {
     position: "relative",
@@ -24,6 +28,74 @@ const Container = styled("section", {
 });
 
 function HistoryPage({ data, meta }) {
+    const [modalVisible, setModalVisible] = useToggle(false);
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            padding: "3rem",
+            maxWidth: "55rem",
+            transform: 'translate(-50%, -50%)',
+            display: "grid",
+            gap: "0.5rem",
+            zIndex: 4,
+        },
+        overlay: {
+            zIndex: 4,
+        }
+    };
+
+    const AnnouncementModal = () => {
+        return (
+            <Modal
+                isOpen={modalVisible}
+                onRequestClose={setModalVisible}
+                contentLabel="Annoucement"
+                ariaHideApp={false}
+                style={customStyles}
+                shouldCloseOnOverlayClick={false}
+            >
+                <Text className={css({ color: "$dark", fontSize: "2rem" })} ref={(subtitle) => (subtitle = subtitle)}>Pengumuman Penting</Text>
+                <div className={css({
+                    padding: "0 1rem",
+                }).toString()}>
+                    <Text className={css({ color: "$dark", padding: "1rem 0" })}>
+                        Khusus untuk pembelian ticket pre-sale 1 memiliki kemungkinan untuk mendapatkan sesuatu nih! silahkan mengisi link dibawah ya!{" "}
+                    </Text>
+                </div>
+                <Button
+                    onClick={() => setModalVisible(false)}
+                    css={{ 
+                        width: "100%",
+                        "@mobile": { width: "100%" }
+                    }}
+                    as="a"
+                    href={"https://forms.gle/Qj1QXoDKCfGURSF68"}
+                    target="_blank"
+                >
+                    Link Form
+                </Button>
+            </Modal>
+        )
+    }
+
+    function checkConditionAndShowModal() {
+        const condition = true;
+
+        if (condition) {
+            setModalVisible(true);
+        }
+    }
+
+    useEffect(() => {
+        checkConditionAndShowModal();
+    }, [])
+
+
     return (
         <>
             {generateMetadata(meta.head)}
@@ -70,9 +142,10 @@ function HistoryPage({ data, meta }) {
                                 },
                             }).toString()}
                         >
-                            <Text css={{ 
+                            {modalVisible && <AnnouncementModal />}
+                            <Text css={{
                                 color: "$dark",
-                                overflow: "hidden" 
+                                overflow: "hidden"
                             }}>Order: {order.reference}</Text>
                             <ItemContainer>
                                 {order.tickets.map((ticket) => (
