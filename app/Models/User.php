@@ -37,4 +37,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class, 'user_id', 'uuid');
     }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class, 'user_id', 'uuid');
+    }
+
+    public function hasPresale1(): bool
+    {
+        if (!$this->hasTicket()) {
+            return false;
+        }
+
+        return $this->tickets->filter(fn($ticket) => $ticket->isPresale1())->isNotEmpty();
+    }
+
+    public function hasTicket(): bool
+    {
+        return $this->tickets->isNotEmpty();
+    }
 }

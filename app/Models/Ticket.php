@@ -45,4 +45,19 @@ class Ticket extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'uuid');
     }
+
+    public function isPresale1(): bool
+    {
+        if ($this->isFreePass()) {
+            return false;
+        }
+
+        $typeId = explode('-', $this->code)[1];
+        return ActivitySale::find($typeId)->unique_id === 'PS1';
+    }
+
+    public function isFreePass(): bool
+    {
+        return $this->registration()->exists() && $this->price === 0;
+    }
 }

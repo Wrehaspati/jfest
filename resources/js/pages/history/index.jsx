@@ -27,7 +27,7 @@ const Container = styled("section", {
     "@mobile": { paddingTop: "8rem" },
 });
 
-function HistoryPage({ data, meta }) {
+function HistoryPage({ data, meta, hasTicketPresale1 }) {
     const [modalVisible, setModalVisible] = useToggle(false);
 
     const customStyles = {
@@ -84,7 +84,7 @@ function HistoryPage({ data, meta }) {
     }
 
     function checkConditionAndShowModal() {
-        const condition = true;
+        const condition = hasTicketPresale1;
 
         if (condition) {
             setModalVisible(true);

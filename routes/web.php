@@ -1,7 +1,9 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RevokeController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShowActivityDetailsController;
 use App\Http\Controllers\ShowCompetitionDetailsController;
@@ -79,3 +81,5 @@ Route::name('global.')->group(function () {
             Route::get('/{competition:slug}', ShowCompetitionDetailsController::class)->name('show');
         });
 });
+
+Route::get('/ticket/{user:uuid}/download', [DownloadController::class, 'download'])->name('ticket.download');

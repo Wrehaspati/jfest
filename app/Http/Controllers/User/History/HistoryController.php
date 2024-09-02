@@ -29,6 +29,7 @@ class HistoryController extends Controller
 
         return Inertia::render('history/index', [
             'data' => $orders,
+            'hasTicketPresale1' => $user->hasPresale1(),
             ...$this->withLinkProps($request, []),
             ...$this->withAuthProps($request),
             ...$this->withMetaProps([
