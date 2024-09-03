@@ -49,7 +49,13 @@ class User extends Authenticatable
             return false;
         }
 
-        return $this->tickets->filter(fn($ticket) => $ticket->isPresale1())->isNotEmpty();
+        $filteredTickets = $this->tickets->filter(function($ticket) {
+            return $ticket->code != null;
+        });
+        
+        return $filteredTickets->contains(function($ticket) {
+            return $ticket->isPresale1();
+        });
     }
 
     public function hasTicket(): bool

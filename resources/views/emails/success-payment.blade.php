@@ -42,9 +42,12 @@
         Please remember to bring your ticket QR code picture with you to the event. This will be used to expedite your
         check-in process and ensure a smooth entry.
         <br />
-        <a href="{{ route('ticket.download', ['user' => $user->uuid]) }}"
-            style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Download
-            Your Ticket QR Code(s)</a>
+        @if($order->tickets->count() > 0)     
+            <a href="{{ route('ticket.download', ['user' => $user->uuid]) }}"
+                style="display: inline-block; margin-top: 10px; padding: 10px 15px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Download
+                Your Ticket QR Code(s)
+            </a>
+        @endif
         <br />
         If you have any questions or need assistance, please don't hesitate to reach out to our team at
         <a href="mailto:info@jfestbali.id">info@jfestbali.id</a>.

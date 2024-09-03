@@ -59,7 +59,7 @@ function HistoryPage({ data, meta, hasTicketPresale1 }) {
                 style={customStyles}
                 shouldCloseOnOverlayClick={false}
             >
-                <Text className={css({ color: "$dark", fontSize: "2rem" })} ref={(subtitle) => (subtitle = subtitle)}>Pengumuman Penting</Text>
+                <Text className={css({ color: "$dark", fontSize: "2rem" })}>Pengumuman Penting</Text>
                 <div className={css({
                     padding: "0 1rem",
                 }).toString()}>
