@@ -270,9 +270,6 @@ export default function Activities({ activities, competitions }) {
                                             "@tablet": { fontSize: "2vw" }
                                         }).toString()}>
                                             {activity.name}
-                                            {isActivity && (
-                                                " (" + activity.sale.name+")"
-                                            )}
                                         </Text>
                                         <ActivityTag tag={activity.type} css={{ alignItems: "center" }}>
                                             {isActivity ? (
@@ -300,7 +297,7 @@ export default function Activities({ activities, competitions }) {
                                     >
                                         {!isActivity
                                             ? "Rp " +activity.price.toLocaleString("id-ID")
-                                            : "TBA (to be announced)"}
+                                            : (isActivity && (activity.sale.name))}
                                     </Text>
                                 </ActivityBody>
                                 {(isActivity && !activity.sale.is_tickets_available) || (isActivity && !activity.is_going_on) ? (

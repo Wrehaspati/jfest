@@ -4,8 +4,8 @@ import ComingSoon from "@/assets/misc/coming-soon.webp";
 import Frame from "@/assets/activities/frame.webp";
 
 const BaseImageInner = styled("img", {
-    height: "67%",
-    width: "44%",
+    height: "83%",
+    width: "60%",
     objectFit: "contain",
     objectPosition: "center",
     textAlign: "center",

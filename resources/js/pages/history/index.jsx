@@ -59,12 +59,15 @@ function HistoryPage({ data, meta, hasTicketPresale1 }) {
                 style={customStyles}
                 shouldCloseOnOverlayClick={false}
             >
-                <Text className={css({ color: "$dark", fontSize: "2rem" })}>Pengumuman Penting</Text>
+                <Text className={css({ color: "$dark", fontSize: "2rem", textAlign: "center" })}>Pengumuman Penting</Text>
                 <div className={css({
                     padding: "0 1rem",
                 }).toString()}>
                     <Text className={css({ color: "$dark", padding: "1rem 0" })}>
-                        Khusus untuk pembelian ticket pre-sale 1 memiliki kemungkinan untuk mendapatkan sesuatu nih! silahkan mengisi link dibawah ya!{" "}
+                        Khusus untuk pembelian ticket Pre-Sale 1, kamu berkesempatan untuk mendapatkan 'Special Limited Ticket' ! {" "} Silahkan untuk mengisi form di bawah untuk request nickname ya!
+                    </Text>
+                    <Text className={css({ color: "$secondary", padding: "1rem 0" })}>
+                        Catatan: pada form, gunakanlah/isilah <u>email yang sama</u> dengan email digunakan untuk login pada website.
                     </Text>
                 </div>
                 <Button

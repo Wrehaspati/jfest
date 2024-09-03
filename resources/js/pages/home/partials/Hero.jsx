@@ -4,7 +4,7 @@ import { Link } from "@inertiajs/react";
 import { Button } from "@/components/button";
 
 import useNavbar from "@/hooks/useNavbar";
-import backdrop from "@/assets/misc/backdrop.webp";
+import backdrop from "@/assets/misc/backdropnew.webp";
 import backdropMobile from "@/assets/misc/backdrop-mobile.webp";
 
 const mediaOrientationLandscape = `@media screen and ${[
@@ -22,12 +22,12 @@ const Container = styled("section", {
     backgroundColor: "$dark",
     height: "64vw",
     overflow: "hidden",
-    "@desktop": { height: "49vw" },
-    "@laptop": { height: "49vw" },
-    "@tablet": { height: "49vw" },
-    "@mobile": { height: "99vw" },
+    "@desktop": { height: "55vw" },
+    "@laptop": { height: "55vw" },
+    "@tablet": { height: "55vw" },
+    "@mobile": { height: "95vw" },
     [mediaOrientationLandscape]: {
-        height: "49vw",
+        height: "95vw",
     },
 });
 
@@ -57,16 +57,16 @@ export default function Hero() {
         <Container>
             <Backdrop />
             <Button as="a" color="light" href={orderTicketUrl} css={{ position: "absolute" }} className={ css({
-                bottom: "8vw",
+                bottom: "10vw",
                 width: "12vw",
                 "@laptop": { 
-                    bottom: "4vw", 
+                    bottom: "9vw", 
                 },
                 "@tablet": { 
                     bottom: "4vw",
                 },
                 "@mobile": { 
-                    bottom: "9vw",
+                    bottom: "12vw",
                 },
                 zIndex: "2",
             }).toString()}>

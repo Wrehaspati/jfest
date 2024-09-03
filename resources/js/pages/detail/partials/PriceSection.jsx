@@ -30,7 +30,7 @@ export default function PriceSection({
                 css={{
                     color: "$dark", overflow: "hidden"
                 }}>
-                    {isActivity ? ("TBA (to be announced)") : ("Rp"+price.toLocaleString("id-ID")+" "+(priceTag && `(${priceTag})`))}
+                    {("Rp"+price.toLocaleString("id-ID")+" "+(priceTag && `(${priceTag})`))}
                 
             </Text>
             <div className={css({ display: "flex", gap: "1.25rem", flexDirection: "column", "@desktop": { flexDirection: "row" } }).toString()}>
