@@ -23,7 +23,7 @@ class ActivitySale extends Model
     protected static function booted()
     {
         static::retrieved(function (Model $model) {
-            $dbTicketsCount = Ticket::count();
+            $dbTicketsCount = Ticket::whereNotNull('code')->whereNull('registration_id')->count();
             $ticketsQtyAvailable = $model->getAttribute('tickets_qty_available');
 
             $model->setAttribute(
