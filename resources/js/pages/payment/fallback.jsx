@@ -25,9 +25,9 @@ function PaymentFallback({ data, links: { historyPageUrl }, meta }) {
                     gap: "1rem",
                 }).toString()}
             >
-                <Title css={{ color: "$dark" }} order={4}>Thanks For Your Payment</Title>
+                <Title css={{ color: "$dark" }} order={4}>Terima Kasih!</Title>
                 <Text css={{ color: "$dark" }}>
-                    Your payment was received by us. Lets go check it now!
+                    Transaksi sedang diproses, silahkan menunggu email konfirmasi selanjutnya dari kami. <br/> Setelah berhasil, informasi transaksi dan ticket dapat diunduh pada halaman 'History'
                 </Text>
                 <Link href={historyPageUrl} style={{ textDecoration: "none" }}>
                     <Button
@@ -43,7 +43,15 @@ function PaymentFallback({ data, links: { historyPageUrl }, meta }) {
                         marginTop: "1rem",
                     }}
                 >
-                    Your Order Id: {data.orderId}
+                    ID Order: {data.orderId}
+                </Text>
+                <Text
+                    css={{
+                        color: "$secondary",
+                        fontSize: "1rem",
+                    }}
+                >
+                    * Mohon jangan menghapus item pada halaman 'My Orders' jika transaksi belum dinyatakan selesai. <br/><br/> Hubungi contact person jika belum menerima email konfirmasi dalam jangka waktu 1 jam setelah transaksi dilakukan.
                 </Text>
             </div>
         </>
