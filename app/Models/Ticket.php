@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatusEnum;
 use App\Enums\AttendStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -59,5 +60,14 @@ class Ticket extends Model
     public function isFreePass(): bool
     {
         return $this->registration()->exists() && $this->price === 0;
+    }
+
+    public function scopeWhereNotFreePass($query)
+    {
+        return $query->where('price', '>', 0)
+            ->whereNull('registration_id')
+            ->whereHas('order', function ($query) {
+                $query->where('status', OrderStatusEnum::Paid);
+            });
     }
 }

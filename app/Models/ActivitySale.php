@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -23,7 +24,7 @@ class ActivitySale extends Model
     protected static function booted()
     {
         static::retrieved(function (Model $model) {
-            $dbTicketsCount = Ticket::whereNotNull('code')->whereNull('registration_id')->count();
+            $dbTicketsCount = Ticket::whereNotFreePass()->count();
             $ticketsQtyAvailable = $model->getAttribute('tickets_qty_available');
 
             $model->setAttribute(
