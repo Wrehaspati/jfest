@@ -21,41 +21,43 @@ class PaymentNotificationController extends Controller
                     Payment $payment,
                     array $meta
                 ) {
-                    $order->status = $meta['order_status'];
-                    $payment->status = $meta['payment_status'];
+                    if (!$payment->isPaid()) {
+                        $order->status = $meta['order_status'];
+                        $payment->status = $meta['payment_status'];
 
-                    $dbTicketsCount = Ticket::count();
-                    $currTicketsCount = $order->tickets->count();
+                        $dbTicketsCount = Ticket::count();
+                        $currTicketsCount = $order->tickets->count();
 
-                    $order->tickets->each(function ($ticket, $idx) use (
-                        $dbTicketsCount,
-                        $currTicketsCount
-                    ) {
-                        $uniqueCount = ($dbTicketsCount - $currTicketsCount) + ($idx + 1);
+                        $order->tickets->each(function ($ticket, $idx) use (
+                            $dbTicketsCount,
+                            $currTicketsCount
+                        ) {
+                            $uniqueCount = ($dbTicketsCount - $currTicketsCount) + ($idx + 1);
 
-                        $ticket->uuid = Str::uuid();
-                        $ticket->code = Str::upper(Str::slug(sprintf(
-                            '%s-%s-%s',
-                            sprintf(
+                            $ticket->uuid = Str::uuid();
+                            $ticket->code = Str::upper(Str::slug(sprintf(
                                 '%s-%s-%s',
-                                env('APP_NAME'),
-                                $ticket->activity->sale->id,
-                                explode('-', $ticket->user_id)[0]
-                            ),
-                            Str::random(8),
-                            Str::padLeft($uniqueCount, 7, '0')
-                        )));
+                                sprintf(
+                                    '%s-%s-%s',
+                                    env('APP_NAME'),
+                                    $ticket->activity->sale->id,
+                                    explode('-', $ticket->user_id)[0]
+                                ),
+                                Str::random(8),
+                                Str::padLeft($uniqueCount, 7, '0')
+                            )));
 
-                        $ticket->save();
-                    });
+                            $ticket->save();
+                        });
 
-                    $order->registrations->each(function ($registration) {
-                        $registration->uuid = Str::uuid();
-                        $registration->save();
-                    });
+                        $order->registrations->each(function ($registration) {
+                            $registration->uuid = Str::uuid();
+                            $registration->save();
+                        });
 
-                    $order->save();
-                    $payment->save();
+                        $order->save();
+                        $payment->save();
+                    }
                 }
             );
 
