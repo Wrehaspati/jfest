@@ -70,4 +70,9 @@ class Ticket extends Model
                 $query->where('status', OrderStatusEnum::Paid);
             });
     }
+
+    public function orderHasPaid(): bool
+    {
+        return $this->order->status === OrderStatusEnum::Paid;
+    }
 }
