@@ -89,9 +89,9 @@ function HistoryPage({ data, meta, hasTicketPresale1 }) {
     function checkConditionAndShowModal() {
         const condition = hasTicketPresale1;
 
-        if (condition) {
-            setModalVisible(true);
-        }
+        // if (condition) {
+        //     setModalVisible(true);
+        // }
     }
 
     useEffect(() => {
