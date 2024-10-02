@@ -10,8 +10,8 @@ import { css, styled } from "@/root/stitches.config";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
 import { Title } from "@/components/title";
-import backdrop from "@/assets/misc/backdrop2.webp";
-import backdropMobile from "@/assets/misc/backdrop2-mobile.webp";
+import backdrop from "@/assets/misc/back2-baru.webp";
+import backdropMobile from "@/assets/misc/back2-mobile-baru.webp";
 
 const mediaOrientationLandscape = `@media screen and ${[
     "(max-width: 950px)",

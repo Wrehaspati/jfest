@@ -3,8 +3,8 @@ import { styled } from "@/root/stitches.config";
 import FooterContacts from "./FooterContacts";
 import FooterSocials from "./FooterSocials";
 import FooterBio from "./FooterBio";
-import backdrop from "@/assets/misc/footer.webp";
-import backdropMobile from "@/assets/misc/footer-mobile.webp";
+import backdrop from "@/assets/misc/footer-baru.webp";
+import backdropMobile from "@/assets/misc/footer-mobile-baru.webp";
 
 const Container = styled("footer", {
     position: "relative",

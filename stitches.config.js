@@ -18,7 +18,7 @@ export const {
             primary: "#292a23",
             secondary: "#c32a35",
             tertiary: "#5c6748",
-            dark: "#101d19",
+            dark: "#001710",
             white: "#e1e1d3",
         },
         fonts: {
