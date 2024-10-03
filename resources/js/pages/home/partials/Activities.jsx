@@ -13,7 +13,7 @@ import { Divider } from "@/components/divider";
 import { Title } from "@/components/title";
 import { Text } from "@/components/text";
 
-import ComingSoon from "@/assets/misc/coming-soon.webp";
+import ComingSoon from "@/assets/misc/coming-soon-new.webp";
 import Frame from "@/assets/activities/frame.webp";
 import { ReactComponent as TagBlue } from "@/assets/activities/tag-blue.svg";
 import { ReactComponent as TagOrange } from "@/assets/activities/tag-orange.svg";
