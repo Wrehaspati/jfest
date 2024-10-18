@@ -303,7 +303,7 @@ export default function Activities({ activities, competitions }) {
                                 {(isActivity && !activity.sale.is_tickets_available) || (isActivity && !activity.is_going_on) ? (
                                     <DisabledBtn>
                                         <Text css={{ color: "$secondary" }}>
-                                            {activity.is_going_on ? "Sold Out" : "Event Ended"}
+                                            {activity.sale.unique_id == "OFF" ? "Closed" : (activity.is_going_on ? "Sold Out" : "Event Ended")}
                                         </Text>
                                     </DisabledBtn>
                                 ) : (!isActivity && activity.is_closed) || (!isActivity && activity.is_quota_full) ? (

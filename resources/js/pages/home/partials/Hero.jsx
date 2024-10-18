@@ -57,10 +57,10 @@ export default function Hero() {
         <Container>
             <Backdrop />
             <Button as="a" color="light" href={orderTicketUrl} css={{ position: "absolute" }} className={ css({
-                bottom: "10vw",
+                bottom: "8vw",
                 width: "12vw",
                 "@laptop": { 
-                    bottom: "9vw", 
+                    bottom: "4vw", 
                 },
                 "@tablet": { 
                     bottom: "4vw",

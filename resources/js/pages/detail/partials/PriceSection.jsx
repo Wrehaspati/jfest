@@ -17,6 +17,7 @@ export default function PriceSection({
     guideBook,
     orderUrl,
     altLink,
+    uniqueId
 }) {
     return (
         <section
@@ -54,7 +55,7 @@ export default function PriceSection({
                             },
                         }).toString()}
                     >
-                        <Text css={{ color: "$secondary", overflow: "hidden" }}>{(isComingUp) ? "Belum dibuka" :((isGoingOn) ? "Sold Out" : "Event Ended")}</Text>
+                        <Text css={{ color: "$secondary", overflow: "hidden" }}>{uniqueId == "OFF" ? "Closed" : ((isComingUp) ? "Belum dibuka" :((isGoingOn) ? "Sold Out" : "Event Ended"))}</Text>
                     </div>
                 ) : (!isActivity && isClosed) || (!isActivity && isFull) ? (
                     <div

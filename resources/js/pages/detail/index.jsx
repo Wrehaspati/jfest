@@ -80,6 +80,7 @@ function DetailPage({ data, links: { orderUrl }, meta }) {
                             guideBook={isActivity ? null : data.guide_book_url}
                             orderUrl={orderUrl}
                             altLink={isActivity ? null : data.is_alt_link}
+                            uniqueId={isActivity ? data.sale.unique_id : null}
                         />
                         <Divider />
                         <DescriptionSection description={data.description} />
